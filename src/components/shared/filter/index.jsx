@@ -8,11 +8,11 @@ export default function Filter({ filterFields }) {
         const fieldByType = {
             select(label, options) {
                 return (
-                    <Select size="sm" label={label} selectOptions={options} />
+                    <Select size="md" label={label} selectOptions={options} />
                 );
             },
-            text(label) {
-                return <Text size="sm" label={label} />;
+            text(label, placeholder) {
+                return <Text size="md" label={label} placeholder={placeholder}/>;
             },
         };
 
@@ -24,7 +24,7 @@ export default function Filter({ filterFields }) {
                     md={field.colsMd}
                     lg={field.colsLg}
                 >
-                    {fieldByType[field.type](field.label, field.options)}
+                    {fieldByType[field.type](field.label, field.options || field.placeholder)}
                 </Col>
             );
         });
@@ -35,7 +35,7 @@ export default function Filter({ filterFields }) {
             <Row>
                 {renderFields()}
                 <Col md={12} lg={2} className="mt-2 mt-lg-0 d-grid d-lg-flex">
-                    <Button size="sm" variant="primary" className="mt-auto w-100">
+                    <Button size="md" variant="primary" className="mt-auto w-100">
                         Buscar
                     </Button>
                 </Col>

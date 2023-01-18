@@ -1,16 +1,22 @@
-import { Form } from 'react-bootstrap';
+import { Form } from "react-bootstrap";
+
+import ReactSelect from "react-select";
+import makeAnimated from 'react-select/animated';
+
+const animatedComponents = makeAnimated();
 
 export default function Select({ label, size, selectOptions }) {
-    function renderOptions() {
-        return selectOptions.map(option => <option key={option.value} value={option.value}>{option.text}</option>)
-    }
-
     return (
         <Form.Group>
             <Form.Label>{label}</Form.Label>
-            <Form.Select size={size} id="select">
-                {renderOptions()}
-            </Form.Select>
+            <ReactSelect
+                isMulti
+                components={animatedComponents}
+                options={selectOptions}
+                className="basic-multi-select"
+                classNamePrefix="select"
+                placeholder="Selecione..."
+            />
         </Form.Group>
-    )
+    );
 }

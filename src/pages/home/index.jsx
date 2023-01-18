@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import Header from "../../components/home/header";
+import Posts from "../../components/home/posts/index"
 import Filter from "../../components/shared/filter";
 import "./styles.scss";
 
@@ -11,15 +12,15 @@ const FILTERS_FIELDS = [
         colsLg: "4",
         colsMd: "12",
         options: [
-            { text: "Selecione uma opção", value: "" },
-            { text: "Arquitetura", value: "architecture" },
-            { text: "Desenvolvimento", value: "development" },
-            { text: "Tutorial", value: "tutorial" },
-            { text: "Carreira", value: "career" },
+            { label: "Arquitetura", value: "architecture" },
+            { label: "Desenvolvimento", value: "development" },
+            { label: "Tutorial", value: "tutorial" },
+            { label: "Carreira", value: "career" },
         ],
     },
     {
         label: "Buscar no título",
+        placeholder: "Busque um texto para filtrarmos no título",
         key: 2,
         type: "text",
         colsLg: "6",
@@ -40,7 +41,11 @@ export default function Home() {
                     <Filter filterFields={FILTERS_FIELDS} />
                 </section>
             </aside>
-            <main className="wrapper"></main>
+            <main className="wrapper-posts">
+                <section>
+                    <Posts></Posts>
+                </section>
+            </main>
         </>
     );
 }

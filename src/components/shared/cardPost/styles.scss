@@ -1,0 +1,8 @@
+.cardPost {
+    border: none;
+    transition: .25s;
+}
+
+.cardPost:hover {
+    transform: scale(1.05);
+}
