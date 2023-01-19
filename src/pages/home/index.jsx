@@ -25,7 +25,7 @@ const FILTERS_FIELDS = [
         value: "title",
         placeholder: "Busque um texto para filtrarmos no título",
         key: 2,
-        type: "text",
+        type: "search",
         colsLg: "6",
         colsMd: "12",
     },

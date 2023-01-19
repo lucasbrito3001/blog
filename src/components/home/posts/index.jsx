@@ -20,7 +20,6 @@ export default function Posts({ categories, titleSearched }) {
     useEffect(() => {
         async function getPostsOnChange() {
             const POSTS = await getPosts(categories, titleSearched)
-
             setPostsToRender(POSTS)
         }
 
@@ -30,18 +29,19 @@ export default function Posts({ categories, titleSearched }) {
 
     function renderCards() {
         return postsToRender.map((post, idx) => (
-            <Col xs="12" md="6" lg="4" key={idx}>
+            <Col xs="12" key={idx}>
                 <CardPost
                     postTitle={post.title}
                     postImage={post.image}
                     postDescription={post.subtitle}
+                    postCategories={post.categories}
                 />
             </Col>
         ));
     }
 
     return (
-        <Container>
+        <Container fluid>
             <Row className="g-4">{renderCards()}</Row>
         </Container>
     );

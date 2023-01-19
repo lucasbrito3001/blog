@@ -1,11 +1,19 @@
+import { useEffect, useRef } from "react";
 import Select from "../input/select/index";
-import Text from "../input/text/index";
+import Search from "../input/search/index";
 
+import "./styles.scss";
 import { Container, Row, Col, Button } from "react-bootstrap";
 
-const filters = {}
+const filters = {};
 
-export default function Filter({ filterFields, submitForm }) {
+export default function Filter({ filterFields, submitForm, setElementHeight }) {
+    const filterRef = useRef()
+
+    useEffect(() => {
+        setElementHeight(filterRef.current.clientHeight);
+    }, [])
+
     function renderFields() {
         const fieldByType = {
             select(field) {
@@ -15,17 +23,17 @@ export default function Filter({ filterFields, submitForm }) {
                         isMulti={field.isMulti}
                         label={field.label}
                         selectOptions={field.options}
-                        onChange={(e) => filters[field.value] = e}
+                        onChange={(e) => (filters[field.value] = e)}
                     />
                 );
             },
-            text(field) {
+            search(field) {
                 return (
-                    <Text
+                    <Search
                         size="md"
                         label={field.label}
                         placeholder={field.placeholder}
-                        onInput={(e) => filters[field.value] = e.target.value}
+                        onInput={(e) => (filters[field.value] = e.target.value)}
                     />
                 );
             },
@@ -46,31 +54,33 @@ export default function Filter({ filterFields, submitForm }) {
     }
 
     function onSubmit(e) {
-        e.preventDefault()
-        submitForm(filters)
+        e.preventDefault();
+        submitForm(filters);
     }
 
     return (
-        <Container>
-            <form onSubmit={onSubmit}>
-                <Row>
-                    {renderFields()}
-                    <Col
-                        md={12}
-                        lg={2}
-                        className="mt-2 mt-lg-0 d-grid d-lg-flex"
-                    >
-                        <Button
-                            type="submit"
-                            size="md"
-                            variant="primary"
-                            className="mt-auto w-100"
+        <section id="filter" ref={filterRef}>
+            <Container>
+                <form onSubmit={onSubmit}>
+                    <Row>
+                        {renderFields()}
+                        <Col
+                            md={12}
+                            lg={2}
+                            className="mt-2 mt-lg-0 d-grid d-lg-flex"
                         >
-                            Buscar
-                        </Button>
-                    </Col>
-                </Row>
-            </form>
-        </Container>
+                            <Button
+                                type="submit"
+                                size="md"
+                                variant="primary"
+                                className="mt-auto w-100"
+                            >
+                                Buscar
+                            </Button>
+                        </Col>
+                    </Row>
+                </form>
+            </Container>
+        </section>
     );
 }

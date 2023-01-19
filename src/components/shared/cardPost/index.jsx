@@ -1,10 +1,10 @@
 // Bootstrap components
-import { Card } from "react-bootstrap";
+import { Badge, Card } from "react-bootstrap";
 
 // styles
 import "./styles.scss";
 
-export default function cardPosts({ postImage, postTitle, postDescription }) {
+export default function cardPosts({ postImage, postTitle, postCategories, postDescription }) {
     return (
         <Card className="cardPost shadow">
             <Card.Img
@@ -13,9 +13,18 @@ export default function cardPosts({ postImage, postTitle, postDescription }) {
                 variant="top"
                 src={postImage}
             />
-            <Card.Body>
-                <Card.Title>{postTitle}</Card.Title>
-                <Card.Text className="text-muted">{postDescription}</Card.Text>
+            <Card.Body className="card-body">
+                <div className="card-body-categories">
+                    {postCategories.map((category, idx) => {
+                        return <Badge key={idx} bg="primary" className="mb-2">
+                            {category.text}
+                        </Badge>
+                    })}
+                </div>
+                <Card.Title className="card-title">{postTitle}</Card.Title>
+                <Card.Text className="text-muted card-subtitle">
+                    {postDescription}
+                </Card.Text>
             </Card.Body>
         </Card>
     );
