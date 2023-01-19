@@ -3,16 +3,31 @@ import Text from "../input/text/index";
 
 import { Container, Row, Col, Button } from "react-bootstrap";
 
-export default function Filter({ filterFields }) {
+const filters = {}
+
+export default function Filter({ filterFields, submitForm }) {
     function renderFields() {
         const fieldByType = {
-            select(label, options) {
+            select(field) {
                 return (
-                    <Select size="md" label={label} selectOptions={options} />
+                    <Select
+                        size="md"
+                        isMulti={field.isMulti}
+                        label={field.label}
+                        selectOptions={field.options}
+                        onChange={(e) => filters[field.value] = e}
+                    />
                 );
             },
-            text(label, placeholder) {
-                return <Text size="md" label={label} placeholder={placeholder}/>;
+            text(field) {
+                return (
+                    <Text
+                        size="md"
+                        label={field.label}
+                        placeholder={field.placeholder}
+                        onInput={(e) => filters[field.value] = e.target.value}
+                    />
+                );
             },
         };
 
@@ -24,22 +39,38 @@ export default function Filter({ filterFields }) {
                     md={field.colsMd}
                     lg={field.colsLg}
                 >
-                    {fieldByType[field.type](field.label, field.options || field.placeholder)}
+                    {fieldByType[field.type](field)}
                 </Col>
             );
         });
     }
 
+    function onSubmit(e) {
+        e.preventDefault()
+        submitForm(filters)
+    }
+
     return (
         <Container>
-            <Row>
-                {renderFields()}
-                <Col md={12} lg={2} className="mt-2 mt-lg-0 d-grid d-lg-flex">
-                    <Button size="md" variant="primary" className="mt-auto w-100">
-                        Buscar
-                    </Button>
-                </Col>
-            </Row>
+            <form onSubmit={onSubmit}>
+                <Row>
+                    {renderFields()}
+                    <Col
+                        md={12}
+                        lg={2}
+                        className="mt-2 mt-lg-0 d-grid d-lg-flex"
+                    >
+                        <Button
+                            type="submit"
+                            size="md"
+                            variant="primary"
+                            className="mt-auto w-100"
+                        >
+                            Buscar
+                        </Button>
+                    </Col>
+                </Row>
+            </form>
         </Container>
     );
 }

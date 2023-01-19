@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Header from "../../components/home/header";
 import Posts from "../../components/home/posts/index"
 import Filter from "../../components/shared/filter";
@@ -7,8 +7,10 @@ import "./styles.scss";
 const FILTERS_FIELDS = [
     {
         label: "Assunto",
+        value: "category",
         key: 1,
         type: "select",
+        isMulti: true,
         colsLg: "4",
         colsMd: "12",
         options: [
@@ -20,6 +22,7 @@ const FILTERS_FIELDS = [
     },
     {
         label: "Buscar no título",
+        value: "title",
         placeholder: "Busque um texto para filtrarmos no título",
         key: 2,
         type: "text",
@@ -29,6 +32,14 @@ const FILTERS_FIELDS = [
 ];
 
 export default function Home() {
+    const [categorySelected, setCategorySelected] = useState('')
+    const [titleSearched, setTitleSearched] = useState('')
+
+    function searchByFilters(values) {
+        setCategorySelected(values.category)
+        setTitleSearched(values.title)
+    }
+
     return (
         <>
             <aside className="wrapper-header">
@@ -38,12 +49,12 @@ export default function Home() {
             </aside>
             <aside className="wrapper-filter">
                 <section id="filter">
-                    <Filter filterFields={FILTERS_FIELDS} />
+                    <Filter filterFields={FILTERS_FIELDS} submitForm={searchByFilters}/>
                 </section>
             </aside>
             <main className="wrapper-posts">
                 <section>
-                    <Posts></Posts>
+                    <Posts categories={categorySelected} titleSearched={titleSearched}></Posts>
                 </section>
             </main>
         </>

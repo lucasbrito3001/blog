@@ -9,12 +9,24 @@ import { Container, Row, Col } from "react-bootstrap";
 
 // styles
 import "./styles.scss"
+import { useEffect, useState } from "react";
 
-export default function Posts({ category, titleSearched }) {
-    const postsToRender = POSTS.filter(post => 
-        post.title.toLowerCase().includes(titleSearched ? titleSearched.toLowerCase() : '') ||
-        (category ? title.categories.includes(category) : '')
-    )
+// services
+import { getPosts } from "../../../services/posts"
+
+export default function Posts({ categories, titleSearched }) {
+    let [postsToRender, setPostsToRender] = useState([])
+
+    useEffect(() => {
+        async function getPostsOnChange() {
+            const POSTS = await getPosts(categories, titleSearched)
+
+            setPostsToRender(POSTS)
+        }
+
+        getPostsOnChange()
+    }, [categories, titleSearched])
+    
 
     function renderCards() {
         return postsToRender.map((post, idx) => (
