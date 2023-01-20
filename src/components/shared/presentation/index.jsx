@@ -5,8 +5,6 @@ import InstagramIcon from "../../../assets/instagram.svg"
 import GithubIcon from "../../../assets/github.svg"
 import LinkedInIcon from "../../../assets/linkedin.svg"
 
-import { Container, Row, Col } from "react-bootstrap";
-
 export default function Presentation() {
     return (
         <article id="presentation">
@@ -22,14 +20,14 @@ export default function Presentation() {
 
             <p>Minhas redes sociais:</p>
             <ul className="network-list">
-                <a href="" target="_blank">
-                    <li><img width={32} src={LinkedInIcon} alt="logo do linkedin"/></li>
+                <a className="network-links" href="https://www.linkedin.com/in/webdevbrito/" target="_blank">
+                    <li><img width={36} src={LinkedInIcon} alt="logo do linkedin"/></li>
                 </a>
-                <a href="" target="_blank">
-                    <li><img width={32} src={GithubIcon} alt="logo do github"/></li>
+                <a className="network-links" href="https://github.com/lucasbrito3001" target="_blank">
+                    <li><img width={36} src={GithubIcon} alt="logo do github"/></li>
                 </a>
-                <a href="" target="_blank">
-                    <li><img width={32} src={InstagramIcon} alt="logo do instagram"/></li>
+                <a className="network-links" href="https://www.instagram.com/lucasdbrito.dev/" target="_blank">
+                    <li><img width={36} src={InstagramIcon} alt="logo do instagram"/></li>
                 </a>
             </ul>
         </article>

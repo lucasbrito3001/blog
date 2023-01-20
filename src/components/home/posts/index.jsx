@@ -1,6 +1,3 @@
-// List of posts
-import POSTS from "../../../posts/index";
-
 // Components
 import CardPost from "../../shared/cardPost/index";
 

@@ -6,6 +6,7 @@ import Header from "../../components/home/header";
 import Filter from "../../components/shared/filter";
 import Posts from "../../components/home/posts/index";
 import Presentation from "../../components/shared/presentation/index";
+import Footer from "../../components/shared/footer/index";
 
 // styles
 import "./styles.scss";
@@ -59,8 +60,8 @@ export default function Home() {
                 setElementHeight={setFilterHeight}
             />
             <div className="wrapper-posts">
-                <Container style={{ height: "220vh" }}>
-                    <Row style={{ height: "220vh" }} className="py-4">
+                <Container className="px-2 px-lg-0">
+                    <Row className="py-4 g-4 g-lg-0">
                         <Col xs="12" md="6" lg="9">
                             <Posts
                                 categories={categorySelected}
@@ -68,13 +69,14 @@ export default function Home() {
                             />
                         </Col>
                         <Col xs="12" md="6" lg="3">
-                            <div style={{ top: `${filterHeight + 16}px` }} id="presentation">
+                            <div style={{ top: `${filterHeight + 16}px` }} id="presentation" className="mx-2">
                                 <Presentation />
                             </div>
                         </Col>
                     </Row>
                 </Container>
             </div>
+            <Footer/>
         </>
     );
 }
