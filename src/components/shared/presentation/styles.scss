@@ -33,4 +33,12 @@
         gap: 8px;
         justify-content: center;
     }
+
+    .network-links {
+        transition: .3s;
+    }
+
+    .network-links:hover {
+        transform: scale(1.1);
+    }
 }

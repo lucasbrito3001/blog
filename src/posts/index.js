@@ -3,7 +3,11 @@ import API_INTEGRATION from './apiIntegration/index'
 
 export default [
     HANDLE_ARRAY,
+    API_INTEGRATION,
     HANDLE_ARRAY,
     API_INTEGRATION,
-    API_INTEGRATION
+    HANDLE_ARRAY,
+    API_INTEGRATION,
+    HANDLE_ARRAY,
+    API_INTEGRATION,
 ]
