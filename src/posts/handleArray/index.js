@@ -1,13 +1,13 @@
 const MANIPULACAO_ARRAY = {
-    image: "https://miro.medium.com/max/700/0*lvnxwANZKndhkFah",
+    thumbnail: "/public/posts/handleArray/thumbnail.png",
     title: "Manipulação de Arrays JavaScript ES6",
     subtitle: "Funções filter, find, map, reduce, some, e every.",
     categories: [{ value: "tutorial", text: "Tutorial" }],
-    introduction: `
-        O ECMAScript 6 o'u ECMAScript 2015 ou ES6, é uma padronização da linguagem JavaScript, que trouxe várias novas funcionalidades, como declaração de variáveis com let e const, as arrow functions, e também as funções de manipulação de arrays que é o tema que será abordado nesse artigo.
-        Antes de começar, gostaria de deixar claro que essas funções acessam uma função de callback fornecida, uma vez para cada elemento do array. Essa por sua vez, pode ser tanto uma arrow function, quanto uma função declarada da maneira tradicional.
-        Nesse artigo iremos utilizar as arrow functions para isso, mas a maneira que você vai utilizar no seu código, fica ao seu critério. Dito isso, vamos ao que interessa:
-    `,
+    introduction: [
+        'O ECMAScript 6 ou ECMAScript 2015 ou ES6, é uma padronização da linguagem JavaScript, que trouxe várias novas funcionalidades, como declaração de variáveis com let e const, as arrow functions, e também as funções de manipulação de arrays que é o tema que será abordado nesse artigo.',
+        'Antes de começar, gostaria de deixar claro que essas funções acessam uma função de callback fornecida, uma vez para cada elemento do array. Essa por sua vez, pode ser tanto uma arrow function, quanto uma função declarada da maneira tradicional.',
+        'Nesse artigo iremos utilizar as arrow functions para isso, mas a maneira que você vai utilizar no seu código, fica ao seu critério. Dito isso, vamos ao que interessa:'
+    ],
     sections: [
         {
             title: "Array.filter( )",

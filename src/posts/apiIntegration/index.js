@@ -1,5 +1,5 @@
 const INTEGRACAO_API = {
-    image: "public/posts/apiIntegration/thumbnail.jpg",
+    thumbnail: "/public/posts/apiIntegration/thumbnail.png",
     title: "Como integrar uma API com JavaScript",
     subtitle: "Utilizando o fetch para interagir com uma API.",
     categories: [{ value: "tutorial", text: "Tutorial" }, { value: "development", text: "Desenvolvimento" }],

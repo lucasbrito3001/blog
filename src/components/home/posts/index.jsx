@@ -27,12 +27,14 @@ export default function Posts({ categories, titleSearched }) {
     function renderCards() {
         return postsToRender.map((post, idx) => (
             <Col xs="12" key={idx}>
-                <CardPost
-                    postTitle={post.title}
-                    postImage={post.image}
-                    postDescription={post.subtitle}
-                    postCategories={post.categories}
-                />
+                <a href={post.title.toLowerCase().replace(/\s/g, '-')}>
+                    <CardPost
+                        postTitle={post.title}
+                        postImage={post.thumbnail}
+                        postDescription={post.subtitle}
+                        postCategories={post.categories}
+                    />
+                </a>
             </Col>
         ));
     }
