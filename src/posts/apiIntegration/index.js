@@ -1,5 +1,7 @@
+import ThumbnailImage from "./thumbnail.png"
+
 const INTEGRACAO_API = {
-    thumbnail: "/public/posts/apiIntegration/thumbnail.png",
+    thumbnail: ThumbnailImage,
     title: "Como integrar uma API com JavaScript",
     subtitle: "Utilizando o fetch para interagir com uma API.",
     categories: [{ value: "tutorial", text: "Tutorial" }, { value: "development", text: "Desenvolvimento" }],
