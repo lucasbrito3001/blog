@@ -1,12 +1,12 @@
 @import "../../../assets/styles/breakpoints.scss";
 
-.post-thumbnail {
+.image {
     max-width: 800px;
-    max-height: 300px;
-    margin: auto;
+    max-height: 450px;
     display: block;
+    margin: auto;
 
     @include md {
-        width: 300px;
+        max-width: 350px;
     }
 }

@@ -54,13 +54,13 @@ export default function Home() {
         <>
             <Header />
             <div className="wrapper-posts">
-                <Container className="px-2 px-lg-0">
-                    <Row className="py-4 g-4 gx-lg-4 gy-lg-0">
-                        <Col xs="12" md="6" lg="9">
+                <Container>
+                    <Row className="py-4 gx-lg-4 gy-lg-0">
+                        <Col xs="12" lg="8" className="mb-4 mb-lg-0">
                             <Post/>
                         </Col>
-                        <Col xs="12" md="6" lg="3">
-                            <div style={{ top: `${filterHeight + 16}px` }} id="presentation" className="mx-2">
+                        <Col xs="12" lg="4">
+                            <div style={{ top: `${filterHeight + 16}px` }} id="presentation" className="mx-0 mx-lg-2">
                                 <Presentation />
                             </div>
                         </Col>

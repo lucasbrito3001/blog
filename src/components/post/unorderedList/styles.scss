@@ -1,0 +1,10 @@
+.unordered-list {
+    margin-left: 16px !important;
+    padding-left: 16px !important;
+    list-style: disc;
+
+    .unordered-list-item {
+        margin-bottom: 8px;
+        font-weight: 500;
+    }
+}
