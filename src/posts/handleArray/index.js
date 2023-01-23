@@ -1,3 +1,4 @@
+import ThumbnailImage from "./thumbnail.png"
 import FilterImage from "./filter.png"
 import FindImage from "./find.png"
 import ReduceImage from "./reduce.png"
@@ -5,7 +6,7 @@ import SomeImage from "./some.png"
 import EveryImage from "./every.png"
 
 const MANIPULACAO_ARRAY = {
-    thumbnail: "/public/posts/handleArray/thumbnail.png",
+    thumbnail: ThumbnailImage,
     title: "Manipulação de Arrays JavaScript ES6",
     subtitle: "Funções filter, find, map, reduce, some, e every.",
     categories: [{ value: "tutorial", text: "Tutorial" }],
