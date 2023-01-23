@@ -1,0 +1,12 @@
+@import "../../../assets/styles/breakpoints.scss";
+
+.image {
+    max-width: 800px;
+    max-height: 450px;
+    display: block;
+    margin: auto;
+
+    @include md {
+        max-width: 350px;
+    }
+}

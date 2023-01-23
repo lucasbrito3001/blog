@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom/client'
 import './styles.scss'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import Home from './pages/home/test.jsx'
+import Home from './pages/home/index.jsx'
+import Post from './pages/post/index.jsx'
 
 import {
   createBrowserRouter,
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Home/>,
+  },
+  {
+    path: "/:title",
+    element: <Post/>,
   },
 ]);
 
