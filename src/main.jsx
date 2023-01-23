@@ -7,11 +7,11 @@ import Home from './pages/home/index.jsx'
 import Post from './pages/post/index.jsx'
 
 import {
-  createBrowserRouter,
+  createHashRouter,
   RouterProvider,
 } from "react-router-dom";
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: <Home/>,
