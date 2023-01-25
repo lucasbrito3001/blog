@@ -3,10 +3,12 @@ import { useParams } from "react-router-dom";
 
 import HANDLE_ARRAY from "../../posts/handleArray/index";
 import API_INTEGRATION from "../../posts/apiIntegration/index";
+import TEST_CODE from "../../posts/testCode/index"
 
 const POST_BY_TITLE = {
     "manipulação-de-arrays-javascript-es6": HANDLE_ARRAY,
     "como-integrar-uma-api-com-javascript": API_INTEGRATION,
+    "testando-quadro-de-código-no-post": TEST_CODE
 };
 
 // styles
@@ -22,6 +24,7 @@ import Introduction from "./introduction/index";
 import Text from "./text/index.jsx";
 import Image from "./image/index";
 import UnorderedList from "./unorderedList/index";
+import Code from "./code/index";
 
 export default function Post() {
     const { title } = useParams();
@@ -34,7 +37,6 @@ export default function Post() {
     }, [title]);
 
     function renderSections(postSections) {
-        console.log(postSections);
         const SECTION_ELEMENTS = {
             text: (section) => <Text text={section.value}></Text>,
             image: (section) => (
@@ -43,6 +45,9 @@ export default function Post() {
             uList: (section) => (
                 <UnorderedList list={section.items}></UnorderedList>
             ),
+            code: (section) => (
+                <Code code={section.value}></Code>
+            )
         };
 
         return postSections.map((section) => {
