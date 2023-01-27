@@ -28,7 +28,7 @@ export default function Posts({ categories, titleSearched }) {
     function renderCards() {
         return postsToRender.map((post, idx) => (
             <Col xs="12" key={idx}>
-                <Link to={`/${post.title.toLowerCase().replace(/\s/g, '-')}`}>
+                <Link to={`/blog/${post.title.toLowerCase().replace(/\s/g, '-')}`}>
                     <CardPost
                         postTitle={post.title}
                         postImage={post.thumbnail}

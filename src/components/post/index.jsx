@@ -7,8 +7,8 @@ import TEST_CODE from "../../posts/testCode/index"
 
 const POST_BY_TITLE = {
     "manipulação-de-arrays-javascript-es6": HANDLE_ARRAY,
-    "como-integrar-uma-api-com-javascript": API_INTEGRATION,
-    "testando-quadro-de-código-no-post": TEST_CODE
+    "testando-quadro-de-código-no-post": TEST_CODE,
+    "como-consumir-uma-api-usando-reactjs-e-axios": API_INTEGRATION,
 };
 
 // styles

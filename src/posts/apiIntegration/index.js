@@ -2,39 +2,55 @@ import ThumbnailImage from "./thumbnail.png"
 
 const INTEGRACAO_API = {
     thumbnail: ThumbnailImage,
-    title: "Como integrar uma API com JavaScript",
-    subtitle: "Utilizando o fetch para interagir com uma API.",
+    title: "Como consumir uma API usando ReactJS e Axios",
+    subtitle: "Ensinando o que são e como manipular promises e como usá-las integrando APIs REST com JavaScript.",
     categories: [{ value: "tutorial", text: "Tutorial" }, { value: "development", text: "Desenvolvimento" }],
-    introduction: `
-        O ECMAScript 6 o'u ECMAScript 2015 ou ES6, é uma padronização da linguagem JavaScript, que trouxe várias novas funcionalidades, como declaração de variáveis com let e const, as arrow functions, e também as funções de manipulação de arrays que é o tema que será abordado nesse artigo.
-        Antes de começar, gostaria de deixar claro que essas funções acessam uma função de callback fornecida, uma vez para cada elemento do array. Essa por sua vez, pode ser tanto uma arrow function, quanto uma função declarada da maneira tradicional.
-        Nesse artigo iremos utilizar as arrow functions para isso, mas a maneira que você vai utilizar no seu código, fica ao seu critério. Dito isso, vamos ao que interessa:
-    `,
+    introduction: [
+        'Se você está estudando para ser um desenvolvedor front-end, é muito importante aprender a integrar seu projeto com uma API.',
+        'Isso porque a comunicação entre front-end e back-end é muito utilizada, já que normalmente as conexões com banco de dados, realização de tarefas que envolvem regras de negócio e segurança são aplicadas no back-end.',
+        'Mas, para trabalhar com APIs, primeiro precisamos entender um conceito da programação, que são as promises. Portanto vamos separar esse artigo em duas partes, primeiro como trabalhar com promises e segundo como integrar um projeto front-end com uma API.',
+    ],
     sections: [
         {
-            title: "Array.filter( )",
+            title: 'Promises',
             content: [
                 {
-                    type: "text",
-                    value: "Esta função cria um novo array, com todos os resultados que passaram pelas condições definidas pela sua função de callback.",
+                    type: 'text',
+                    value: 'Quando trabalhamos com consumo de APIs REST, as requisições HTTP que enviamos nos retornam uma promise, que como o nome sugere, é uma promessa de que em um momento futuro, uma informação nos será retornada, podendo ser uma resposta de sucesso ou erro.'
                 },
                 {
-                    type: "uList",
-                    items: [
-                        `<strong>Exemplo:</strong> Digamos que você tenha um array de objetos, onde em cada objeto você tenha um nome de uma pessoa e sua profissão. E o seu objetivo é encontrar todas as pessoas que tenham uma profissão específica. Com filter seria assim:`
-                    ]
-                },
-                {
-                    type: 'image',
-                    src: './filter.png'
-                },
-                {
-                    type: "text",
-                    value: "Ou seja, de uma maneira simples, conseguimos extrair de uma lista todos os elementos que combinem com a nossa condição especificada.",
+                    type: 'text',
+                    value: 'Para conseguirmos manipular essas informações, temos que esperar elas retornarem primeiro, e temos duas formas de fazer isso, usando callbacks ou async/await.'
                 }
-            ],
+            ]
+        },
+        {
+            title: 'Callback',
+            content: [
+                {
+                    type: 'text',
+                    value: 'A forma de tratamento por calllback é síncrono, é como se a gente separasse uma parte da memória do sistema para esperar a resolução da promise e depois tratar a informação devolvida e enquanto isso, paralelamente, seguimos realizando o fluxo do código normalmente.'
+                },
+                {
+                    type: 'text',
+                    value: 'Para conseguirmos manipular essas informações, temos que esperar elas retornarem primeiro, e temos duas formas de fazer isso, usando callbacks ou async/await.'
+                }
+            ]
+        },
+        {
+            title: 'Async / Await',
+            content: [
+                {
+                    type: 'text',
+                    value: 'Quando trabalhamos com consumo de APIs REST, as requisições HTTP que enviamos nos retornam uma promise, que como o nome sugere, é uma promessa de que em um momento futuro, uma informação nos será retornada, podendo ser uma resposta de sucesso ou erro.'
+                },
+                {
+                    type: 'text',
+                    value: 'Para conseguirmos manipular essas informações, temos que esperar elas retornarem primeiro, e temos duas formas de fazer isso, usando callbacks ou async/await.'
+                }
+            ]
         }
-    ],
+    ]
 };
 
 export default INTEGRACAO_API;

@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom/client'
 import './styles.scss'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import Home from './pages/home/index.jsx'
-import Post from './pages/post/index.jsx'
+import Portfolio from './pages/portfolio/index'
+import BlogHome from './pages/blog/home/index.jsx'
+import BlogPost from './pages/blog/post/index.jsx'
 
 import {
   createHashRouter,
@@ -14,11 +15,15 @@ import {
 const router = createHashRouter([
   {
     path: "/",
-    element: <Home/>,
+    element: <Portfolio/>,
   },
   {
-    path: "/:title",
-    element: <Post/>,
+    path: "/blog",
+    element: <BlogHome/>,
+  },
+  {
+    path: "/blog/:title",
+    element: <BlogPost/>,
   },
 ]);
 
