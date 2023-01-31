@@ -1,0 +1,144 @@
+@import "../../../assets/styles/breakpoints.scss";
+
+.presentation-title {
+    font-size: 72px !important;
+
+    @include md {
+        font-size: 56px !important;
+    }
+}
+
+.presentation-subtitle {
+    font-size: 56px !important;
+    margin-bottom: 0;
+    line-height: 1;
+
+    @include md {
+        font-size: 40px !important;
+    }
+}
+
+.text-highlight {
+    color: var(--principal-color);
+}
+
+.presentation-techs-circle-rotating {
+    width: 100%;
+    padding-bottom: 100%;
+    animation: rotate 120s linear infinite;
+
+    .presentation-techs-circle-icons {
+        animation: rotate 120s linear infinite reverse;
+
+        @include md {
+            width: 40px;
+        }
+    }
+
+    #presentation-techs-circle-node {
+        position: absolute;
+        top: -28px;
+        left: calc(50% - 28px);
+
+        @include md {
+            top: -20px;
+            left: calc(50% - 20px);
+        }
+    }
+
+    #presentation-techs-circle-react {
+        position: absolute;
+        top: calc(100% - 28px);
+        left: calc(50% - 28px);
+        
+        @include md {
+            top: calc(100% - 20px);
+            left: calc(50% - 20px);
+        }
+    }
+
+    #presentation-techs-circle-vue {
+        position: absolute;
+        top: calc(50% - 28px);
+        left: calc(100% - 28px);
+
+        @include md {
+            top: calc(50% - 20px);
+            left: calc(100% - 20px);
+        }
+    }
+
+    #presentation-techs-circle-mysql {
+        position: absolute;
+        top: calc(50% - 28px);
+        left: -28px;
+
+        @include md {
+            top: calc(50% - 20px);
+            left: -20px;
+        }
+    }
+
+    #presentation-techs-circle-mongodb {
+        position: absolute;
+        top: calc(12.5% - 21px);
+        left: calc(12.5% - 21px);
+
+        @include md {
+            top: calc(12.5% - 20px);
+            left: calc(12.5% - 20px);
+        }
+    }
+
+    #presentation-techs-circle-sqlserver {
+        position: absolute;
+        top: calc(12.5% - 28px);
+        left: calc(75%);
+
+        @include md {
+            top: calc(12.5% - 20px);
+            left: calc(75%);
+        }
+    }
+
+    #presentation-techs-circle-linux {
+        position: absolute;
+        top: calc(75% + 14px);
+        left: calc(75%);
+
+        @include md {
+            top: calc(75% + 10px);
+            left: calc(75%);
+        }
+    }
+
+    #presentation-techs-circle-css {
+        position: absolute;
+        top: calc(75% + 14px);
+        left: calc(12.5% - 14px);
+
+        @include md {
+            top: calc(75% + 10px);
+            left: calc(12.5% - 10px);
+        }
+    }
+}
+
+.presentation-techs-circle {
+    display: block;
+    position: relative;
+    width: 60%;
+    height: 0;
+    padding-bottom: 60%;
+    border: 2px dashed var(--light);
+    border-radius: 100%;
+    margin: auto;
+}
+
+@keyframes rotate {
+    from {
+        rotate: 0deg;
+    } to {
+        rotate: 360deg;
+    }
+}
