@@ -10,7 +10,6 @@ export default function Navbar() {
     const [isCollapsed, setIsCollapsed] = useState(true)
 
     useEffect(() => {
-        console.log(window.innerWidth)
         setIsMobile(window.innerWidth < 992)
     }, [])
 

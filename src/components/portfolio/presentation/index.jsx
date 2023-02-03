@@ -13,11 +13,12 @@ export default function Presentation() {
                         <h1 className="title presentation-title">
                             Lucas de Brito
                         </h1>
-                        <p className="text">
+                        <p className="text presentation-describe">
                             Sou um <strong className="text-highlight">DESENVOLVEDOR WEB FULL STACK</strong>
                             , especializado(ando) em JavaScript. Acredito que com tempo e determinação podemos
                             solucionar qualquer problema
                         </p>
+                        <h1 id="presentation-down-arrow">&darr;</h1>
                     </Col>
                     <Col xs={12} lg={5}>
                         <div className="presentation-techs-circle">
@@ -32,16 +33,16 @@ export default function Presentation() {
                                 <img
                                     id="presentation-techs-circle-react"
                                     className="presentation-techs-circle-icons"
-                                    src="https://img.icons8.com/plasticine/512/react.png"
+                                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/512px-React-icon.svg.png?20220125121207"
                                     alt="reactjs logo"
-                                    width={56}
+                                    width={48}
                                 />
                                 <img
                                     id="presentation-techs-circle-vue"
                                     className="presentation-techs-circle-icons"
                                     src="https://img.icons8.com/external-tal-revivo-color-tal-revivo/512/external-vuejs-an-open-source-javascript-framework-for-building-user-interfaces-and-single-page-applications-logo-color-tal-revivo.png"
                                     alt="vuejs logo"
-                                    width={56}
+                                    width={48}
                                 />
                                 <img
                                     id="presentation-techs-circle-mysql"
@@ -51,10 +52,10 @@ export default function Presentation() {
                                     width={56}
                                 />
                                 <img
-                                    id="presentation-techs-circle-mongodb"
+                                    id="presentation-techs-circle-javascript"
                                     className="presentation-techs-circle-icons"
-                                    src="https://img.icons8.com/external-tal-revivo-shadow-tal-revivo/512/external-mongodb-a-cross-platform-document-oriented-database-program-logo-shadow-tal-revivo.png"
-                                    alt="mongodb logo"
+                                    src="https://img.icons8.com/color/256/javascript.png"
+                                    alt="javascript logo"
                                     width={56}
                                 />
                                 <img

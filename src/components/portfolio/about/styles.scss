@@ -1,0 +1,36 @@
+@import "../../../assets/styles/breakpoints.scss";
+
+.domain {
+    transition: 1s;
+    color: var(--dark);
+}
+
+.selected-domain {
+    color: var(--principal-color);
+}
+
+.domain-title {
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--principal-color);
+}
+
+.about-text {
+    line-height: 2.5;
+    font-weight: 400;
+    font-size: 20px;
+
+    @include md {
+        font-size: 18px;
+    }
+}
+
+.about-side {
+    font-size: 180px;
+    font-weight: 700;
+    color: var(--principal-color);
+
+    @include md {
+        font-size: 120px;
+    }
+}

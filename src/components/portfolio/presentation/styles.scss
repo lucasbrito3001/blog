@@ -18,6 +18,17 @@
     }
 }
 
+.presentation-describe {
+    font-size: 20px;
+    font-weight: 300;
+}
+
+#presentation-down-arrow {
+    font-size: 56px;
+    animation: floating 3s infinite linear;
+    color: var(--principal-color);
+}
+
 .text-highlight {
     color: var(--principal-color);
 }
@@ -46,7 +57,7 @@
         }
     }
 
-    #presentation-techs-circle-react {
+    #presentation-techs-circle-sqlserver {
         position: absolute;
         top: calc(100% - 28px);
         left: calc(50% - 28px);
@@ -59,8 +70,8 @@
 
     #presentation-techs-circle-vue {
         position: absolute;
-        top: calc(50% - 28px);
-        left: calc(100% - 28px);
+        top: calc(50% - 24px);
+        left: calc(100% - 24px);
 
         @include md {
             top: calc(50% - 20px);
@@ -68,7 +79,7 @@
         }
     }
 
-    #presentation-techs-circle-mysql {
+    #presentation-techs-circle-linux {
         position: absolute;
         top: calc(50% - 28px);
         left: -28px;
@@ -79,7 +90,7 @@
         }
     }
 
-    #presentation-techs-circle-mongodb {
+    #presentation-techs-circle-javascript {
         position: absolute;
         top: calc(12.5% - 21px);
         left: calc(12.5% - 21px);
@@ -90,9 +101,9 @@
         }
     }
 
-    #presentation-techs-circle-sqlserver {
+    #presentation-techs-circle-react {
         position: absolute;
-        top: calc(12.5% - 28px);
+        top: calc(12.5% - 22px);
         left: calc(75%);
 
         @include md {
@@ -101,7 +112,7 @@
         }
     }
 
-    #presentation-techs-circle-linux {
+    #presentation-techs-circle-mysql {
         position: absolute;
         top: calc(75% + 14px);
         left: calc(75%);
@@ -140,5 +151,15 @@
         rotate: 0deg;
     } to {
         rotate: 360deg;
+    }
+}
+
+@keyframes floating {
+    0% {
+        transform: translateY(0);
+    } 50% {
+        transform: translateY(8px);
+    } 100% {
+        transform: translateY(0);
     }
 }

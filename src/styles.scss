@@ -3,9 +3,10 @@
 :root {
   
   /* colors */
-  --principal-color: #38b6ff;
+  --principal-color: #387eff;
   --dark: #0f0f0f;
-  --medium: #252933;
+  --medium: #1e2127;
+  --medium-light-blue: rgb(232, 236, 238);
   --light: #dbdbdb;
   --light-blue: #edf2f5;
 }
@@ -19,6 +20,12 @@
 
 .select__menu {
   color: black;
+}
+
+.sections-title {
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--principal-color);
 }
 
 ul {

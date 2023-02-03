@@ -1,0 +1,10 @@
+@import "../../../assets/styles/breakpoints.scss";
+
+.domain {
+    transition: 1s;
+    color: var(--dark);
+}
+
+.selected-domain {
+    color: var(--principal-color);
+}
