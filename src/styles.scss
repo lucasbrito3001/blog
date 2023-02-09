@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;300;400;500;600;700;800&family=Montserrat:wght@100;200;300;400;500;600;700;800&family=Sofia+Sans:wght@100;300;400;600;800&display=swap');
+@import "./assets/styles/breakpoints.scss";
 
 :root {
   
@@ -6,9 +7,12 @@
   --principal-color: #387eff;
   --dark: #0f0f0f;
   --medium: #1e2127;
+  --medium-dark: #333333;
   --medium-light-blue: rgb(232, 236, 238);
   --light: #dbdbdb;
+  --medium-light: #b6b6b6;
   --light-blue: #edf2f5;
+  --extra-light: #f7f7f7;
 }
 
 * {
@@ -23,13 +27,25 @@
 }
 
 .sections-title {
-  font-size: 26px;
+  font-size: 40px;
   font-weight: 600;
-  color: var(--principal-color);
+  color: var(--dark);
+
+  @include md {
+    font-size: 28px;
+  }
 }
 
 ul {
   list-style: none;
   margin: 0 !important;
   padding: 0 !important;
+}
+
+.py-max {
+  padding: 5rem 0 !important;
+}
+
+.badge.bg-primary {
+  background-color: var(--principal-color) !important;
 }

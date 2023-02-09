@@ -1,0 +1,39 @@
+@import "../../../assets/styles/breakpoints.scss";
+
+.career-list {
+    width: 65%;
+    margin-left: auto !important;
+
+    @include md {
+        width: 100%;
+    }
+}
+
+.enterprise-name {
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--principal-color);
+    text-transform: uppercase;
+}
+
+.positions-name {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--medium);
+    text-transform: uppercase;
+    margin-bottom: 0;
+}
+
+.positions-date {
+    font-size: 20px;
+    color: var(--medium-light);
+    font-weight: 700;
+}
+
+.positions-separator {
+    color: var(--medium-light)
+}
+
+.positions-techs-badge {
+    text-transform: uppercase;
+}

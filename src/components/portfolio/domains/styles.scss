@@ -1,10 +1,21 @@
 @import "../../../assets/styles/breakpoints.scss";
 
 .domain {
-    transition: 1s;
+    // transition: 1s;
     color: var(--dark);
+    font-weight: 400;
 }
 
 .selected-domain {
     color: var(--principal-color);
+}
+
+@keyframes blinkColor {
+    0% { 
+        color: var(--dark);
+    } 50% {
+        color: var(--principal-color);
+    } 100% {
+        color: var(--dark);
+    }
 }

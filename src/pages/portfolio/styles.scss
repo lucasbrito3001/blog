@@ -17,7 +17,7 @@
 
 .portfolio-presentation {
     height: 90vh;
-    background-color: #f7f7f7;
+    background-color: var(--extra-light);
 }
 
 .portfolio-domains {
@@ -28,4 +28,12 @@
     @include md {
         font-size: 32px;
     }
+}
+
+.portfolio-skills {
+    background-color: var(--extra-light);
+}
+
+.portfolio-projects {
+    // background-color: var(--secondary-color);
 }

@@ -16,19 +16,24 @@ export default function Domains() {
 
     return (
         <Container>
-            <Row className="py-5 py-md-5">
+            <Row className="py-max">
                 <Col>
-                    <h1 className="sections-title py-5 text-start text-md-end">áreas que possuo <br />experiências profissionais</h1>
+                    <h1 className="sections-title text-start text-md-end">áreas que possuo <br />experiências profissionais</h1>
                     <div className="text-left text-md-center">
                         {domains.map((domain, idx) => {
                             return (
                                 <span key={idx}>
                                     <span
-                                        className={
-                                            currentSelected === idx
-                                                ? "selected-domain"
-                                                : "domain"
-                                        }
+                                        className="domain"
+                                        // className={
+                                        //     currentSelected === idx
+                                        //         ? "selected-domain"
+                                        //         : "domain"
+                                        // }
+                                        style={{
+                                            animation: "blinkColor 4s infinite linear",
+                                            animationDelay: `${idx}s`
+                                        }}
                                     >
                                         {domain}
                                     </span>{" "}

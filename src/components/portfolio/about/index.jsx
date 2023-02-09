@@ -18,13 +18,13 @@ export default function About() {
 
     return (
         <Container>
-            <Row className="py-5 py-md-5">
+            <Row className="py-max">
                 <Col xs={12}>
-                    <h1 className="sections-title py-5 text-start">
+                    <h1 className="sections-title text-start">
                         quem sou eu?
                     </h1>
                 </Col>
-                <Col xs={12} lg={8} className="d-flex align-items-center">
+                <Col xs={12} lg={8}>
                     <p className="about-text mb-0">
                         Meu nome é Lucas de Brito, sou um DESENVOLVEDOR WEB
                         FULL STACK, especializado(ando) em JavaScript. Além

@@ -7,6 +7,9 @@ import Presentation from "../../components/portfolio/presentation"
 import Domains from "../../components/portfolio/domains"
 import Skills from "../../components/portfolio/skills"
 import About from "../../components/portfolio/about"
+import Career from "../../components/portfolio/career"
+import Projects from "../../components/portfolio/projects"
+import Footer from "../../components/shared/footer"
 
 export default function Portfolio() {
     return (
@@ -24,12 +27,18 @@ export default function Portfolio() {
                 <div className="portfolio-domains">
                     <Domains></Domains>
                 </div>
-                <div id="portfolio-skills">
+                <div id="career">
+                    <Career></Career>
+                </div>
+                <div className="portfolio-skills">
                     <Skills></Skills>
                 </div>
-                <div className="h-40" id="career">habilidades</div>
-                <div className="h-40" id="skills">carreira</div>
-                <div className="h-40" id="projects">projetos</div>
+                <div className="portfolio-projects">
+                    <Projects></Projects>
+                </div>
+                <div>
+                    <Footer></Footer>
+                </div>
             </main>
         </div>
     );

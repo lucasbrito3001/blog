@@ -1,0 +1,16 @@
+.projects-div {
+    position: relative;
+    transition: .5s;
+    height: 300px;
+
+    img {
+        position: relative;
+        width: 100%;
+        height: 300px;
+        object-fit: contain;
+    }
+}
+
+.title-light {
+    // color: var(--light);
+}
