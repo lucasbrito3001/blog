@@ -13,6 +13,7 @@
   --medium-light: #b6b6b6;
   --light-blue: #edf2f5;
   --extra-light: #f7f7f7;
+  --navbar-color: rgba(0, 0, 0, 0.123);
 }
 
 * {
@@ -20,6 +21,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 .select__menu {
@@ -30,6 +32,7 @@
   font-size: 40px;
   font-weight: 600;
   color: var(--dark);
+  text-transform: lowercase;
 
   @include md {
     font-size: 28px;
@@ -42,7 +45,7 @@ ul {
   padding: 0 !important;
 }
 
-.py-max {
+.py-lg-max {
   padding: 5rem 0 !important;
 }
 

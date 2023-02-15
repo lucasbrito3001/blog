@@ -9,6 +9,7 @@ const INTEGRACAO_API = {
         { value: "tutorial", text: "Tutorial" },
         { value: "development", text: "Desenvolvimento" },
     ],
+    createdAt: '2023-02-04',
     introduction: ["123", "123"],
     sections: [
         {

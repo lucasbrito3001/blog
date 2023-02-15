@@ -1,0 +1,38 @@
+.badge-wrapper {
+    padding: 6px 10px;
+    background-color: var(--light);
+    font-size: 12px;
+    font-weight: 600;
+    transition: 1s;
+    text-transform: uppercase;
+    position: relative;
+    border-radius: 4px;
+
+    &:hover .badge-text {
+        color: var(--light);
+    }
+
+    &:hover .badge-bg-hover {
+        width: 100%;
+    }
+}
+
+.badge-text {
+    color: var(--dark);
+    position: relative;
+    z-index: 2;
+    transition: .25s;
+}
+
+.badge-bg-hover {
+    position: absolute;
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transition: .25s;
+    background-color: var(--medium);
+    z-index: 1;
+    border-radius: 4px;
+}
+

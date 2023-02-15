@@ -1,7 +1,7 @@
-import { Col, Container, Row } from "react-bootstrap";
-import "./styles.scss";
-import { useEffect } from "react";
-import { useState } from "react";
+import { Col, Container, Row } from "react-bootstrap"
+import "./styles.scss"
+import { useEffect } from "react"
+import { useState } from "react"
 
 import RandomWaves from "../../../assets/random-waves.png"
 
@@ -18,7 +18,7 @@ export default function About() {
 
     return (
         <Container>
-            <Row className="py-max">
+            <Row className="py-lg-5 pt-5 pb-4">
                 <Col xs={12}>
                     <h1 className="sections-title text-start">
                         quem sou eu?

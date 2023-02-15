@@ -9,6 +9,8 @@ import Skills from "../../components/portfolio/skills"
 import About from "../../components/portfolio/about"
 import Career from "../../components/portfolio/career"
 import Projects from "../../components/portfolio/projects"
+import Contact from "../../components/portfolio/contact"
+import Blog from "../../components/portfolio/blog"
 import Footer from "../../components/shared/footer"
 
 export default function Portfolio() {
@@ -21,20 +23,26 @@ export default function Portfolio() {
                 <div className="portfolio-presentation">
                     <Presentation></Presentation>
                 </div>
-                <div className="portfolio-about">
+                <div id="about" className="portfolio-about">
                     <About></About>
                 </div>
-                <div className="portfolio-domains">
+                <div id="domains" className="portfolio-domains">
                     <Domains></Domains>
                 </div>
                 <div id="career">
                     <Career></Career>
                 </div>
-                <div className="portfolio-skills">
+                <div id="skills" className="portfolio-skills">
                     <Skills></Skills>
                 </div>
-                <div className="portfolio-projects">
+                <div id="projects" className="portfolio-projects">
                     <Projects></Projects>
+                </div>
+                <div className="portfolio-blog">
+                    <Blog></Blog>
+                </div>
+                <div id="contacts" className="portfolio-contacts">
+                    <Contact></Contact>
                 </div>
                 <div>
                     <Footer></Footer>

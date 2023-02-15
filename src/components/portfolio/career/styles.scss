@@ -1,7 +1,36 @@
 @import "../../../assets/styles/breakpoints.scss";
 
+.career-section {
+    position: relative;
+}
+
+.career-section-title {
+    position: sticky;
+    top: 12vh;
+    height: fit-content;
+
+    @include lg {
+        position: relative;
+        top: 0;
+    }
+}
+
+.career-section-positions {
+    border-left: 1px solid var(--light);
+    
+    @include lg {
+        border: none
+    }
+}
+
+.career-button {
+    font-size: 14px !important;
+    color: white;
+    padding: 4px 12px !important
+}
+
 .career-list {
-    width: 65%;
+    // width: 65%;
     margin-left: auto !important;
 
     @include md {
@@ -10,24 +39,36 @@
 }
 
 .enterprise-name {
-    font-size: 32px;
+    font-size: 28px;
     font-weight: 600;
     color: var(--principal-color);
     text-transform: uppercase;
+    
+    @include md {
+        font-size: 24px;
+    }
 }
 
 .positions-name {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 700;
     color: var(--medium);
     text-transform: uppercase;
     margin-bottom: 0;
+
+    @include md {
+        font-size: 20px;
+    }
 }
 
 .positions-date {
-    font-size: 20px;
+    font-size: 16px;
     color: var(--medium-light);
     font-weight: 700;
+
+    @include md {
+        font-size: 14px;
+    }
 }
 
 .positions-separator {

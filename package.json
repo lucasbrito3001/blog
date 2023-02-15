@@ -18,6 +18,7 @@
     "react-dom": "^18.2.0",
     "react-highlight": "^0.15.0",
     "react-router-dom": "^6.6.2",
+    "react-router-hash-link": "^2.4.3",
     "react-select": "^5.7.0",
     "sass": "^1.57.1",
     "scrollreveal": "^4.0.9",

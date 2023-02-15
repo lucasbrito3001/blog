@@ -1,16 +1,40 @@
+@import "../../../assets/styles/breakpoints.scss";
+
 .projects-div {
     position: relative;
     transition: .5s;
-    height: 300px;
+}
 
-    img {
-        position: relative;
-        width: 100%;
-        height: 300px;
-        object-fit: contain;
+.projects-stacks-separator {
+    color: var(--principal-color);
+}
+
+.project-name {
+    font-size: 24px;
+
+    @include md {
+        font-size: 20px;
     }
 }
 
-.title-light {
-    // color: var(--light);
+.project-category {
+    font-size: 16px;
+    color: var(--medium-light);
+    font-weight: 400;
+}
+
+.project-button {
+    border-radius: 32px;
+    padding: 4px 12px;
+    font-weight: 600;
+    font-size: 12px;
+    border: 2px solid var(--principal-color);
+    color: white;
+    background-color: var(--principal-color);
+    transition: .5s;
+}
+
+.project-button:hover {
+    background-color: white;
+    color: var(--principal-color);
 }

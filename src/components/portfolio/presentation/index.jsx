@@ -3,7 +3,7 @@ import "./styles.scss";
 
 export default function Presentation() {
     return (
-        <div className="h-100">
+        <div className="h-100 py-lg-0 py-5">
             <Container className="h-100">
                 <Row className="h-100 align-items-center">
                     <Col xs={12} lg={7}>

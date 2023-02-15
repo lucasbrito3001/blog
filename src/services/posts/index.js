@@ -16,3 +16,11 @@ export async function getPosts(categories, titleSearched) {
         );
     });
 }
+
+export async function getRecentPosts() {
+    try {
+        return { status: true, content: POSTS.slice(0, 3) }
+    } catch (error) {
+        return { status: false, error }
+    }
+}

@@ -1,0 +1,29 @@
+.blog-button:hover {
+    color: var(--medium);
+    background-color: transparent;
+    gap: 12px;
+}
+
+.blog-button {
+    background-color: var(--medium);
+    border-color: var(--medium);
+    padding: 8px 16px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: .5s;
+    color: var(--light);
+    // border-radius: 32px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    // text-transform: uppercase;
+}
+
+.blog-button-chevron {
+    font-size: 14px;
+}
+
+.blog-subtitle {
+    font-size: 18px;
+    font-weight: 400;
+}

@@ -16,7 +16,7 @@ export default function Domains() {
 
     return (
         <Container>
-            <Row className="py-max">
+            <Row className="py-lg-5 py-4">
                 <Col>
                     <h1 className="sections-title text-start text-md-end">áreas que possuo <br />experiências profissionais</h1>
                     <div className="text-left text-md-center">

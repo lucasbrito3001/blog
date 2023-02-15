@@ -1,0 +1,64 @@
+@import '../../../assets/styles/breakpoints.scss';
+
+.cardPost {
+    border: none;
+    transition: .25s;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0px !important;
+    cursor: pointer;
+
+    .card-img-top {
+        border-radius: 4px 4px 0 0;
+        max-width: 100%;
+        max-height: 200px;
+    }
+
+    .card-body {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+
+        .card-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+    
+        .card-subtitle {
+            font-size: 16px;
+            font-weight: 300;
+        }
+
+        .card-description {
+            font-weight: 400;
+        }
+
+        .card-body-categories {
+            display: flex;
+            gap: 4px;
+        }
+
+        @include md {
+            padding: 16px;
+
+            .card-title {
+                font-size: 20px;
+            }
+        
+            .card-subtitle {
+                font-size: 16px;
+                font-weight: 300;
+            }
+        }
+    }
+
+    @include md {
+        flex-direction: column;
+    }
+}
+
+.cardPost:hover {
+    transform: scale(1.01);
+}

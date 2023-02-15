@@ -1,62 +1,70 @@
-import { Col, Container, Row } from "react-bootstrap";
+// styles
+import { Button, Col, Container, Row } from "react-bootstrap";
 
-// import { getCareer } from "../../../services/portfolio/career";
+// services
+import { getProjects } from "../../../services/portfolio/projects";
+
+// react hooks
 import { useEffect, useState } from "react";
+
 
 import "./styles.scss";
 
 export default function Projects() {
     const [selected, setSelected] = useState(null);
+    const [projects, setProjects] = useState([]);
+
+    useEffect(() => {
+        async function getProjectsOnLoad() {
+            const { status, content, error } = await getProjects()
+
+            if(!status) return error
+
+            setProjects(content)
+        }
+
+        getProjectsOnLoad()
+    }, [])
 
     return (
         <Container>
-            <Row className="pt-5">
+            <Row className="pt-3 pt-lg-5 pb-3">
                 <Col>
                     <header>
                         <h1 className="sections-title title-light">projetos</h1>
                     </header>
                 </Col>
             </Row>
-            <Row className="pb-5">
-                <Col
-                    onMouseLeave={() => setSelected(null)}
-                    onMouseEnter={() => setSelected(0)}
-                    className={`projects-div p-0 ${
-                        selected === 0
-                            ? "col-lg-6"
-                            : selected === null
-                            ? "col-lg-4"
-                            : "col-lg-3"
-                    }`}
-                >
-                    <img src="https://lucasdbrito.com/img/dexterbulls.2db70c57.png" alt="" />
-                </Col>
-                <Col
-                    onMouseLeave={() => setSelected(null)}
-                    onMouseEnter={() => setSelected(1)}
-                    className={`projects-div ${
-                        selected === 1
-                            ? "col-lg-6"
-                            : selected === null
-                            ? "col-lg-4"
-                            : "col-lg-3"
-                    }`}
-                >
-                    <img src="https://lucasdbrito.com/img/dexterbulls.2db70c57.png" alt="" />
-                </Col>
-                <Col
-                    onMouseLeave={() => setSelected(null)}
-                    onMouseEnter={() => setSelected(2)}
-                    className={`projects-div ${
-                        selected === 2
-                            ? "col-lg-6"
-                            : selected === null
-                            ? "col-lg-4"
-                            : "col-lg-3"
-                    }`}
-                >
-                    <img src="https://lucasdbrito.com/img/dexterbulls.2db70c57.png" alt="" />
-                </Col>
+            <Row className="pb-3 pb-lg-5 gy-0 gy-lg-4">
+                { projects.length > 0 && projects.map((project, idx) => (
+                    <Col
+                        key={idx}
+                        onMouseLeave={() => setSelected(null)}
+                        onMouseEnter={() => setSelected(idx)}
+                        xs={12}
+                        md={6}
+                        lg={4}
+                    >
+                        <h2 className="project-category">{ project.category }</h2>
+                        <h1 className="project-name">{ project.name }</h1>
+                        <ul className="d-flex flex-wrap align-items-center gap-2">
+                            <span className="projects-stacks-separator">&gt;&lt;</span>{
+                                project.stacks.map((stack, idx) => <>
+                                    <li key={idx}>
+                                        { stack }
+                                    </li>
+                                    <span className="projects-stacks-separator">&gt;&lt;</span>
+                                </>)
+
+                            }
+                        </ul>
+                        <div className="d-flex gap-2 mt-2">
+                            { project.repoUrl && <a href={project.repoUrl} target="_blank"><button size="sm" className="project-button">Ver código</button></a> }
+                            { project.appUrl && <a href={project.appUrl} target="_blank"><button size="sm" className="project-button">Ver aplicação</button></a> }
+                        </div>
+                        <hr className={`positions-separator`}/>
+                    </Col>
+                ))}
             </Row>
         </Container>
     );

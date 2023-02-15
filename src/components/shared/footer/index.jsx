@@ -1,9 +1,7 @@
 import { Col, Container, Row } from "react-bootstrap";
 import "./styles.scss";
 
-import InstagramIcon from "../../../assets/instagram.svg";
-import GithubIcon from "../../../assets/github.svg";
-import LinkedInIcon from "../../../assets/linkedin.svg";
+import Logo from "../../shared/logo";
 
 export default function Footer() {
     return (

@@ -2,9 +2,10 @@ import ThumbnailImage from "./thumbnail.png"
 
 const INTEGRACAO_API = {
     thumbnail: ThumbnailImage,
-    title: "Como consumir uma API usando ReactJS e Axios",
-    subtitle: "Ensinando o que são e como manipular promises e como usá-las integrando APIs REST com JavaScript.",
+    title: "Como consumir uma API com JavaScript",
+    subtitle: "Manipulando promises para consumir APIs com JavaScript.",
     categories: [{ value: "tutorial", text: "Tutorial" }, { value: "development", text: "Desenvolvimento" }],
+    createdAt: '2023-02-10',
     introduction: [
         'Se você está estudando para ser um desenvolvedor front-end, é muito importante aprender a integrar seu projeto com uma API.',
         'Isso porque a comunicação entre front-end e back-end é muito utilizada, já que normalmente as conexões com banco de dados, realização de tarefas que envolvem regras de negócio e segurança são aplicadas no back-end.',

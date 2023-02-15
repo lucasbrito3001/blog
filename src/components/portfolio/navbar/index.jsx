@@ -5,6 +5,10 @@ import "./styles.scss";
 // hooks
 import { useEffect, useState } from "react";
 
+import Logo from "../../shared/logo"
+import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link"
+
 export default function Navbar() {
     const [isMobile, setIsMobile] = useState(false)
     const [isCollapsed, setIsCollapsed] = useState(true)
@@ -22,15 +26,17 @@ export default function Navbar() {
             <div className="navbar-wrapper">
                 <div className={`navbar ${ !isCollapsed ? 'extended' : "" } ${ isMobile ? 'mobile' : "" }`}>
                     <div id="navbar-logo-toggle">
-                        <span id="navbar-logo">lucasdbrito<span id="navbar-logo-color">.com</span></span>
+                        <Link to="/#presentation" className="navbar-links">
+                            <Logo></Logo>
+                        </Link>
                         { isMobile && <span id="navbar-menu-toggle" onClick={toggleMenu}></span> }
                     </div>
                     <ul className="navbar-list">
-                        <li className="navbar-list-item"><a href="#about" className="navbar-list-item-link">sobre</a></li>
-                        <li className="navbar-list-item"><a href="#skills" className="navbar-list-item-link">habilidades</a></li>
-                        <li className="navbar-list-item"><a href="#career" className="navbar-list-item-link">carreira</a></li>
-                        <li className="navbar-list-item"><a href="#projects" className="navbar-list-item-link">projetos</a></li>
-                        <li className="navbar-list-item"><a href="/#/blog" className="navbar-list-item-link">blog</a></li>
+                        <li className="navbar-list-item"><HashLink to="/#about" className="navbar-list-item-link">sobre</HashLink></li>
+                        <li className="navbar-list-item"><HashLink to="/#skills" className="navbar-list-item-link">habilidades</HashLink></li>
+                        <li className="navbar-list-item"><HashLink to="/#career" className="navbar-list-item-link">carreira</HashLink></li>
+                        <li className="navbar-list-item"><HashLink to="/#projects" className="navbar-list-item-link">projetos</HashLink></li>
+                        <li className="navbar-list-item"><Link to="/blog" className="navbar-list-item-link">blog</Link></li>
                     </ul>
                 </div>
             </div>

@@ -4,16 +4,9 @@ import { Badge, Card } from "react-bootstrap";
 // styles
 import "./styles.scss";
 
-export default function cardPosts({ postImage, postTitle, postDate, postCategories, postDescription, includeImage = true }) {
+export default function newCardPosts({ postImage, postTitle, postDate, postCategories, postDescription }) {
     return (
-        <Card className={`cardPost shadow ${!includeImage ? 'pt-4 pb-3' : ''}`}>
-            { includeImage && <Card.Img
-                width="100%"
-                height="100%"
-                variant="top"
-                src={postImage}
-                className="d-block"
-            /> }
+        <Card className='cardPost shadow p-3 h-100'>
             <Card.Body className="card-body">
                 <div className="card-body-categories">
                     {postCategories.map((category, idx) => {
@@ -25,7 +18,7 @@ export default function cardPosts({ postImage, postTitle, postDate, postCategori
                 <Card.Title className="card-title mb-0">{postTitle}</Card.Title>
                 <Card.Text className="text-muted card-subtitle">
                     <small>{new Date(postDate).toLocaleDateString('pt-BR', { timezone: 'UTC' })}</small>
-                    <p className="mb-0">{postDescription}</p>
+                    <p className="mb-0 card-description">{postDescription}</p>
                 </Card.Text>
             </Card.Body>
         </Card>

@@ -1,68 +1,68 @@
-@import '../../../assets/styles/breakpoints.scss';
+// @import '../../../assets/styles/breakpoints.scss';
 
-.cardPost {
-    border: none;
-    transition: .25s;
-    display: flex;
-    flex-direction: row;
-    border-radius: 4px !important;
-    cursor: pointer;
+// .cardPost {
+//     border: none;
+//     transition: .25s;
+//     display: flex;
+//     flex-direction: row;
+//     border-radius: 4px !important;
+//     cursor: pointer;
 
-    .card-img-top {
-        max-width: 340px;
-        border-radius: 4px 0 0 4px;
+//     .card-img-top {
+//         max-width: 340px;
+//         border-radius: 4px 0 0 4px;
 
-        @include md {
-            border-radius: 4px 4px 0 0;
-        }
-    }
+//         @include md {
+//             border-radius: 4px 4px 0 0;
+//         }
+//     }
 
-    .card-body {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-        padding: 0 36px;
+//     .card-body {
+//         display: flex;
+//         flex-direction: column;
+//         align-items: flex-start;
+//         justify-content: center;
+//         padding: 0 36px;
 
-        .card-title {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--dark);
-        }
+//         .card-title {
+//             font-size: 24px;
+//             font-weight: 700;
+//             color: var(--dark);
+//         }
     
-        .card-subtitle {
-            font-size: 16px;
-            font-weight: 300;
-        }
+//         .card-subtitle {
+//             font-size: 16px;
+//             font-weight: 300;
+//         }
 
-        .card-body-categories {
-            display: flex;
-            gap: 4px;
-        }
+//         .card-body-categories {
+//             display: flex;
+//             gap: 4px;
+//         }
 
-        @include md {
-            padding: 16px;
+//         @include md {
+//             padding: 16px;
 
-            .card-title {
-                font-size: 22px;
-            }
+//             .card-title {
+//                 font-size: 22px;
+//             }
         
-            .card-subtitle {
-                font-size: 16px;
-                font-weight: 300;
-            }
-        }
-    }
+//             .card-subtitle {
+//                 font-size: 16px;
+//                 font-weight: 300;
+//             }
+//         }
+//     }
 
-    @include md {
-        flex-direction: column;
+//     @include md {
+//         flex-direction: column;
         
-        .card-img-top {
-            max-width: 100%;
-        }
-    }
-}
+//         .card-img-top {
+//             max-width: 100%;
+//         }
+//     }
+// }
 
-.cardPost:hover {
-    transform: scale(1.01);
-}
+// .cardPost:hover {
+//     transform: scale(1.01);
+// }
