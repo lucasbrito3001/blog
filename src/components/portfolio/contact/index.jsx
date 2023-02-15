@@ -3,6 +3,8 @@ import { Col, Container, Row } from "react-bootstrap";
 import "./styles.scss";
 import { useState } from "react";
 
+import Slide from "react-reveal/Slide"
+
 export default function Contact() {
     const [name, setName] = useState('')
     const [phone, setPhone] = useState('')
@@ -36,88 +38,90 @@ export default function Contact() {
                     </header>
                 </Col>
                 <Col xs={12} lg={6} className="mt-5 mt-lg-0">
-                    <form>
-                        <div className="mb-2">
-                            <label
-                                htmlFor="input-name"
-                                className="contact-labels mb-1"
-                            >
-                                Nome
-                            </label>
-                            <input
-                                onInput={(e) => setName(e.target.value)}
-                                type="text"
-                                name="name"
-                                id="input-name"
-                                className="contact-inputs"
-                                placeholder="ex: Fulano de Tal"
-                            />
-                        </div>
-                        <div className="mb-2">
-                            <label
-                                htmlFor="input-telephone"
-                                className="contact-labels mb-1"
-                            >
-                                Telefone
-                            </label>
-                            <input
-                                onInput={(e) => setPhone(e.target.value)}
-                                type="tel"
-                                name="telephone"
-                                id="input-telephone"
-                                className="contact-inputs"
-                                placeholder="ex: (xx) xxxxx - xxxx"
-                            />
-                        </div>
-                        <div className="mb-2">
-                            <label
-                                htmlFor="input-email"
-                                className="contact-labels mb-1"
-                            >
-                                e-mail
-                            </label>
-                            <input
-                                onInput={(e) => setEmail(e.target.value)}
-                                type="email"
-                                name="email"
-                                id="input-email"
-                                className="contact-inputs"
-                                placeholder="ex: fulanodetal@email.com"
-                            />
-                        </div>
-                        <div className="mb-2">
-                            <label
-                                htmlFor="input-message"
-                                className="contact-labels mb-1"
-                            >
-                                Mensagem
-                            </label>
-                            <div className="contact-textarea-wrapper">
-                                <header className="contact-message-header mt-0">
-                                    Olá, me chamo {name}.
-                                </header>
-                                <div className="contact-textarea-separator"></div>
-                                <textarea
-                                    onInput={(e) => setMessage(e.target.value)}
-                                    name="message"
-                                    id="input-message"
-                                    cols="30"
-                                    rows="10"
-                                    className="contact-textarea mb-0"
-                                    placeholder="Insira sua mensagem aqui"
+                    <Slide bottom cascade>
+                        <form>
+                            <div className="mb-2">
+                                <label
+                                    htmlFor="input-name"
+                                    className="contact-labels mb-1"
                                 >
-                                </textarea>
-                                <div className="contact-textarea-separator"></div>
-                                <footer className="contact-message-footer mt-0">
-                                    <span>Telefone para contato: {phone}</span><br />
-                                    <span>e-mail: {email}</span>
-                                </footer>
+                                    Nome
+                                </label>
+                                <input
+                                    onInput={(e) => setName(e.target.value)}
+                                    type="text"
+                                    name="name"
+                                    id="input-name"
+                                    className="contact-inputs"
+                                    placeholder="ex: Fulano de Tal"
+                                />
                             </div>
-                        </div>
-                        <button type="submit" className="contact-button mt-4">
-                            Enviar email <span>&rarr;</span>
-                        </button>
-                    </form>
+                            <div className="mb-2">
+                                <label
+                                    htmlFor="input-telephone"
+                                    className="contact-labels mb-1"
+                                >
+                                    Telefone
+                                </label>
+                                <input
+                                    onInput={(e) => setPhone(e.target.value)}
+                                    type="tel"
+                                    name="telephone"
+                                    id="input-telephone"
+                                    className="contact-inputs"
+                                    placeholder="ex: (xx) xxxxx - xxxx"
+                                />
+                            </div>
+                            <div className="mb-2">
+                                <label
+                                    htmlFor="input-email"
+                                    className="contact-labels mb-1"
+                                >
+                                    e-mail
+                                </label>
+                                <input
+                                    onInput={(e) => setEmail(e.target.value)}
+                                    type="email"
+                                    name="email"
+                                    id="input-email"
+                                    className="contact-inputs"
+                                    placeholder="ex: fulanodetal@email.com"
+                                />
+                            </div>
+                            <div className="mb-2">
+                                <label
+                                    htmlFor="input-message"
+                                    className="contact-labels mb-1"
+                                >
+                                    Mensagem
+                                </label>
+                                <div className="contact-textarea-wrapper">
+                                    <header className="contact-message-header mt-0">
+                                        Olá, me chamo {name}.
+                                    </header>
+                                    <div className="contact-textarea-separator"></div>
+                                    <textarea
+                                        onInput={(e) => setMessage(e.target.value)}
+                                        name="message"
+                                        id="input-message"
+                                        cols="30"
+                                        rows="6"
+                                        className="contact-textarea mb-0"
+                                        placeholder="Insira sua mensagem aqui"
+                                    >
+                                    </textarea>
+                                    <div className="contact-textarea-separator"></div>
+                                    <footer className="contact-message-footer mt-0">
+                                        <span>Telefone para contato: {phone}</span><br />
+                                        <span>e-mail: {email}</span>
+                                    </footer>
+                                </div>
+                            </div>
+                            <button type="submit" className="contact-button mt-4">
+                                Enviar mensagem <span>&rarr;</span>
+                            </button>
+                        </form>
+                    </Slide>
                 </Col>
             </Row>
         </Container>

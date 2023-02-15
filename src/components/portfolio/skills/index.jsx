@@ -10,6 +10,7 @@ import { getSkills } from "../../../services/portfolio/skills";
 
 // components
 import BadgeHover from "../../shared/badgeHover"
+import { Fade } from "react-reveal";
 
 export default function Skills() {
     const [currentSelected, setCurrentSelected] = useState(0);
@@ -37,13 +38,15 @@ export default function Skills() {
                 </Col>
                 <Col>
                     <div>
-                        <ul className="skills-list">
-                            {skills.map((skill, idx) => (
-                                <li className="skills-list-items" key={idx}>
-                                    <BadgeHover text={skill}/>
-                                </li>
-                            ))}
-                        </ul>
+                        <Fade right cascade>
+                            <ul className="skills-list">
+                                {skills.map((skill, idx) => (
+                                        <li className="skills-list-items" key={idx}>
+                                            <BadgeHover text={skill}/>
+                                        </li>
+                                ))}
+                            </ul>
+                        </Fade>
                     </div>
                 </Col>
             </Row>

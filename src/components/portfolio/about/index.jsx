@@ -3,7 +3,7 @@ import "./styles.scss"
 import { useEffect } from "react"
 import { useState } from "react"
 
-import RandomWaves from "../../../assets/random-waves.png"
+import Fade from "react-reveal/Fade"
 
 export default function About() {
     const [currentSelected, setCurrentSelected] = useState(0);
@@ -25,17 +25,19 @@ export default function About() {
                     </h1>
                 </Col>
                 <Col xs={12} lg={8}>
-                    <p className="about-text mb-0">
-                        Meu nome é Lucas de Brito, sou um DESENVOLVEDOR WEB
-                        FULL STACK, especializado(ando) em JavaScript. Além
-                        da parte de desenvolvimento, já passei por
-                        experiências profissionais diversas, como gestão de
-                        projetos e configuração de servidores linux e
-                        domínios. Acredito que com tempo e determinação
-                        podemos solucionar qualquer problema, então, está
-                        tendo algum problema e acha que eu posso te ajudar?
-                        Entre em contato comigo!
-                    </p>
+                    <Fade>
+                        <p className="about-text mb-0">
+                            Meu nome é Lucas de Brito, sou um DESENVOLVEDOR WEB
+                            FULL STACK, especializado(ando) em JavaScript. Além
+                            da parte de desenvolvimento, já passei por
+                            experiências profissionais diversas, como gestão de
+                            projetos e configuração de servidores linux e
+                            domínios. Acredito que com tempo e determinação
+                            podemos solucionar qualquer problema, então, está
+                            tendo algum problema e acha que eu posso te ajudar?
+                            Entre em contato comigo!
+                        </p>
+                    </Fade>
                 </Col>
                 <Col className="d-flex align-items-center justify-content-center">
                     <p className="about-side">{`</>`}</p>

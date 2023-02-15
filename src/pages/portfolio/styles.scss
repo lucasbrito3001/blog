@@ -8,7 +8,11 @@
 }
 
 .portfolio-main {
-    margin-top: 10vh;
+    margin-top: 0vh;
+
+    @include lg {
+        margin-top: 10vh;
+    }
 }
 
 .h-40 {

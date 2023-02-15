@@ -1,4 +1,5 @@
 import { Col, Container, Row } from "react-bootstrap";
+import Fade from 'react-reveal/Slide';
 import "./styles.scss"
 
 // componentes

@@ -7,6 +7,8 @@ import "./styles.scss";
 
 import CV from "../../../assets/files/cv.pdf"
 
+import Fade from "react-reveal/Fade"
+
 export default function Career() {
     const [career, setCareer] = useState([]);
 
@@ -48,31 +50,33 @@ export default function Career() {
                                                 <span className="text-muted">{enterprise.place}</span>
                                             </header>
                                             <main>
-                                                <ul>
-                                                    {enterprise.positions.map(
-                                                        (position, idxPosition) => (
-                                                            <li
-                                                                key={`enterprise-${idxEnterprise}-position-${idxPosition}`}
-                                                                className={idxPosition < enterprise.positions.length - 1 ? "pb-4" : ""}
-                                                            >
-                                                                <div>
-                                                                    <h2 className="positions-name">{position.name}</h2>
-                                                                    <span className="positions-date">{position.time}</span>
-                                                                    <p className="mb-1">{position.description}</p>
-                                                                    {/* <ul className="d-flex flex-wrap gap-2">
-                                                                        { position.technologies.map((tech, idxTech) => (
-                                                                            <li 
-                                                                                key={`enterprise-${idxEnterprise}-position-${idxPosition}-tech-${idxTech}`}
-                                                                            >
-                                                                                <Badge bg="dark" className="positions-techs-badge">{tech}</Badge>
-                                                                            </li>
-                                                                        )) }
-                                                                    </ul> */}
-                                                                </div>
-                                                            </li>
-                                                        )
-                                                        )}
-                                                </ul>
+                                                <Fade cascade>
+                                                    <ul>
+                                                        {enterprise.positions.map(
+                                                            (position, idxPosition) => (
+                                                                <li
+                                                                    key={`enterprise-${idxEnterprise}-position-${idxPosition}`}
+                                                                    className={idxPosition < enterprise.positions.length - 1 ? "pb-4" : ""}
+                                                                >
+                                                                    <div>
+                                                                        <h2 className="positions-name">{position.name}</h2>
+                                                                        <span className="positions-date">{position.time}</span>
+                                                                        <p className="mb-1">{position.description}</p>
+                                                                        {/* <ul className="d-flex flex-wrap gap-2">
+                                                                            { position.technologies.map((tech, idxTech) => (
+                                                                                <li
+                                                                                    key={`enterprise-${idxEnterprise}-position-${idxPosition}-tech-${idxTech}`}
+                                                                                >
+                                                                                    <Badge bg="dark" className="positions-techs-badge">{tech}</Badge>
+                                                                                </li>
+                                                                            )) }
+                                                                        </ul> */}
+                                                                    </div>
+                                                                </li>
+                                                            )
+                                                            )}
+                                                    </ul>
+                                                </Fade>
                                             </main>
                                         </div>
                                     </li>

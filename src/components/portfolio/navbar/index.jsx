@@ -18,7 +18,7 @@ export default function Navbar() {
     }, [])
 
     function toggleMenu() {
-        setIsCollapsed(!isCollapsed)
+        if(isMobile) setIsCollapsed(!isCollapsed)
     }
 
     return (
@@ -32,10 +32,11 @@ export default function Navbar() {
                         { isMobile && <span id="navbar-menu-toggle" onClick={toggleMenu}></span> }
                     </div>
                     <ul className="navbar-list">
-                        <li className="navbar-list-item"><HashLink to="/#about" className="navbar-list-item-link">sobre</HashLink></li>
-                        <li className="navbar-list-item"><HashLink to="/#skills" className="navbar-list-item-link">habilidades</HashLink></li>
-                        <li className="navbar-list-item"><HashLink to="/#career" className="navbar-list-item-link">carreira</HashLink></li>
-                        <li className="navbar-list-item"><HashLink to="/#projects" className="navbar-list-item-link">projetos</HashLink></li>
+                        <li className="navbar-list-item" onClick={toggleMenu}><HashLink to="/#about" className="navbar-list-item-link">sobre</HashLink></li>
+                        <li className="navbar-list-item" onClick={toggleMenu}><HashLink to="/#skills" className="navbar-list-item-link">habilidades</HashLink></li>
+                        <li className="navbar-list-item" onClick={toggleMenu}><HashLink to="/#career" className="navbar-list-item-link">carreira</HashLink></li>
+                        <li className="navbar-list-item" onClick={toggleMenu}><HashLink to="/#projects" className="navbar-list-item-link">projetos</HashLink></li>
+                        <li className="navbar-list-item" onClick={toggleMenu}><HashLink to="/#contacts" className="navbar-list-item-link">contato</HashLink></li>
                         <li className="navbar-list-item"><Link to="/blog" className="navbar-list-item-link">blog</Link></li>
                     </ul>
                 </div>
