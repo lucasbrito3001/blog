@@ -5,11 +5,43 @@ import { useState } from "react";
 
 import Slide from "react-reveal/Slide"
 
+import { sendMail } from "../../../services/mailer"
+
 export default function Contact() {
     const [name, setName] = useState('')
     const [phone, setPhone] = useState('')
     const [email, setEmail] = useState('')
     const [message, setMessage] = useState('')
+    const [isSendingEmail, setIsSendingEmail] = useState(false)
+
+    async function sendMessage(event) {
+        try {
+            setIsSendingEmail(true)
+
+            event.preventDefault()
+    
+            const bodyMessage = `
+                Olá, me chamo ${name}.
+    
+                ${message}
+    
+                Contatos
+                ---------------------------
+                Telefone: ${phone}
+                e-mail: ${email}
+                
+            `
+    
+            await sendMail({ 
+                subject: 'Novo email enviado pelo portfolio',
+                text: bodyMessage
+            })
+
+            setIsSendingEmail(false)
+        } catch (error) {
+            
+        }
+    }
 
     return (
         <Container>
@@ -39,7 +71,7 @@ export default function Contact() {
                 </Col>
                 <Col xs={12} lg={6} className="mt-5 mt-lg-0">
                     <Slide bottom cascade>
-                        <form>
+                        <form onSubmit={sendMessage}>
                             <div className="mb-2">
                                 <label
                                     htmlFor="input-name"
@@ -117,8 +149,11 @@ export default function Contact() {
                                     </footer>
                                 </div>
                             </div>
-                            <button type="submit" className="contact-button mt-4">
-                                Enviar mensagem <span>&rarr;</span>
+                            <button type="submit" className="contact-button mt-4" disabled={isSendingEmail}>
+                                { isSendingEmail 
+                                    ? <span>Enviando email...</span>
+                                    : <span>Enviar mensagem <span>&rarr;</span></span>
+                                }
                             </button>
                         </form>
                     </Slide>

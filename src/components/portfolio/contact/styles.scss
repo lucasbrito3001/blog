@@ -124,3 +124,9 @@
     color: var(--light);
     gap: 12px;
 }
+
+.contact-button:disabled, .contact-button[disabled] {
+    border: 2px solid var(--medium-dark);
+    background-color: var(--medium-dark);
+    color: var(--medium-light);
+}
