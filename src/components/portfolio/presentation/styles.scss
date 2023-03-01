@@ -1,21 +1,30 @@
 @import "../../../assets/styles/breakpoints.scss";
 
-.presentation-title {
-    font-size: 72px !important;
-
+.presentation-subtitle {
+    font-weight: 700 !important;
+    font-size: 48px !important;
+    color: var(--principal-color);
+    
     @include md {
-        font-size: 56px !important;
+        font-size: 32px !important;
     }
 }
 
-.presentation-subtitle {
-    font-size: 56px !important;
+.presentation-title {
+    font-size: 72px !important;
     margin-bottom: 0;
     line-height: 1;
+    font-weight: 700 !important;
 
     @include md {
         font-size: 40px !important;
     }
+}
+
+.presentation-subtitle-outlined {
+    color: transparent;
+    -webkit-text-stroke: 2px var(--dark);
+    font-family: Arial !important;
 }
 
 .presentation-describe {
@@ -33,13 +42,27 @@
     color: var(--principal-color);
 }
 
+.presentation-texts {
+    // text-align: center;
+    z-index: 20;
+    position: relative;
+    text-transform: uppercase;
+
+    @include lg {
+        text-align: left;
+    }
+}
+
 .presentation-techs-circle-rotating {
+    position: absolute;
     width: 100%;
+    height: 100%;
     padding-bottom: 100%;
-    animation: rotate 120s linear infinite;
+    animation: rotate 20s linear infinite;
+    border-radius: 100%;
 
     .presentation-techs-circle-icons {
-        animation: rotate 120s linear infinite reverse;
+        animation: rotate 20s linear infinite reverse;
 
         @include md {
             width: 40px;
@@ -60,7 +83,7 @@
     #presentation-techs-circle-sqlserver {
         position: absolute;
         top: calc(100% - 28px);
-        left: calc(50% - 28px);
+        left: calc(50% - 20px);
         
         @include md {
             top: calc(100% - 20px);
@@ -71,11 +94,11 @@
     #presentation-techs-circle-vue {
         position: absolute;
         top: calc(50% - 24px);
-        left: calc(100% - 24px);
+        left: calc(100% - 28px);
 
         @include md {
-            top: calc(50% - 20px);
-            left: calc(100% - 20px);
+            top: calc(50% - 8px);
+            left: calc(100% - 24px);
         }
     }
 
@@ -92,18 +115,18 @@
 
     #presentation-techs-circle-javascript {
         position: absolute;
-        top: calc(12.5% - 21px);
+        top: calc(12.5% - 8px);
         left: calc(12.5% - 21px);
 
         @include md {
-            top: calc(12.5% - 20px);
-            left: calc(12.5% - 20px);
+            top: calc(12.5% - 12px);
+            left: calc(12.5% - 12px);
         }
     }
 
     #presentation-techs-circle-react {
         position: absolute;
-        top: calc(12.5% - 22px);
+        top: calc(12.5% - 36px);
         left: calc(75%);
 
         @include md {
@@ -114,18 +137,18 @@
 
     #presentation-techs-circle-mysql {
         position: absolute;
-        top: calc(75% + 14px);
+        top: calc(75% + 56px);
         left: calc(75%);
 
         @include md {
             top: calc(75% + 10px);
-            left: calc(75%);
+            left: calc(75% + 16px);
         }
     }
 
     #presentation-techs-circle-css {
         position: absolute;
-        top: calc(75% + 14px);
+        top: calc(75% + 32px);
         left: calc(12.5% - 14px);
 
         @include md {
@@ -137,13 +160,31 @@
 
 .presentation-techs-circle {
     display: block;
-    position: relative;
-    width: 60%;
+    position: absolute;
+    width: 45%;
     height: 0;
-    padding-bottom: 60%;
+    padding-bottom: 45%;
+    margin: auto;
+    bottom: -35%;
+    right: -25%;
+    opacity: .5;
+    z-index: 10;
+
+    @include md {
+        width: 80%;
+        padding-bottom: 80%;
+        right: -30%;
+    }
+}
+
+.presentation-techs-circle-dashed {
+    position: absolute;
+    // display: block;
     border: 2px dashed var(--light);
     border-radius: 100%;
-    margin: auto;
+    width: 100%;
+    // height: 100%;
+    padding-bottom: 100%;
 }
 
 @keyframes rotate {

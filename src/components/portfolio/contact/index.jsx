@@ -4,8 +4,10 @@ import "./styles.scss";
 import { useState } from "react";
 
 import Slide from "react-reveal/Slide"
+import * as EmailValidator from 'email-validator'
 
 import { sendMail } from "../../../services/mailer"
+import { toast } from "react-toastify";
 
 export default function Contact() {
     const [name, setName] = useState('')
@@ -13,13 +15,49 @@ export default function Contact() {
     const [email, setEmail] = useState('')
     const [message, setMessage] = useState('')
     const [isSendingEmail, setIsSendingEmail] = useState(false)
+    const [errors, setErrors] = useState([])
+
+    const formFieldsRules = {
+        name: name.length > 0,
+        phone: phone.length >= 10,
+        email: EmailValidator.validate(email),
+        message: message.length > 0
+    }
+
+    function validateFormField(field) {
+        const fieldsWithError = formFieldsRules[field]
+            ? errors.filter(error => error !== field)
+            : [...errors, field]
+
+        setErrors(fieldsWithError)
+    }
 
     async function sendMessage(event) {
         try {
-            setIsSendingEmail(true)
-
             event.preventDefault()
-    
+
+            const emailInfos = [
+                { key: 'name', value: name },
+                { key: 'phone', value: phone },
+                { key: 'email', value: email },
+                { key: 'message', value: message }
+            ]
+
+            const emailInfosErrors = []
+
+            emailInfos.forEach(info => {
+                if(!info.value) emailInfosErrors.push(info.key)
+            })
+
+            if(emailInfosErrors.length > 0) return setErrors(emailInfosErrors)
+
+            setIsSendingEmail(true)
+            setErrors([])
+            setName('')
+            setPhone('')
+            setEmail('')
+            setMessage('')
+
             const bodyMessage = `
                 Olá, me chamo ${name}.
     
@@ -32,10 +70,18 @@ export default function Contact() {
                 
             `
     
-            await sendMail({ 
+            const result = await sendMail({ 
                 subject: 'Novo email enviado pelo portfolio',
                 text: bodyMessage
             })
+
+            toast[result.status && !!result.status ? 'success' : 'error'](result.message, {
+                position: toast.POSITION.TOP_RIGHT,
+                collapseDuration: 300,
+                enter: 'zoomIn', 
+                exit: 'zoomOut'
+            })
+            console.log(result)
 
             setIsSendingEmail(false)
         } catch (error) {
@@ -72,7 +118,7 @@ export default function Contact() {
                 <Col xs={12} lg={6} className="mt-5 mt-lg-0">
                     <Slide bottom cascade>
                         <form onSubmit={sendMessage}>
-                            <div className="mb-2">
+                            <div className="mb-3">
                                 <label
                                     htmlFor="input-name"
                                     className="contact-labels mb-1"
@@ -84,11 +130,19 @@ export default function Contact() {
                                     type="text"
                                     name="name"
                                     id="input-name"
-                                    className="contact-inputs"
+                                    className={`
+                                        ${errors.includes('name') ? 'input-error' : ''} 
+                                        ${formFieldsRules['name'] ? 'input-success' : ''}
+                                        contact-inputs
+                                    `}
                                     placeholder="ex: Fulano de Tal"
+                                    onChange={() => validateFormField('name')}
+                                    onKeyDown={(e) => e.key === 'Tab' ? validateFormField('name') : ''}
+                                    value={name}
                                 />
+                                {/* <small className={ errors.includes('name') ? 'error-label' : 'neutral-label' }>* o nome é obrigatório</small> */}
                             </div>
-                            <div className="mb-2">
+                            <div className="mb-3">
                                 <label
                                     htmlFor="input-telephone"
                                     className="contact-labels mb-1"
@@ -100,11 +154,19 @@ export default function Contact() {
                                     type="tel"
                                     name="telephone"
                                     id="input-telephone"
-                                    className="contact-inputs"
+                                    className={`
+                                        ${errors.includes('phone') ? 'input-error' : ''} 
+                                        ${formFieldsRules['phone'] ? 'input-success' : ''}
+                                        contact-inputs
+                                    `}
                                     placeholder="ex: (xx) xxxxx - xxxx"
+                                    onChange={() => validateFormField('phone')}
+                                    onKeyDown={(e) => e.key === 'Tab' ? validateFormField('phone') : ''}
+                                    value={phone}
                                 />
+                                {/* <small className={ errors.includes('phone') ? 'error-label' : 'neutral-label' }>* o telefone é obrigatório</small> */}
                             </div>
-                            <div className="mb-2">
+                            <div className="mb-3">
                                 <label
                                     htmlFor="input-email"
                                     className="contact-labels mb-1"
@@ -116,18 +178,32 @@ export default function Contact() {
                                     type="email"
                                     name="email"
                                     id="input-email"
-                                    className="contact-inputs"
+                                    className={`
+                                        ${errors.includes('email') ? 'input-error' : ''} 
+                                        ${formFieldsRules['email'] ? 'input-success' : ''}
+                                        contact-inputs
+                                    `}
                                     placeholder="ex: fulanodetal@email.com"
+                                    onChange={() => validateFormField('email')}
+                                    onKeyDown={(e) => e.key === 'Tab' ? validateFormField('email') : ''}
+                                    value={email}
                                 />
+                                {/* <small className={ errors.includes('email') ? 'error-label' : 'neutral-label' }>* o email é inválido</small> */}
                             </div>
-                            <div className="mb-2">
+                            <div className="mb-3">
                                 <label
                                     htmlFor="input-message"
                                     className="contact-labels mb-1"
                                 >
                                     Mensagem
                                 </label>
-                                <div className="contact-textarea-wrapper">
+                                <div 
+                                    className={`
+                                        ${errors.includes('message') ? 'input-error' : ''} 
+                                        ${formFieldsRules['message'] ? 'input-success' : ''}
+                                        contact-inputs
+                                    `}
+                                >
                                     <header className="contact-message-header mt-0">
                                         Olá, me chamo {name}.
                                     </header>
@@ -140,6 +216,9 @@ export default function Contact() {
                                         rows="6"
                                         className="contact-textarea mb-0"
                                         placeholder="Insira sua mensagem aqui"
+                                        onChange={() => validateFormField('message')}
+                                        onKeyDown={(e) => e.key === 'Tab' ? validateFormField('message') : ''}
+                                        value={message}
                                     >
                                     </textarea>
                                     <div className="contact-textarea-separator"></div>
@@ -148,6 +227,7 @@ export default function Contact() {
                                         <span>e-mail: {email}</span>
                                     </footer>
                                 </div>
+                                {/* <small className={ errors.includes('message') ? 'error-label' : 'neutral-label' }>* o mensagem é obrigatória</small> */}
                             </div>
                             <button type="submit" className="contact-button mt-4" disabled={isSendingEmail}>
                                 { isSendingEmail 

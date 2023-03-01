@@ -21,7 +21,7 @@ export default function Portfolio() {
                 <Navbar></Navbar>
             </header>
             <main className="portfolio-main">
-                <div className="portfolio-presentation">
+                <div id="presentation" className="portfolio-presentation">
                     <Presentation></Presentation>
                 </div>
                 <div id="about" className="portfolio-about">

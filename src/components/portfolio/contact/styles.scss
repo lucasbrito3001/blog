@@ -4,14 +4,24 @@
     color: white;
     font-weight: 300;
     line-height: 1.5;
+    font-size: 52px;
+
+    @include md {
+        font-size: 28px;
+    }
 }
 
 .contacts-links {
-    font-size: 18px;
+    font-size: 22px;
     transition: all .4s;
     color: var(--principal-color);
     text-decoration: none;
     text-underline-offset: 0px;
+    font-weight: 300;
+
+    @include md {
+        font-size: 18px;
+    }
 }
 
 .contacts-links:hover {
@@ -42,7 +52,7 @@
     border-radius: 32px;
     color: var(--light);
     transition: .4s;
-    font-size: 20px;
+    font-size: 17px;
 
     @include md {
         font-size: 16px;
@@ -92,7 +102,7 @@
     border: 2px solid var(--medium);
     padding: 8px 20px;
     border-radius: 32px;
-    font-size: 20px;
+    font-size: 17px;
 
     @include md {
         font-size: 16px;
@@ -129,4 +139,12 @@
     border: 2px solid var(--medium-dark);
     background-color: var(--medium-dark);
     color: var(--medium-light);
+}
+
+.input-success {
+    border: 2px dashed var(--inputs-success);
+}
+
+.input-error {
+    border: 2px dashed var(--inputs-error);
 }

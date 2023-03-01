@@ -1,7 +1,7 @@
 import "./styles.scss"
 
-export default function Logo() {
+export default function Logo({ theme }) {
     return (
-        <span id="logo">lucasdbrito<span id="logo-color">.com</span></span>
+        <span id="logo" className={theme === 'dark' ? 'dark-logo' : 'light-logo'}>lucasdbrito<span id="logo-color">.com</span></span>
     )
 }

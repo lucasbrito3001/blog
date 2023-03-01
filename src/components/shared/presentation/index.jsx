@@ -7,7 +7,7 @@ import LinkedInIcon from "../../../assets/linkedin.svg"
 
 export default function Presentation() {
     return (
-        <article id="presentation">
+        <article id="presentation-blog">
             <h1>Bem-vindo ao meu blog!</h1>
             <p>
                 Aqui você vai encontrar conteúdo sobre, desenvolvimento e

@@ -14,6 +14,8 @@
   --light-blue: #edf2f5;
   --extra-light: #f7f7f7;
   --navbar-color: rgba(0, 0, 0, 0.123);
+  --inputs-success: rgb(60, 88, 60);
+  --inputs-error: rgb(88, 55, 55);
 }
 
 * {
@@ -55,4 +57,12 @@ ul {
 
 .badge.bg-primary {
   background-color: var(--principal-color) !important;
+}
+
+.error-label {
+  color: rgb(197, 75, 53);
+}
+
+.neutral-label {
+  color: var(--dark);
 }
