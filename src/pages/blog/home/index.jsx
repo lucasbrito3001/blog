@@ -11,6 +11,7 @@ import Footer from "../../../components/shared/footer/index";
 // styles
 import "./styles.scss";
 import { Container, Row, Col } from "react-bootstrap";
+import Navbar from "../../../components/portfolio/navbar";
 
 const FILTERS_FIELDS = [
     {
@@ -31,7 +32,7 @@ const FILTERS_FIELDS = [
     {
         label: "Buscar no título",
         value: "title",
-        placeholder: "Busque um texto para filtrarmos no título",
+        placeholder: "Filtrar por palavras no título...",
         key: 2,
         type: "search",
         colsLg: "6",
@@ -52,7 +53,9 @@ export default function Home() {
 
     return (
         <>
-            <Header />
+            <div id="blog-navbar">
+                <Navbar></Navbar>
+            </div>
             <Filter
                 id="filter"
                 filterFields={FILTERS_FIELDS}
@@ -61,18 +64,18 @@ export default function Home() {
             />
             <div className="wrapper-posts">
                 <Container className="px-2 px-lg-0">
-                    <Row className="py-4 g-4 g-lg-0">
-                        <Col xs="12" md="6" lg="9">
+                    <Row className="pt-4 pb-5 py-lg-5 g-4 g-lg-0">
+                        <Col xs="12">
                             <Posts
                                 categories={categorySelected}
                                 titleSearched={titleSearched}
                             />
                         </Col>
-                        <Col xs="12" md="6" lg="3">
+                        {/* <Col xs="12" md="6" lg="3">
                             <div style={{ top: `${filterHeight + 16}px` }} id="presentation" className="mx-2">
                                 <Presentation />
                             </div>
-                        </Col>
+                        </Col> */}
                     </Row>
                 </Container>
             </div>

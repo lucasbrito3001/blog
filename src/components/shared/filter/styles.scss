@@ -1,8 +1,19 @@
 #filter {
-    background-color: var(--medium);
-    padding: 16px;
+    background-color: var(--principal-color);
+    padding: 8px;
+    margin-top: 10vh;
 }
 
 .filters:nth-child(n+1) {
     margin-top: 8px;
+}
+
+.filters-fields {
+    background-color: white;
+    padding: 24px;
+    border-radius: 4px;
+}
+
+.title-blog {
+    font-size: 64px;
 }

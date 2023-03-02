@@ -11,6 +11,7 @@ import Footer from "../../../components/shared/footer/index";
 // styles
 import "./styles.scss";
 import { Container, Row, Col } from "react-bootstrap";
+import Navbar from "../../../components/portfolio/navbar";
 
 const FILTERS_FIELDS = [
     {
@@ -52,17 +53,19 @@ export default function Home() {
 
     return (
         <>
-            <Header />
+            <div id="blog-navbar">
+                <Navbar />
+            </div>
             <div className="wrapper-posts">
                 <Container>
                     <Row className="py-4 gx-lg-4 gy-lg-0">
-                        <Col xs="12" lg="8" className="mb-4 mb-lg-0">
+                        <Col xs="12" lg="9" className="mb-4 mb-lg-0">
                             <Post/>
                         </Col>
                         <Col xs="12" lg="4">
-                            <div style={{ top: `${filterHeight + 16}px` }} id="presentation" className="mx-0 mx-lg-2">
+                            {/* <div style={{ top: `${filterHeight + 16}px` }} id="presentation" className="mx-0 mx-lg-2">
                                 <Presentation />
-                            </div>
+                            </div> */}
                         </Col>
                     </Row>
                 </Container>

@@ -6,8 +6,9 @@ import "./styles.scss";
 
 export default function newCardPosts({ postImage, postTitle, postDate, postCategories, postDescription }) {
     return (
-        <Card className='cardPost shadow p-3 h-100'>
-            <Card.Body className="card-body">
+        <Card className='cardPost shadow h-100'>
+            <Card.Img  variant="top" src={postImage}/>
+            <Card.Body className="card-body px-4">
                 <div className="card-body-categories">
                     {postCategories.map((category, idx) => {
                         return <Badge key={idx} bg="primary" className="mb-2">

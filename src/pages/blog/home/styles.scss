@@ -1,10 +1,11 @@
 @import '../../../assets/styles/breakpoints.scss';
 
 #filter {
-    position: sticky;
     color: white;
     top: 0;
     z-index: 100;
+    
+    margin-top: 10vh;
 }
 
 #presentation-blog {
@@ -48,6 +49,15 @@
     align-items: center;
     text-align: center;
     justify-content: center;
+    position: fixed;
+    top: 0;
+}
+
+#blog-navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
 }
 
 // #filter {
