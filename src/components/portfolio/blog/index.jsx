@@ -28,7 +28,6 @@ export default function BlogPreview() {
                     <CardBlogPost
                         postTitle={post.title}
                         postDate={post.createdAt}
-                        postImage={post.thumbnail}
                         postDescription={post.subtitle}
                         postCategories={post.categories}
                     />

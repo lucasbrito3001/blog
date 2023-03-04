@@ -15,7 +15,7 @@
     }
 }
 
-.career-section-positions {
+.career-section-academical {
     border-left: 1px solid var(--light);
     
     @include lg {
@@ -61,6 +61,17 @@
     }
 }
 
+.course-name {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--medium);
+    margin-bottom: 0;
+
+    @include md {
+        font-size: 20px;
+    }
+}
+
 .positions-date {
     font-size: 16px;
     color: var(--medium-light);
@@ -77,4 +88,13 @@
 
 .positions-techs-badge {
     text-transform: uppercase;
+}
+
+.dashed-separator {
+    height: 10vh;
+    // border-left: 1px dashed var(--light);
+    background-image: linear-gradient(var(--medium-light) 33%, rgba(255,255,255,0) 0%);
+    background-position: left;
+    background-size: 1px 12px;
+    background-repeat: repeat-y;
 }

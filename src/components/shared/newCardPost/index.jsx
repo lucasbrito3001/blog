@@ -7,7 +7,7 @@ import "./styles.scss";
 export default function newCardPosts({ postImage, postTitle, postDate, postCategories, postDescription }) {
     return (
         <Card className='cardPost shadow h-100'>
-            <Card.Img  variant="top" src={postImage}/>
+            { postImage && <Card.Img  variant="top" src={postImage}/> }
             <Card.Body className="card-body px-4">
                 <div className="card-body-categories">
                     {postCategories.map((category, idx) => {

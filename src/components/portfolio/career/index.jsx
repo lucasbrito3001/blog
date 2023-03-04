@@ -8,17 +8,19 @@ import "./styles.scss";
 import CV from "../../../assets/files/cv.pdf"
 
 import Fade from "react-reveal/Fade"
+import { getAcademical } from "../../../services/portfolio/academical";
 
 export default function Career() {
     const [career, setCareer] = useState([]);
+    const [academical, setAcademical] = useState([]);
 
     useEffect(() => {
         async function getCareerOnLoad() {
-            const { status, content } = await getCareer();
+            const career = await getCareer();
+            const academical = await getAcademical();
 
-            if (!status) return;
-
-            setCareer(content);
+            setCareer(career.content);
+            setAcademical(academical.content)
         }
 
         getCareerOnLoad();
@@ -27,14 +29,15 @@ export default function Career() {
     return (
         <Container>
             <Row className="py-lg-5 py-4 career-section">
-                <Col className="pb-3 pe-0 pe-lg-4 mb-4 mb-lg-0 career-section-title" xs={12} lg={5}>
-                    <h1 className="sections-title">carreira</h1>
-                    <p>Dados sobre minha carreira, habilidades e experiência acadêmica você consegue encontrar no meu currículo.</p>
-                    <a href={CV} download="Lucas de Brito - Full Stack - CV">
+                <Col className="pb-3 py-2 pe-lg-5 mb-4 mb-lg-0 career-section-career text-start text-lg-end" xs={12} lg={6}>
+                    <div className="mb-4">
+                        <h1 className="sections-title">xp. profissional</h1>
+                        {/* <p>Minha trajetória e um pouco sobre o que aprendi e exerci em cada um dos cargos.</p> */}
+                    </div>
+                    {/* <a href={CV} download="Lucas de Brito - Full Stack - CV">
                         <button className="project-button career-button">Baixar currículo <span className="ms-1">&darr;</span></button>
-                    </a>
-                </Col>
-                <Col xs={12} lg={7} className="career-section-positions">
+                    </a> */}
+
                     <ul className="career-list">
                         {career.length > 0 &&
                             career.map((enterprise, idxEnterprise) => {
@@ -85,10 +88,53 @@ export default function Career() {
                                             <hr className={`${idxEnterprise < career.length - 1 ? "my-4" : ''} positions-separator`}/>
                                     }
                                 </div>
-                            })}
+                            })
+                        }
                     </ul>
                 </Col>
+                <Col xs={12} lg={6} className="career-section-academical text-start px-3 ps-lg-5">
+                <div className="mb-4">
+                        <h1 className="sections-title">xp. acadêmica</h1>
+                        {/* <p>Um pouco sobre a minha vida antes de me tornar um programador profissional.</p> */}
+                    </div>
+                    {/* <a href={CV} download="Lucas de Brito - Full Stack - CV">
+                        <button className="project-button career-button">Baixar currículo <span className="ms-1">&darr;</span></button>
+                    </a> */}
+                    <Fade cascade>
+                        <ul className="career-list">
+                            {academical.length > 0 && academical.map((course, idx) => {
+                                    return <div>
+                                        <li key={`course-${idx}`}>
+                                            <div>
+                                                <h1 className="enterprise-name mb-0">
+                                                    {course.name}
+                                                </h1>
+                                                <span className="text-muted">{course.place}</span>
+                                                <h2 className="course-name">{course.institution}</h2>
+                                                <span className="positions-date">{course.date}</span>
+                                                { course.description.map(paragraph => <p className="m-0">{paragraph}</p>) }
+                                            </div>
+                                        </li>
+                                        {
+                                            idx < (academical.length - 1) &&
+                                                <hr className={`${idx < career.length - 1 ? "my-4" : ''} positions-separator`}/>
+                                        }
+                                    </div>
+                                })
+                            }
+                        </ul>
+                    </Fade>
+                </Col>
+                <Col xs={6}></Col>
+                <Col xs={6} className="dashed-separator mt-4 mt-lg-2"></Col>
+                <Col xs={12} className="mt-4 mt-lg-2 d-flex justify-content-center align-center">
+                    <a href={CV} download="Lucas de Brito - Full Stack - CV">
+                        <button className="project-button career-button">Baixar currículo <span className="ms-1">&darr;</span></button>
+                    </a>
+                </Col>
             </Row>
+            {/* <Row> */}
+            {/* </Row> */}
         </Container>
     );
 }
