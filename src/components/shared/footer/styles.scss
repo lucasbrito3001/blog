@@ -1,5 +1,5 @@
 #footer {
-    background-color: var(--medium);
+    background-color: var(--bg-footer);
     color: var(--light);
     padding: 64px 0;
 
@@ -10,7 +10,9 @@
 
     .text {
         line-height: 1.75;
-        font-weight: 300;
+        font-weight: 400;
+        font-size: 18px;
+        color: var(--light);
 
         strong {
             font-weight: 700;
@@ -27,7 +29,7 @@
 
         li {
             margin-bottom: 16px;
-            width: fit-content;
+            transition: all 0.3s;
         }
     }
 
@@ -42,9 +44,10 @@
 
     .network-links {
         transition: .3s;
+        border-bottom: 1px solid transparent;
     }
 
     .network-links:hover {
-        transform: scale(1.1);
+        border-bottom: 1px solid var(--principal-color) !important;
     }
 }

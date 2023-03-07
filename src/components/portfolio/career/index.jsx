@@ -32,11 +32,7 @@ export default function Career() {
                 <Col className="pb-3 py-2 pe-lg-5 mb-4 mb-lg-0 career-section-career text-start text-lg-end" xs={12} lg={6}>
                     <div className="mb-4">
                         <h1 className="sections-title">xp. profissional</h1>
-                        {/* <p>Minha trajetória e um pouco sobre o que aprendi e exerci em cada um dos cargos.</p> */}
                     </div>
-                    {/* <a href={CV} download="Lucas de Brito - Full Stack - CV">
-                        <button className="project-button career-button">Baixar currículo <span className="ms-1">&darr;</span></button>
-                    </a> */}
 
                     <ul className="career-list">
                         {career.length > 0 &&
@@ -53,7 +49,7 @@ export default function Career() {
                                                 <span className="text-muted">{enterprise.place}</span>
                                             </header>
                                             <main>
-                                                <Fade cascade>
+                                                {/* <Fade cascade> */}
                                                     <ul>
                                                         {enterprise.positions.map(
                                                             (position, idxPosition) => (
@@ -64,22 +60,13 @@ export default function Career() {
                                                                     <div>
                                                                         <h2 className="positions-name">{position.name}</h2>
                                                                         <span className="positions-date">{position.time}</span>
-                                                                        <p className="mb-1">{position.description}</p>
-                                                                        {/* <ul className="d-flex flex-wrap gap-2">
-                                                                            { position.technologies.map((tech, idxTech) => (
-                                                                                <li
-                                                                                    key={`enterprise-${idxEnterprise}-position-${idxPosition}-tech-${idxTech}`}
-                                                                                >
-                                                                                    <Badge bg="dark" className="positions-techs-badge">{tech}</Badge>
-                                                                                </li>
-                                                                            )) }
-                                                                        </ul> */}
+                                                                        <p className="mb-1 career-description">{position.description}</p>
                                                                     </div>
                                                                 </li>
                                                             )
                                                             )}
                                                     </ul>
-                                                </Fade>
+                                                {/* </Fade> */}
                                             </main>
                                         </div>
                                     </li>
@@ -95,12 +82,8 @@ export default function Career() {
                 <Col xs={12} lg={6} className="career-section-academical text-start px-3 ps-lg-5">
                 <div className="mb-4">
                         <h1 className="sections-title">xp. acadêmica</h1>
-                        {/* <p>Um pouco sobre a minha vida antes de me tornar um programador profissional.</p> */}
                     </div>
-                    {/* <a href={CV} download="Lucas de Brito - Full Stack - CV">
-                        <button className="project-button career-button">Baixar currículo <span className="ms-1">&darr;</span></button>
-                    </a> */}
-                    <Fade cascade>
+                    {/* <Fade cascade> */}
                         <ul className="career-list">
                             {academical.length > 0 && academical.map((course, idx) => {
                                     return <div>
@@ -112,7 +95,7 @@ export default function Career() {
                                                 <span className="text-muted">{course.place}</span>
                                                 <h2 className="course-name">{course.institution}</h2>
                                                 <span className="positions-date">{course.date}</span>
-                                                { course.description.map(paragraph => <p className="m-0">{paragraph}</p>) }
+                                                { course.description.map(paragraph => <p className="career-description m-0">{paragraph}</p>) }
                                             </div>
                                         </li>
                                         {
@@ -123,7 +106,7 @@ export default function Career() {
                                 })
                             }
                         </ul>
-                    </Fade>
+                    {/* </Fade> */}
                 </Col>
                 <Col xs={6}></Col>
                 <Col xs={6} className="dashed-separator mt-4 mt-lg-2"></Col>

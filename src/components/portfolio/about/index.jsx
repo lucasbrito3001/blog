@@ -1,9 +1,11 @@
-import { Col, Container, Row } from "react-bootstrap"
-import "./styles.scss"
-import { useEffect } from "react"
-import { useState } from "react"
+import { Col, Container, Row } from "react-bootstrap";
+import "./styles.scss";
+import { useEffect } from "react";
+import { useState } from "react";
 
-import Fade from "react-reveal/Fade"
+import Fade from "react-reveal/Fade";
+
+import DeveloperSvg from "../../../assets/images/code_typing.gif";
 
 export default function About() {
     const [currentSelected, setCurrentSelected] = useState(0);
@@ -20,27 +22,29 @@ export default function About() {
         <Container>
             <Row className="py-lg-5 pt-5 pb-4">
                 <Col xs={12}>
-                    <h1 className="sections-title text-start">
-                        quem sou eu?
-                    </h1>
+                    <h1 className="sections-title text-start">quem sou eu?</h1>
                 </Col>
-                <Col xs={12} lg={8}>
+                <Col xs={12} lg={7}>
                     <Fade>
                         <p className="about-text mb-0">
-                            Meu nome é Lucas de Brito, sou um DESENVOLVEDOR WEB
-                            FULL STACK, especializado(ando) em JavaScript. Além
-                            da parte de desenvolvimento, já passei por
-                            experiências profissionais diversas, como gestão de
-                            projetos e configuração de servidores linux e
-                            domínios. Acredito que com tempo e determinação
-                            podemos solucionar qualquer problema, então, está
-                            tendo algum problema e acha que eu posso te ajudar?
-                            Entre em contato comigo!
+                            Meu nome é Lucas de Brito, tenho {(new Date()).getUTCFullYear() - 2000} anos e, na verdade,
+                            a imagem que vc está vendo me representa bastante, amo basicamente tudo que tem nela, café, plantas e
+                            tecnologia.
+                            <br />
+                            Sou uma pessoa muito curiosa e ativa, e é somando isso com meu conhecimento técnico - em constante
+                            desenvolvimento - que eu busco agregar valor para as equipes que participo. 
+                            <br />
+                            Acredito que com transparência, empatia e um grupo comprometido e responsável, podemos resolver
+                            qualquer problema!
                         </p>
                     </Fade>
                 </Col>
                 <Col className="d-flex align-items-center justify-content-center">
-                    <p className="about-side">{`</>`}</p>
+                    <img
+                        src={DeveloperSvg}
+                        alt="um desenvolvedor sentado em uma mesa com um computador, cercado por telas de terminais"
+                        width={400}
+                    />
                 </Col>
             </Row>
         </Container>

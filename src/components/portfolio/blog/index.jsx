@@ -1,30 +1,32 @@
-import { Col, Container, Row } from "react-bootstrap"
+import { Col, Container, Row } from "react-bootstrap";
 
-import CardBlogPost from "../../shared/newCardPost"
-import postsToRender from "../../../posts/index"
+import CardBlogPost from "../../shared/newCardPost";
+import postsToRender from "../../../posts/index";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getRecentPosts } from "../../../services/posts";
 
-import "./styles.scss"
+import "./styles.scss";
 
 export default function BlogPreview() {
-    const [recentPosts, setRecentPosts] = useState([])
+    const [recentPosts, setRecentPosts] = useState([]);
 
     useEffect(() => {
         async function getRecentPostsOnLoad() {
-            const recentPosts = await getRecentPosts()
+            const recentPosts = await getRecentPosts();
 
-            setRecentPosts(recentPosts.content)
+            setRecentPosts(recentPosts.content);
         }
 
-        getRecentPostsOnLoad()
-    }, [])
+        getRecentPostsOnLoad();
+    }, []);
 
     function renderCards() {
         return recentPosts.map((post, idx) => (
             <Col xs={12} md={6} lg={4} key={idx}>
-                <Link to={`/blog/${post.title.toLowerCase().replace(/\s/g, '-')}`}>
+                <Link
+                    to={`/blog/${post.title.toLowerCase().replace(/\s/g, "-")}`}
+                >
                     <CardBlogPost
                         postTitle={post.title}
                         postDate={post.createdAt}
@@ -41,15 +43,31 @@ export default function BlogPreview() {
             <Row className="pt-0 pt-lg-5 mb-4">
                 <Col>
                     <header>
-                        <h1 className="sections-title blog-title">postagens recentes blog</h1>
-                        <h2 className="blog-subtitle text-muted">no meu blog você vai encontrar conteúdos sobre carreira, tutoriais de tecnologia, e arquitetura de software</h2>
+                        <h1 className="sections-title blog-title">
+                            postagens recentes blog
+                        </h1>
+                        <h2 className="blog-subtitle text-muted">
+                            no meu blog você vai encontrar conteúdos sobre
+                            carreira, tutoriais de tecnologia, e arquitetura de
+                            software
+                        </h2>
                     </header>
                 </Col>
             </Row>
             <Row className="pb-5 gy-4">
-                { recentPosts.length > 0 && renderCards() }
-                <Col><button className="project-button blog-button shadow-lg">Visitar blog <span className="blog-button-chevron">&rarr;</span></button></Col>
+                {recentPosts.length > 0 && renderCards()}
+                <Col>
+                    <Link to="/blog">
+                        <button
+                            className="project-button blog-button shadow-lg"
+                            type="button"
+                        >
+                            Visitar blog{" "}
+                            <span className="blog-button-chevron">&rarr;</span>
+                        </button>
+                    </Link>
+                </Col>
             </Row>
         </Container>
-    )
+    );
 }

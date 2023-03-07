@@ -10,31 +10,25 @@ export default function Footer() {
                 <Row className="align-center g-5">
                     <Col xs="12" md="6">
                         <header>
-                            <h1 className="title">Quem sou eu?</h1>
+                            <h1 className="title">quem sou eu?</h1>
                             <p className="text">
-                                Meu nome é Lucas de Brito, sou um{" "}
-                                <strong>DESENVOLVEDOR WEB FULL STACK</strong>,
-                                especializado(ando) em JavaScript.
+                                Meu nome é Lucas de Brito, e eu tenho {(new Date()).getUTCFullYear() - 2000} anos.
                                 <br />
-                                Além da parte de desenvolvimento, já passei por
-                                experiências profissionais diversas, como gestão
-                                de projetos e configuração de servidores linux e
-                                domínios.
+                                Sou uma pessoa muito curiosa e ativa, e é somando isso com meu conhecimento técnico - em constante
+                                desenvolvimento - que eu busco agregar valor para as equipes que participo. 
                                 <br />
-                                Acredito que com tempo e determinação podemos
-                                solucionar qualquer problema, então, está tendo
-                                algum problema e acha que eu posso te ajudar?
-                                Entre em contato comigo!
+                                Acredito que com transparência, empatia e um grupo comprometido e responsável, podemos resolver
+                                qualquer problema!
                             </p>
                         </header>
                     </Col>
                     <Col>
                         <header>
-                            <h1 className="title">Onde estou</h1>
+                            <h1 className="title">onde estou</h1>
                         </header>
                         <p className="text-muted">Birigui / SP - Brasil</p>
                         <header>
-                            <h1 className="title">Contatos</h1>
+                            <h1 className="title">contatos</h1>
                         </header>
                         <ul>
                             <li>
@@ -45,24 +39,20 @@ export default function Footer() {
                                 <span className="text-muted">whatsapp</span><br />
                                 +55 (18) 99735-1747
                             </li>
-                            <a href="https://lucasdbrito.com" target="_blank">
-                                <span className="text-muted">meu site</span><br />
-                                <li>https://lucasdbrito.com</li>
-                            </a>
                         </ul>
                     </Col>
                     <Col>
                         <header>
-                            <h1 className="title">Redes Sociais</h1>
+                            <h1 className="title">redes sociais</h1>
                         </header>
                         <ul>
-                            <a href="https://www.linkedin.com/in/webdevbrito/" target="_blank">
+                            <a href="https://www.linkedin.com/in/webdevbrito/" target="_blank" className="network-links">
                                 <li>linkedin</li>
                             </a>
-                            <a href="https://github.com/lucasbrito3001" target="_blank">
+                            <a href="https://github.com/lucasbrito3001" target="_blank" className="network-links">
                                 <li>github</li>
                             </a>
-                            <a href="https://www.instagram.com/lucasdbrito.dev/" target="_blank">
+                            <a href="https://www.instagram.com/lucasdbrito.dev/" target="_blank" className="network-links">
                                 <li>instagram</li>
                             </a>
                         </ul>
