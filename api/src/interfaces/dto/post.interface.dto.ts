@@ -1,7 +1,6 @@
-export interface IPost {
-    id: number
+export interface IPostDTO {
     title: string
     subtitle: string
-    image: string
+    imagePath: string
     creationDate: string
 }
