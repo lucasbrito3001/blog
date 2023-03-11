@@ -1,9 +1,9 @@
 import { describe, expect, it, vi } from "vitest";
 import { CreatePostUseCase } from "./createPost.usecase";
-import { MockPostRepository } from "../../adapters/repositories/post/post.repository.mock";
-import { Post } from "../../entities/post/post.entity";
+import { MockPostRepository } from "../../../adapters/repositories/post/post.repository.mock";
+import { Post } from "../../../entities/post/post.entity";
 
-describe("Testing use case - Post", () => {
+describe("Testing use case - Create Post", () => {
     it("should execute the creation of a post in database successfully", async () => {
         const postRepository = new MockPostRepository();
 
@@ -55,7 +55,7 @@ describe("Testing use case - Post", () => {
     it("should return a error executing the creation of post in repository", async () => {
         const postRepository = new MockPostRepository();
         
-        vi.spyOn(postRepository, "createPost").mockImplementation(() => Promise.resolve(false))
+        vi.spyOn(postRepository, "createPost").mockImplementation(() => Promise.resolve({ status: false }))
 
         const newPost = {
             title: "post title",

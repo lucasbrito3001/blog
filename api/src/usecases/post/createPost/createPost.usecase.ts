@@ -1,6 +1,6 @@
-import { IPostRepository } from "../../adapters/repositories/post/post.repository.interface"
-import { IPostEntity } from "../../entities/post/post.entity.interface"
-import { IPostDTO } from "../../interfaces/dto/post.interface.dto"
+import { IPostRepository } from "../../../adapters/repositories/post/post.repository.interface"
+import { IPostEntity } from "../../../entities/post/post.entity.interface"
+import { IPostDTO } from "../../../interfaces/dto/post.interface.dto"
 import { ICreatePost } from "./createPost.usecase.interface"
 
 export class CreatePostUseCase implements ICreatePost {
@@ -22,7 +22,7 @@ export class CreatePostUseCase implements ICreatePost {
 
             const isPostCreated = await this.postRepository.createPost()
 
-            if(!isPostCreated) throw new Error('Erro ao criar post, verificar com administrador')
+            if(!isPostCreated.status) throw new Error('Erro ao criar post, verificar com administrador')
 
             return { status: true, message: 'ok' }
         } catch (error) {
