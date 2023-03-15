@@ -16,7 +16,6 @@ export class ReadPostsUseCase implements IReadPosts {
         try {
             const { status, content, message, error } = await this.postRepository.getPosts(this.limit * this.offset, this.limit)
             
-            console.log(error)
             if(!status) throw new Error(error)
 
             return { status: true, content, message }

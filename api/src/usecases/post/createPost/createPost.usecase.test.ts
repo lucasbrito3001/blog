@@ -3,16 +3,17 @@ import { CreatePostUseCase } from "./createPost.usecase";
 import { MockPostRepository } from "../../../adapters/repositories/post/post.repository.mock";
 import { Post } from "../../../entities/post/post.entity";
 
+const newPost = {
+    title: 'post title',
+    subtitle: 'post subtitle',
+    imagePath: 'imagePath.png',
+    description: 'post description',
+    creationDate: new Date,
+};
+
 describe("Testing use case - Create Post", () => {
     it("should execute the creation of a post in database successfully", async () => {
         const postRepository = new MockPostRepository();
-
-        const newPost = {
-            title: "post title",
-            subtitle: "post subtitle",
-            imagePath: "imagePath.png",
-            creationDate: new Date().toLocaleString("pt-BR"),
-        };
 
         const postEntity = new Post(newPost);
 
@@ -29,14 +30,7 @@ describe("Testing use case - Create Post", () => {
     it("should return a error creating the post entity", async () => {
         const postRepository = new MockPostRepository();
 
-        const newPost = {
-            title: "",
-            subtitle: "post subtitle",
-            imagePath: "imagePath.png",
-            creationDate: new Date().toLocaleString("pt-BR"),
-        };
-
-        const postEntity = new Post(newPost);
+        const postEntity = new Post({ ...newPost, title: '' });
 
         const createPostUseCase = new CreatePostUseCase(
             newPost,
@@ -56,13 +50,6 @@ describe("Testing use case - Create Post", () => {
         const postRepository = new MockPostRepository();
         
         vi.spyOn(postRepository, "createPost").mockImplementation(() => Promise.resolve({ status: false }))
-
-        const newPost = {
-            title: "post title",
-            subtitle: "post subtitle",
-            imagePath: "imagePath.png",
-            creationDate: new Date().toLocaleString("pt-BR"),
-        };
 
         const postEntity = new Post(newPost);
 
