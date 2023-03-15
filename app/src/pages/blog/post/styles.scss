@@ -1,4 +1,7 @@
+@import '../../../assets/styles/breakpoints.scss';
+
 .wrapper-post {
+    background-color: var(--light-blue);
     margin-top: 10vh;
     box-sizing: border-box;
 }

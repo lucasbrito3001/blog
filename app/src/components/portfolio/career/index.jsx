@@ -86,8 +86,8 @@ export default function Career() {
                     {/* <Fade cascade> */}
                         <ul className="career-list">
                             {academical.length > 0 && academical.map((course, idx) => {
-                                    return <div>
-                                        <li key={`course-${idx}`}>
+                                    return <div key={`course-${idx}`}>
+                                        <li>
                                             <div>
                                                 <h1 className="enterprise-name mb-0">
                                                     {course.name}
@@ -95,7 +95,7 @@ export default function Career() {
                                                 <span className="text-muted">{course.place}</span>
                                                 <h2 className="course-name">{course.institution}</h2>
                                                 <span className="positions-date">{course.date}</span>
-                                                { course.description.map(paragraph => <p className="career-description m-0">{paragraph}</p>) }
+                                                { course.description.map((paragraph, idxParagraph) => <p key={`paragraph-${idxParagraph}`} className="career-description m-0">{paragraph}</p>) }
                                             </div>
                                         </li>
                                         {

@@ -5,7 +5,7 @@ import { Button, Col, Container, Row } from "react-bootstrap";
 import { getProjects } from "../../../services/portfolio/projects";
 
 // react hooks
-import { useEffect, useState } from "react";
+import { useEffect, useState, Fragment } from "react";
 
 
 import "./styles.scss";
@@ -36,9 +36,9 @@ export default function Projects() {
                 </Col>
             </Row>
             <Row className="pb-3 pb-lg-5 gy-0 gy-lg-4">
-                { projects.length > 0 && projects.map((project, idx) => (
+                { projects.length > 0 && projects.map((project, idxProject) => (
                     <Col
-                        key={idx}
+                        key={`project-${idxProject}`}
                         onMouseLeave={() => setSelected(null)}
                         onMouseEnter={() => setSelected(idx)}
                         xs={12}
@@ -49,12 +49,12 @@ export default function Projects() {
                         <h1 className="project-name">{ project.name }</h1>
                         <ul className="d-flex flex-wrap align-items-center gap-2">
                             <span className="projects-stacks-separator">&gt;&lt;</span>{
-                                project.stacks.map((stack, idx) => <>
-                                    <li key={idx}>
+                                project.stacks.map((stack, idxStack) => <Fragment key={`stack-${idxStack}`}>
+                                    <li>
                                         { stack }
                                     </li>
                                     <span className="projects-stacks-separator">&gt;&lt;</span>
-                                </>)
+                                </Fragment>)
 
                             }
                         </ul>

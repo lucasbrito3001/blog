@@ -1,0 +1,71 @@
+@import "../../../assets/styles/breakpoints.scss";
+
+.post-header {
+    width: 100%;
+    background: url('../../../assets/images/bg-blog.png'),
+        linear-gradient(
+            to right,
+            var(--principal-color),
+            var(--light-principal-color)
+        );
+
+    .post-header-title {
+        font-size: 52px;
+        color: white;
+        font-weight: bold;
+
+        @include md {
+            font-size: 42px;
+        }
+
+        @include sm {
+            font-size: 32px;
+        }
+    }
+
+    .post-header-subtitle {
+        font-size: 20px;
+        color: var(--extra-light);
+        font-weight: 400;
+
+        @include sm {
+            font-size: 18px;
+        }
+    }
+
+    .post-header-back-button,
+    .post-header-back-button img,
+    .post-header-back-button::after {
+        transition: 0.2s all;
+    }
+
+    .post-header-back-button::after {
+        content: "voltar";
+        font-weight: 500;
+        color: white;
+        opacity: 0;
+    }
+
+    .post-header-back-button:hover img {
+        transform: translateX(-4px);
+    }
+
+    .post-header-back-button:hover::after {
+        opacity: 1;
+    }
+
+    .post-header-category-list {
+        display: flex;
+        gap: 8px;
+        font-size: 12px;
+        margin: 0;
+        padding: 0;
+        
+        li {
+            font-weight: 600;
+            background-color: var(--extra-light);
+            padding: 2px 6px;
+            border-radius: 8px;
+        }
+    }
+}

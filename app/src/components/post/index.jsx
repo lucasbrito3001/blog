@@ -1,16 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import HANDLE_ARRAY from "../../posts/handleArray/index";
-import API_INTEGRATION from "../../posts/apiIntegration/index";
-import TEST_CODE from "../../posts/testCode/index"
-
-const POST_BY_TITLE = {
-    "manipulação-de-arrays-javascript-es6": HANDLE_ARRAY,
-    "testando-quadro-de-código-no-post": TEST_CODE,
-    "como-consumir-uma-api-usando-reactjs-e-axios": API_INTEGRATION,
-};
-
 // styles
 import "./styles.scss";
 import { Col, Container, Row } from "react-bootstrap";
@@ -26,16 +16,7 @@ import Image from "./image/index";
 import UnorderedList from "./unorderedList/index";
 import Code from "./code/index";
 
-export default function Post() {
-    const { title } = useParams();
-
-    const [post, setPost] = useState({});
-
-    useEffect(() => {
-        if (!title) return;
-        setPost(POST_BY_TITLE[title]);
-    }, [title]);
-
+export default function Post({post}) {
     function renderSections(postSections) {
         const SECTION_ELEMENTS = {
             text: (section) => <Text text={section.value}></Text>,
@@ -58,20 +39,9 @@ export default function Post() {
 
     return (
         post.title && (
-            <article className="wrapper-post p-4 p-lg-5">
-                <header className="mb-4 mb-lg-5">
-                    <div className="mb-4 mb-lg-5">
-                        <Title title={post.title}></Title>
-                        <Subtitle
-                            subtitle={post.subtitle}
-                            muted={true}
-                        ></Subtitle>
-                    </div>
-                    <div>
-                        <Thumbnail srcImage={post.thumbnail}></Thumbnail>
-                    </div>
-                </header>
+            <article className="wrapper-post-content shadow p-4 p-lg-5">
                 <section>
+                    <SectionTitle title="Introdução"></SectionTitle>
                     <Introduction intro={post.introduction}></Introduction>
                 </section>
                 {post.sections.map((section) => (
