@@ -9,6 +9,6 @@ export default function Code({ code }) {
     }, [])
 
     return (
-        <pre className='rounded'><code className="language-javascript px-4">{ code }</code></pre>
+        <pre className='rounded'><code className="language-js px-4">{ code }</code></pre>
     );
 }

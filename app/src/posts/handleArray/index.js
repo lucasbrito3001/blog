@@ -1,12 +1,14 @@
-import ThumbnailImage from "./thumbnail.png"
-import FilterImage from "./filter.png"
-import FindImage from "./find.png"
-import ReduceImage from "./reduce.png"
-import SomeImage from "./some.png"
-import EveryImage from "./every.png"
+// import ThumbnailImage from "./thumbnail.png"
+
+import FilterCode from "./filter"
+import FindCode from "./find"
+import MapCode from "./map"
+import ReduceCode from "./reduce"
+import SomeCode from "./some"
+import EveryCode from "./every"
 
 const MANIPULACAO_ARRAY = {
-    thumbnail: ThumbnailImage,
+    // thumbnail: ThumbnailImage,
     title: "Manipulação de Arrays JavaScript ES6",
     subtitle: "Funções filter, find, map, reduce, some, e every.",
     categories: [{ value: "tutorial", text: "Tutorial" }],
@@ -38,9 +40,8 @@ const MANIPULACAO_ARRAY = {
                     value: `Por exemplo, digamos que você tenha um array de objetos, onde em cada objeto você tenha um nome de uma pessoa e sua profissão. E o seu objetivo é encontrar todas as pessoas que tenham uma profissão específica. Com filter seria assim:`
                 },
                 {
-                    type: 'image',
-                    src: FilterImage,
-                    alt: 'Uma imagem com um fundo negro e um trecho de javascript exemplificando uma aplicação do método filter.'
+                    type: "code",
+                    value: FilterCode
                 },
                 {
                     type: "text",
@@ -60,13 +61,33 @@ const MANIPULACAO_ARRAY = {
                     value: `Por exemplo, digamos que você tenha um array de objetos, onde em cada objeto você tem um item e suas quantidades. E o seu objetivo é encontrar somente o primeiro elemento dessa lista que satisfaça a condição especificada. Com find seria assim:`
                 },
                 {
-                    type: 'image',
-                    src: FindImage,
-                    alt: 'Uma imagem com um fundo negro e um trecho de javascript exemplificando uma aplicação do método find.'
+                    type: "code",
+                    value: FindCode
                 },
                 {
                     type: "text",
                     value: "Assim, de uma maneira simples, conseguimos extrair de uma lista apenas o primeiro elemento que combine com a nossa condição especificada, note que existem dois elementos com descrição “mouse”, porém ele me retornou somente o primeiro match.",
+                }
+            ],
+        },
+        {
+            title: "Array.map( )",
+            content: [
+                {
+                    type: "text",
+                    value: "Esta função retorna um novo array, com o resultado das instruções especificadas pela sua função de callback.",
+                },
+                {
+                    type: "text",
+                    value: `Por exemplo, digamos que você tenha um array de objetos, onde em cada objeto você tenha produtos e seus preços. E o seu objetivo é diminuir o preço de todos eles em 5%, simulando um desconto.`
+                },
+                {
+                    type: "code",
+                    value: MapCode
+                },
+                {
+                    type: "text",
+                    value: "Assim, temos como resultado então um novo array, basicamente igual ao anterior, porém com todos seus preços alterados, onde todos foram diminuídos em 5% do valor antigo.",
                 }
             ],
         },
@@ -82,9 +103,8 @@ const MANIPULACAO_ARRAY = {
                     value: "Por exemplo, digamos que você tenha um array de objetos, que faz referência a um estoque, e você queira saber quanto vale o seu estoque:"
                 },
                 {
-                    type: 'image',
-                    src: ReduceImage,
-                    alt: 'Uma imagem com um fundo negro e um trecho de javascript exemplificando uma aplicação do método find.'
+                    type: 'code',
+                    value: ReduceCode,
                 },
                 {
                     type: "text",
@@ -104,13 +124,12 @@ const MANIPULACAO_ARRAY = {
                     value: "Por exemplo, digamos que você tenha um array de objetos, que representa os funcionários de uma empresa e as suas habilidades, e você quer saber se pelo menos um desses funcionários tem conhecimento em JavaScript:"
                 },
                 {
-                    type: 'image',
-                    src: SomeImage,
-                    alt: 'Uma imagem com um fundo negro e um trecho de javascript exemplificando uma aplicação do método find.'
+                    type: 'code',
+                    value: SomeCode,
                 },
                 {
                     type: "text",
-                    value: "Assim, temos como resultado então, um valor booleano, basicamente o que verificamos com o map e includes foi se existe no array de habilidades de cada funcionário o elemento “JavaScript” caso exista o retorno será true, caso não exista será false e assim temos como resultado um array com vários booleanos representando essa verificação, depois disso, fizemos o some para verificar se dentro desse array existe pelo menos um valor true, ou seja, se pelo menos um funcionário tem “JavaScript” no seu array de habilidades.",
+                    value: "Assim, temos como resultado então, um valor booleano, basicamente o que verificamos com o some e includes foi se existe no array de habilidades de cada funcionário o elemento “JavaScript” caso exista o retorno será true, caso não exista será false e assim temos como resultado um array com vários booleanos representando essa verificação, depois disso, fizemos o some para verificar se dentro desse array existe pelo menos um valor true, ou seja, se pelo menos um funcionário tem “JavaScript” no seu array de habilidades.",
                 }
             ],
         },
@@ -126,18 +145,17 @@ const MANIPULACAO_ARRAY = {
                     value: "Vamos utilizar o mesmo exemplo acima, porém dessa vez você quer saber se todos os seus funcionários tem conhecimento em JavaScript:"
                 },
                 {
-                    type: 'image',
-                    src: EveryImage,
-                    alt: 'Uma imagem com um fundo negro e um trecho de javascript exemplificando uma aplicação do método find.'
+                    type: 'code',
+                    value: EveryCode,
                 },
                 {
                     type: "text",
-                    value: "Fizemos o mesmo passo do exemplo anterior, verificando por map e includes se existe o elemento “JavaScript” no array de habilidades de cada funcionário, mas dessa vez fizemos o every para verificar se dentro desse array todos os elementos tem valor true, ou seja, se todos os funcionário tem “JavaScript” no seu array de habilidades.",
+                    value: "Fizemos o mesmo passo do exemplo anterior, verificando por every e includes se existe o elemento “JavaScript” no array de habilidades de cada funcionário, mas dessa vez fizemos o every para verificar se dentro desse array todos os elementos tem valor true, ou seja, se todos os funcionário tem “JavaScript” no seu array de habilidades.",
                 }
             ],
         },
         {
-            title: "Dicar de quando usar:",
+            title: "Dicas de quando usar:",
             content: [
                 {
                     type: "uList",

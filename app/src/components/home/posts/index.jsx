@@ -31,7 +31,7 @@ export default function Posts({ categories, titleSearched }) {
                 <Link to={`/blog/${post.title.toLowerCase().replace(/\s/g, '-')}`}>
                     <CardPost
                         postTitle={post.title}
-                        postImage={post.thumbnail}
+                        // postImage={post.thumbnail}
                         postDescription={post.subtitle}
                         postCategories={post.categories}
                         postDate={post.createdAt}

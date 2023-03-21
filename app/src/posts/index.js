@@ -3,13 +3,13 @@ import API_INTEGRATION from './apiIntegration/index'
 import TESTE from './testCode/index'
 
 export default [
-    TESTE,
+    // TESTE,
     HANDLE_ARRAY,
-    API_INTEGRATION,
-    HANDLE_ARRAY,
-    API_INTEGRATION,
-    HANDLE_ARRAY,
-    API_INTEGRATION,
-    HANDLE_ARRAY,
-    API_INTEGRATION,
+    // API_INTEGRATION,
+    // HANDLE_ARRAY,
+    // API_INTEGRATION,
+    // HANDLE_ARRAY,
+    // API_INTEGRATION,
+    // HANDLE_ARRAY,
+    // API_INTEGRATION,
 ]
