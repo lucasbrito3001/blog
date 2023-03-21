@@ -12,6 +12,7 @@ import Footer from "../../../components/shared/footer/index";
 import "./styles.scss";
 import { Container, Row, Col } from "react-bootstrap";
 import Navbar from "../../../components/portfolio/navbar";
+import PostHeader from "../../../components/post/header";
 
 const FILTERS_FIELDS = [
     {
@@ -40,7 +41,28 @@ const FILTERS_FIELDS = [
     },
 ];
 
+import HANDLE_ARRAY from "../../../posts/handleArray/index.js";
+import API_INTEGRATION from "../../../posts/apiIntegration/index.js";
+import TEST_CODE from "../../../posts/testCode/index.js";
+import { useParams } from "react-router-dom";
+import RecentPosts from "../../../components/post/recentPosts";
+
+const POST_BY_TITLE = {
+    "manipulação-de-arrays-javascript-es6": HANDLE_ARRAY,
+    "testando-quadro-de-código-no-post": TEST_CODE,
+    "como-consumir-uma-api-com-javascript": API_INTEGRATION,
+};
+
 export default function Home() {
+    const { title } = useParams();
+
+    const [post, setPost] = useState({});
+
+    useEffect(() => {
+        if (!title) return;
+        setPost(POST_BY_TITLE[title]);
+    }, [title]);
+
     const [categorySelected, setCategorySelected] = useState("");
     const [titleSearched, setTitleSearched] = useState("");
 
@@ -56,21 +78,44 @@ export default function Home() {
             <div id="blog-navbar">
                 <Navbar />
             </div>
-            <div className="wrapper-posts">
+            <div className="wrapper-post">
+                { post.categories && (
+                    <PostHeader
+                        postTitle={post.title}
+                        postSubtitle={post.subtitle}
+                        postCategories={post.categories}
+                    ></PostHeader>
+                )}
                 <Container>
-                    <Row className="py-4 gx-lg-4 gy-lg-0">
-                        <Col xs="12" lg="9" className="mb-4 mb-lg-0">
-                            <Post/>
+                    <Row className="py-4 gx-lg-2 gy-lg-0">
+                        <Col xs="12" md="12" lg="8" xxl="9" className="mb-4 mb-lg-0">
+                            <Post post={post} />
                         </Col>
-                        <Col xs="12" lg="4">
-                            {/* <div style={{ top: `${filterHeight + 16}px` }} id="presentation" className="mx-0 mx-lg-2">
-                                <Presentation />
-                            </div> */}
+                        <Col xs="12" md="12" lg="4" xxl="3">
+                            <div
+                                style={{
+                                    position: "sticky",
+                                    top: `calc(${filterHeight + 16}px + 10vh)`,
+                                }}
+                                id="presentation"
+                                className="mx-0 mx-lg-2"
+                            >
+                                <Row>
+                                    <Col xs="12" md="6" lg="12">
+                                        <Presentation />
+                                    </Col>
+                                    <Col xs="12" md="6" lg="12">
+                                        <div className="my-4">
+                                            <RecentPosts />
+                                        </div>
+                                    </Col>
+                                </Row>
+                            </div>
                         </Col>
                     </Row>
                 </Container>
             </div>
-            <Footer/>
+            <Footer />
         </>
     );
 }

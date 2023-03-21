@@ -11,12 +11,21 @@ const MANIPULACAO_ARRAY = {
     subtitle: "Funções filter, find, map, reduce, some, e every.",
     categories: [{ value: "tutorial", text: "Tutorial" }],
     createdAt: '2022-01-13',
-    introduction: [
-        'O ECMAScript 6 ou ECMAScript 2015 ou ES6, é uma padronização da linguagem JavaScript, que trouxe várias novas funcionalidades, como declaração de variáveis com let e const, as arrow functions, e também as funções de manipulação de arrays que é o tema que será abordado nesse artigo.',
-        'Antes de começar, gostaria de deixar claro que essas funções acessam uma função de callback fornecida, uma vez para cada elemento do array. Essa por sua vez, pode ser tanto uma arrow function, quanto uma função declarada da maneira tradicional.',
-        'Nesse artigo iremos utilizar as arrow functions para isso, mas a maneira que você vai utilizar no seu código, fica ao seu critério. Dito isso, vamos ao que interessa:'
-    ],
+    introduction: "O ECMAScript 6 ou ECMAScript 2015 ou ES6, é uma padronização da linguagem JavaScript, que trouxe várias novas funcionalidades, como declaração de variáveis com let e const, as arrow functions, e também as funções de manipulação de arrays que é o tema que será abordado nesse artigo.",
     sections: [
+        {
+            title: "Antes de começar",
+            content: [
+                {
+                    type: "text",
+                value: "Gostaria de deixar claro que essas funções acessam uma função de callback fornecida, uma vez para cada elemento do array. Essa por sua vez, pode ser tanto uma arrow function, quanto uma função declarada da maneira tradicional."
+                },
+                {
+                    type: "text",
+                value: "Nesse artigo iremos utilizar as arrow functions para isso, mas a maneira que você vai utilizar no seu código, fica ao seu critério. Dito isso, vamos ao que interessa:"
+                }
+            ]
+        },
         {
             title: "Array.filter( )",
             content: [
