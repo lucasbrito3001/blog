@@ -12,7 +12,7 @@ export default function PostHeader({ postTitle, postSubtitle, postCategories }) 
                         <Link to="/blog"><span className="post-header-back-button"><img src={LeftArrow} alt="seta apontada para direita, representando um botão de voltar tela" /></span></Link>
                         <ul className="post-header-category-list my-3">
                             {
-                                postCategories.map((category) => <li>{category.text}</li>)
+                                postCategories.map((category, idx) => <li key={`category-${idx}`}>{category.text}</li>)
                             }
                         </ul>
                         <h1 className="post-header-title mb-0">{postTitle}</h1>

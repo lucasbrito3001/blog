@@ -81,7 +81,6 @@ export default function Contact() {
                 enter: 'zoomIn', 
                 exit: 'zoomOut'
             })
-            console.log(result)
 
             setIsSendingEmail(false)
         } catch (error) {

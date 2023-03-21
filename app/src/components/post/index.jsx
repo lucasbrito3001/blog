@@ -1,9 +1,7 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Fragment } from "react";
 
 // styles
 import "./styles.scss";
-import { Col, Container, Row } from "react-bootstrap";
 
 // components
 import Title from "./title/index";
@@ -31,9 +29,8 @@ export default function Post({post}) {
             )
         };
 
-        return postSections.map((section) => {
-            console.log(section.type);
-            return SECTION_ELEMENTS[section.type](section);
+        return postSections.map((section, idx) => {
+            return <Fragment key={`section-${idx}`}>{SECTION_ELEMENTS[section.type](section)}</Fragment>;
         });
     }
 
@@ -44,8 +41,8 @@ export default function Post({post}) {
                     <SectionTitle title="Introdução"></SectionTitle>
                     <Introduction intro={post.introduction}></Introduction>
                 </section>
-                {post.sections.map((section) => (
-                    <section className="mb-3 mt-5">
+                {post.sections.map((section, idx) => (
+                    <section className="mb-3 mt-5" key={`postSection-${idx}`}>
                         <SectionTitle title={section.title}></SectionTitle>
                         {renderSections(section.content)}
                     </section>
