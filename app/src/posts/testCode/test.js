@@ -8,5 +8,6 @@ function testCode2(v3, v4) {
 }
 
 testCode(2, 3)
+testCode2()
 
 `

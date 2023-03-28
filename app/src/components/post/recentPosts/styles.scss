@@ -1,0 +1,25 @@
+#recent-posts-header-text {
+    // text-transform: capitalize;
+    font-weight: 700;
+}
+
+.recent-posts-link {
+    display: flex;
+    align-items: center;
+    color: var(--medium-dark);
+    transition: .3s;
+    width: fit-content;
+    padding: 4px;
+
+    span {
+        transition: .3s;
+    }
+
+    &:hover .li-text {
+        text-decoration: underline;
+    }
+
+    &:hover .li-arrow {
+        margin-right: 4px;
+    }
+}

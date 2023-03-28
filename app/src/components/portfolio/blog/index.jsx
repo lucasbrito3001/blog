@@ -56,6 +56,8 @@ export default function BlogPreview() {
             </Row>
             <Row className="pb-5 gy-4">
                 {recentPosts.length > 0 && renderCards()}
+            </Row>
+            <Row className="pb-5">
                 <Col>
                     <Link to="/blog">
                         <button

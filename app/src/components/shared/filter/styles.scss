@@ -1,5 +1,10 @@
 #filter {
-    background-color: var(--principal-color);
+    background: url('../../../assets/images/bg-blog.png'),
+        linear-gradient(
+            to right,
+            var(--principal-color),
+            var(--light-principal-color)
+        );
     padding: 8px;
     margin-top: 10vh;
 }
