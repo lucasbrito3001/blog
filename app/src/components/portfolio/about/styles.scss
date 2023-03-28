@@ -15,16 +15,6 @@
     color: var(--principal-color);
 }
 
-.about-text {
-    line-height: 2.5;
-    font-weight: 400;
-    font-size: 20px;
-
-    @include md {
-        font-size: 18px;
-    }
-}
-
 .about-side {
     font-size: 160px;
     font-weight: 700;
