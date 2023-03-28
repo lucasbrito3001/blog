@@ -26,7 +26,7 @@ export default function About() {
                 </Col>
                 <Col xs={12} lg={7}>
                     <Fade>
-                        <p className="about-text mb-0">
+                        <p className="sections-text mb-0">
                             Meu nome é Lucas de Brito, tenho {(new Date()).getUTCFullYear() - 2000} anos e, na verdade,
                             a imagem que vc está vendo me representa bastante, amo basicamente tudo que tem nela, café, plantas e
                             tecnologia.

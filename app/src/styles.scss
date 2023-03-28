@@ -43,8 +43,15 @@
   text-transform: lowercase;
 
   @include md {
-    font-size: 28px;
+    font-size: 30px;
   }
+}
+
+.sections-text {
+  line-height: 2;
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--medium-dark);
 }
 
 ul {
