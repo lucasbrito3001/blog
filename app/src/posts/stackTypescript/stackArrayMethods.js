@@ -1,26 +1,23 @@
-export default `
-export class Stack<T> {
+export default `export class Stack<T> {
     private items: T[]
 
-    constructor( ) {
+    constructor() {
         this.items = [];
     }
 
-    add(item) {    // {1}
+    add(item: T) {    // {1}
         return this.items.push(item)
     }
     
-    remove( ) {    // {2}
+    remove() {    // {2}
         return this.items.pop()
     }
     
-    length( ) {    // {3}
+    length() {    // {3}
         return this.items.length
     }
     
-    isEmpty( ) {   // {4}
+    isEmpty() {   // {4}
         return this.items.length === 0
     }
-}
-
-`
+}`

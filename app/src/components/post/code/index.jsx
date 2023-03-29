@@ -1,14 +1,22 @@
-import hljs from 'highlight.js'
+// import hljs from 'highlight.js'
+
+import { CopyBlock, a11yLight, codepen, github, googlecode, paraisoLight } from 'react-code-blocks'
 
 import "./styles.scss";
 import { useEffect } from 'react';
 
-export default function Code({ code }) {
-    useEffect(() => {
-        hljs.highlightAll()
-    }, [])
+export default function Code({ code, lang = 'typescript', showLineNumbers = true }) {
 
     return (
-        <pre className='rounded'><code className="language-js px-4">{ code }</code></pre>
+        <div className='code-block'>
+            <CopyBlock
+                language={lang}
+                text={code}
+                showLineNumbers={showLineNumbers}
+                theme={paraisoLight}
+                wrapLines={true}
+                codeBlock
+            />
+        </div>
     );
 }

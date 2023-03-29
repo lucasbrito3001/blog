@@ -46,11 +46,13 @@ import API_INTEGRATION from "../../../posts/apiIntegration/index.js";
 import TEST_CODE from "../../../posts/testCode/index.js";
 import { useParams } from "react-router-dom";
 import RecentPosts from "../../../components/post/recentPosts";
+import STACK_TYPESCRIPT from "../../../posts/stackTypescript";
 
 const POST_BY_TITLE = {
     "manipulação-de-arrays-javascript-es6": HANDLE_ARRAY,
     "testando-quadro-de-código-no-post": TEST_CODE,
     "como-consumir-uma-api-com-javascript": API_INTEGRATION,
+    "pilhas-em-typescript": STACK_TYPESCRIPT
 };
 
 export default function Home() {
