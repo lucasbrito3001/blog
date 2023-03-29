@@ -5,19 +5,19 @@ export default `export class Stack<T> {
         this.items = [];
     }
 
-    add(item: T) {    // {1}
+    push(item: T) {    // {1}
         return this.items.push(item)
     }
     
-    remove() {    // {2}
+    pop() {          // {2}
         return this.items.pop()
     }
     
-    length() {    // {3}
+    length() {        // {3}
         return this.items.length
     }
     
-    isEmpty() {   // {4}
+    isEmpty() {       // {4}
         return this.items.length === 0
     }
 }`
