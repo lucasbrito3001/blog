@@ -33,7 +33,11 @@ const STACK_TYPESCRIPT = {
                 },
                 {
                     type: "text",
-                    value: "E então, no constructor vamos definir o valor da propriedade items como um array vazio, que será onde os nossos items da pilha ficarão. Também teremos alguns métodos que serão usados para adicionar, remover, buscar o tamanho da lista, e verificar se a mesma está vazia."
+                    value: "E então, no constructor vamos definir o valor da propriedade items como um array vazio, que será onde os nossos items da pilha ficarão."
+                },
+                {
+                    type: "text",
+                    value: "Também teremos alguns métodos que serão usados para adicionar, remover, buscar o tamanho da lista, e verificar se a mesma está vazia."
                 },
                 {
                     type: "code",
@@ -41,7 +45,7 @@ const STACK_TYPESCRIPT = {
                 },
                 {
                     type: "text",
-                    value: "Seguindo o princípio LIFO, ao adicionar um item no método add {1}, devemos colocá-lo no topo da lista, para isso podemos utilizar a função .push, ao remover no método remove {2}, devemos retirar o elemento do topo da lista, ou seja, o último, para isso podemos utilizar a função .pop, para verificar o tamanho da lista na função length {3}, podemos simplesmente ler o tamanho do nosso array, com a propriedade .length e para verificar se nossa pilha está vazia ou não temos o método isEmpty {4} que nos retorna um valor booleano, true se o tamanho do array for igual a zero e false caso não seja."
+                    value: "Seguindo o princípio LIFO, ao adicionar um item no método add <span class='text-mono'>{1}</span>, devemos colocá-lo no topo da lista, para isso podemos utilizar a função .push, ao remover no método remove <span class='text-mono'>{2}</span>, devemos retirar o elemento do topo da lista, ou seja, o último, para isso podemos utilizar a função .pop, para verificar o tamanho da lista na função size <span class='text-mono'>{3}</span>, podemos simplesmente ler o tamanho do nosso array, com a propriedade .length e para verificar se nossa pilha está vazia ou não temos o método isEmpty <span class='text-mono'>{4}</span> que nos retorna um valor booleano, true se o tamanho do array for igual a zero e false caso não seja."
                 },
             ]
         }

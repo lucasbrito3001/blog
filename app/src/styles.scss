@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;300;400;500;600;700;800&family=Montserrat:wght@100;200;300;400;500;600;700;800&family=Sofia+Sans:wght@100;300;400;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fira+Code:wght@300;400;500;600;700&family=Fira+Mono:wght@400;500&family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&family=Montserrat:wght@100;200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800&family=Roboto:wght@100;300;400;700&display=swap');
 @import "./assets/styles/breakpoints.scss";
 
 :root {
@@ -21,7 +21,7 @@
 }
 
 * {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -74,4 +74,9 @@ ul {
 
 .neutral-label {
   color: var(--dark);
+}
+
+code {
+  color: black !important;
+  font-family: 'Fira Mono' !important;
 }
