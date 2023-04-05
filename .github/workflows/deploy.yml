@@ -27,14 +27,9 @@ jobs:
         username: ${{ secrets.USER }}
         key: ${{ secrets.SSH_KEY }}
         script: |
-          export NVM_DIR="$HOME/.nvm"
-          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-          nvm install v18
-          nvm use v18
-          node -v
-          npm -v
+          sudo node -v
+          sudo npm -v
           ls -la
-          node -v
 
 
     # - run: cd ..
