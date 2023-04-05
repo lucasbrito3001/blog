@@ -24,8 +24,7 @@ jobs:
         script: |
           export NVM_DIR=~/.nvm
           source ~/.nvm/nvm.sh
-          node -v
-          yarn -v
+          sh /var/app/blog/app/deploy.sh
 
 
     # - run: cd ..
