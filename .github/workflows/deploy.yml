@@ -29,7 +29,7 @@ jobs:
         script: |
           export NVM_DIR=~/.nvm
           source ~/.nvm/nvm.sh
-          npm --help
+          node -v
 
 
     # - run: cd ..
