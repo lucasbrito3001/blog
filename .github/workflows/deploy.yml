@@ -27,11 +27,13 @@ jobs:
       with:
           node-version: "18"
 
+    - run: cd /
+
     - name: See current folder
       run: ls -la
 
-    - name: Run shell script to deploy
-      run: sh /var/app/blog/app/deploy.sh
+    # - name: Run shell script to deploy
+    #   run: sh /var/app/blog/app/deploy.sh
 
     # - name: Setup node with yarn caching
     #   uses: actions/setup-node@v3
