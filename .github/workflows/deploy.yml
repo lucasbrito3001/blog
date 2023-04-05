@@ -11,12 +11,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Executing deploy shell script
+    - name: Repository checkout
+      uses: actions/checkout@v2
+
+    - name: Connects to VPS via SSH
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.HOST }}
+        port: ${{ secrets.PORT }}
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         key: ${{ secrets.SSH_KEY }}
-        script: whoami
+        script: |
+          whoami
         # sh ./deploys/deploy-frontend-blog.sh
