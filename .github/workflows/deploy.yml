@@ -28,7 +28,7 @@ jobs:
           node-version: "18"
 
     - name: Run shell script to deploy
-      run: sh /root/deploys/deploy-frontend-blog.sh
+      run: sh /var/app/blog/app/deploy.sh
 
     # - name: Setup node with yarn caching
     #   uses: actions/setup-node@v3
