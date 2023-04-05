@@ -5,6 +5,7 @@ import TESTE from './testCode/index'
 export default [
     // TESTE,
     HANDLE_ARRAY,
+    HANDLE_ARRAY,
     // API_INTEGRATION,
     // HANDLE_ARRAY,
     // API_INTEGRATION,

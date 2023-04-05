@@ -14,7 +14,7 @@ jobs:
     - name: Repository checkout
       uses: actions/checkout@v2
 
-    - name: Connects to VPS via SSH
+    - name: Connects to VPS via SSH and run the deploy shell script
       uses: appleboy/ssh-action@v0.1.3
       with:
         host: ${{ secrets.HOST }}
@@ -24,39 +24,5 @@ jobs:
         script: |
           export NVM_DIR=~/.nvm
           source ~/.nvm/nvm.sh
-          sh /var/app/blog/app/deploy.sh
-
-
-    # - run: cd ..
-
-    # - name: See current folder
-    #   run: ls -la
-
-    # - name: Run shell script to deploy
-    #   run: sh /var/app/blog/app/deploy.sh
-
-    # - name: Setup node with yarn caching
-    #   uses: actions/setup-node@v3
-    #   with:
-    #       node-version: "18"
-    #       cache: yarn
-
-    # - run: corepack enable
-
-    # - name: Switch to front-end directory
-    #   run: cd /var/app/blog/app
-
-    # - name: Switc to branch - main
-    #   run: git checkout main
-    
-    # - name: Pull code
-    #   run: git pull
-
-    # - name: Install dependencies
-    #   run: yarn install
-
-    # - name: Build code
-    #   run: yarn build
-
-    # - name: Put the builded code on the public_html
-    #   run: cp -r dist/. /var/www/lucasdbrito.com/public_html
+          sh /var/app/blog/deploy-app.sh
+          systemctl apache2 reload
