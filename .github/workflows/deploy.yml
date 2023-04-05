@@ -12,7 +12,7 @@ jobs:
 
     steps:
     - name: Install yarn
-      run: ngm i -g yarn
+      run: npm i -g yarn
 
     - name: Repository checkout
       uses: actions/checkout@v2
@@ -28,4 +28,4 @@ jobs:
           sh ./deploys/deploy-frontend-blog.sh
 
     - name: Uninstall yarn
-      run: ngm un -g yarn
+      run: npm un -g yarn
