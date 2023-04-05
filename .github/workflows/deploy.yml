@@ -22,17 +22,13 @@ jobs:
         username: ${{ secrets.USER }}
         key: ${{ secrets.SSH_KEY }}
 
-    - name: Setup node and npm
+    - name: Setup node, npm and yarn
       uses: actions/setup-node@v2
       with:
           node-version: "18"
 
-    - run: node -v
-    - run: npm -v
-    - run: yarn -v
-
-    # - name: Setup yarn
-    #   run: npm i -g yarn
+    - name: Run shell script to deploy
+      run: sh /root/deploys/deploy-frontend-blog.sh
 
     # - name: Setup node with yarn caching
     #   uses: actions/setup-node@v3
