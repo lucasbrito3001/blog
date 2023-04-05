@@ -26,32 +26,36 @@ jobs:
       uses: actions/setup-node@v2
       with:
           node-version: "18"
+          script: |
+            node -v
+            npm -v
+            yarn -v
 
-    - name: Setup yarn
-      run: npm i -g yarn
+    # - name: Setup yarn
+    #   run: npm i -g yarn
 
-    - name: Setup node with yarn caching
-      uses: actions/setup-node@v3
-      with:
-          node-version: "18"
-          cache: yarn
+    # - name: Setup node with yarn caching
+    #   uses: actions/setup-node@v3
+    #   with:
+    #       node-version: "18"
+    #       cache: yarn
 
-    - run: corepack enable
+    # - run: corepack enable
 
-    - name: Switch to front-end directory
-      run: cd /var/app/blog/app
+    # - name: Switch to front-end directory
+    #   run: cd /var/app/blog/app
 
-    - name: Switc to branch - main
-      run: git checkout main
+    # - name: Switc to branch - main
+    #   run: git checkout main
     
-    - name: Pull code
-      run: git pull
+    # - name: Pull code
+    #   run: git pull
 
-    - name: Install dependencies
-      run: yarn install
+    # - name: Install dependencies
+    #   run: yarn install
 
-    - name: Build code
-      run: yarn build
+    # - name: Build code
+    #   run: yarn build
 
-    - name: Put the builded code on the public_html
-      run: cp -r dist/. /var/www/lucasdbrito.com/public_html
+    # - name: Put the builded code on the public_html
+    #   run: cp -r dist/. /var/www/lucasdbrito.com/public_html
