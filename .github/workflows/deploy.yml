@@ -21,19 +21,22 @@ jobs:
         port: ${{ secrets.PORT }}
         username: ${{ secrets.USER }}
         key: ${{ secrets.SSH_KEY }}
+        script: |
+          node -v
+          cd /var/app/blog/app
 
-    - run: cd /var/app/blog/app
-    - run: ls
+    # - run: cd /var/app/blog/app
+    # - run: ls
 
-    - name: Setup node and yarn
-      uses: actions/setup-node@v3
-      with:
-          node-version: '16'
-          cache: 'yarn'
+    # - name: Setup node and yarn
+    #   uses: actions/setup-node@v3
+    #   with:
+    #       node-version: '16'
+    #       cache: 'yarn'
       
-    - run: corepack enable
-    - run: git checkout main
-    - run: git pull
-    - run: yarn install
-    - run: yarn build
-    - run: cp -r dist/. /var/www/lucasdbrito.com/public_html
+    # - run: corepack enable
+    # - run: git checkout main
+    # - run: git pull
+    # - run: yarn install
+    # - run: yarn build
+    # - run: cp -r dist/. /var/www/lucasdbrito.com/public_html
