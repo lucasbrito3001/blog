@@ -1,9 +1,10 @@
-name: Automatized deploy - blog
+name: Automated deploy - blog
 
 on: 
   push:
-    branches: 
-      - main
+    branches: [ main ]
+  pull-request:
+    branches: [ main ]
 
 jobs:
   build:
@@ -25,4 +26,4 @@ jobs:
           export NVM_DIR=~/.nvm
           source ~/.nvm/nvm.sh
           sh /var/app/blog/deploy-app.sh
-          systemctl apache2 reload
+          systemctl reload apache2
