@@ -27,7 +27,7 @@ jobs:
       with:
           node-version: "18"
 
-    - run: cd /
+    - run: cd ..
 
     - name: See current folder
       run: ls -la
