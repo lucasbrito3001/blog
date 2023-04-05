@@ -11,6 +11,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Install yarn
+      run: ngm i -g yarn
+
     - name: Repository checkout
       uses: actions/checkout@v2
 
@@ -23,3 +26,6 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         script: |
           sh ./deploys/deploy-frontend-blog.sh
+
+    - name: Uninstall yarn
+      run: ngm un -g yarn
