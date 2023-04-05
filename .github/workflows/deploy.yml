@@ -23,6 +23,7 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         script: |
           ls -la
+          nvm -v
 
     # - name: Setup node, npm and yarn
     #   uses: actions/setup-node@v2
