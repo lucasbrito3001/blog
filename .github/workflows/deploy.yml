@@ -30,6 +30,7 @@ jobs:
           export NVM_DIR=~/.nvm
           source ~/.nvm/nvm.sh
           node -v
+          yarn -v
 
 
     # - run: cd ..
