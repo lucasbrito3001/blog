@@ -26,10 +26,10 @@ jobs:
       uses: actions/setup-node@v2
       with:
           node-version: "18"
-          script: |
-            node -v
-            npm -v
-            yarn -v
+
+    - run: node -v
+    - run: npm -v
+    - run: yarn -v
 
     # - name: Setup yarn
     #   run: npm i -g yarn
