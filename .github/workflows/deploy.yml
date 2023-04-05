@@ -1,20 +1,22 @@
 name: Automatized deploy - blog
 
-on: [push]
+on: 
+  push:
+    branches: 
+      - main
 
 jobs:
   build:
-
+    name: Front-end
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
-
     - name: Executing deploy shell script
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.HOST }}
-        USERNAME: ${{ secrets.USERNAME }}
-        PORT: ${{ secrets.PORT }}
-        PASSWORD: ${{ secrets.PASSWORD }}
-        script: sh ./deploys/deploy-frontend-blog.sh
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        key: ${{ ${{ secrets.SSH_KEY }} }}
+        script: whoami
+        # sh ./deploys/deploy-frontend-blog.sh
