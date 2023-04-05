@@ -22,6 +22,9 @@ jobs:
         username: ${{ secrets.USER }}
         key: ${{ secrets.SSH_KEY }}
 
+    - run: cd /var/app/blog/app
+    - run: ls
+
     - name: Setup node and yarn
       uses: actions/setup-node@v3
       with:
@@ -29,8 +32,6 @@ jobs:
           cache: 'yarn'
       
     - run: corepack enable
-    - run: cd /var/app/blog/app
-    - run: ls
     - run: git checkout main
     - run: git pull
     - run: yarn install
