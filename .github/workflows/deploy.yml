@@ -21,16 +21,18 @@ jobs:
         port: ${{ secrets.PORT }}
         username: ${{ secrets.USER }}
         key: ${{ secrets.SSH_KEY }}
+      script: |
+        node -v
 
-    - name: Setup node, npm and yarn
-      uses: actions/setup-node@v2
-      with:
-          node-version: "18"
+    # - name: Setup node, npm and yarn
+    #   uses: actions/setup-node@v2
+    #   with:
+    #       node-version: "18"
 
-    - run: cd ..
+    # - run: cd ..
 
-    - name: See current folder
-      run: ls -la
+    # - name: See current folder
+    #   run: ls -la
 
     # - name: Run shell script to deploy
     #   run: sh /var/app/blog/app/deploy.sh
