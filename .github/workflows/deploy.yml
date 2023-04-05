@@ -11,8 +11,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # - name: Repository checkout
-    #   uses: actions/checkout@v2
+    - name: Repository checkout
+      uses: actions/checkout@v2
 
     - name: Connects to VPS via SSH
       uses: appleboy/ssh-action@v0.1.3
@@ -30,8 +30,8 @@ jobs:
     - name: See current folder
       run: ls -la
 
-    # - name: Run shell script to deploy
-    #   run: sh /var/app/blog/app/deploy.sh
+    - name: Run shell script to deploy
+      run: sh /var/app/blog/app/deploy.sh
 
     # - name: Setup node with yarn caching
     #   uses: actions/setup-node@v3
