@@ -1,3 +1,4 @@
+#!/bin/bash
 echo 'Going to the app directory'
 cd /var/app/blog
 
