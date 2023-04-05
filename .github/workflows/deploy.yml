@@ -12,7 +12,15 @@ jobs:
 
     steps:
     - name: Repository checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
+
+    - name: Setup node and yarn
+     uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+        cache: 'yarn'
+      
+    - run: corepack enable
 
     - name: Connects to VPS via SSH
       uses: appleboy/ssh-action@v0.1.3
@@ -22,6 +30,4 @@ jobs:
         username: ${{ secrets.USER }}
         key: ${{ secrets.SSH_KEY }}
         script: |
-          npm i -g yarn
           sh ./deploys/deploy-frontend-blog.sh
-          npm un -g yarn
