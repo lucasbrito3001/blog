@@ -27,9 +27,9 @@ jobs:
         username: ${{ secrets.USER }}
         key: ${{ secrets.SSH_KEY }}
         script: |
-          sudo node -v
-          sudo npm -v
-          ls -la
+          export NVM_DIR=~/.nvm
+          source ~/.nvm/nvm.sh
+          npm --help
 
 
     # - run: cd ..
