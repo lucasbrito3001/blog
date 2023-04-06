@@ -63,6 +63,7 @@ export default function Home() {
     useEffect(() => {
         if (!title) return;
         setPost(POST_BY_TITLE[title]);
+        // window.scrollTo(0, 0)
     }, [title]);
 
     const [categorySelected, setCategorySelected] = useState("");
@@ -89,24 +90,23 @@ export default function Home() {
                     ></PostHeader>
                 )}
                 <Container>
-                    <Row className="py-4 gx-lg-2 gy-lg-0">
-                        <Col xs="12" md="12" lg="8" xxl="9" className="mb-4 mb-lg-0">
+                    <Row className="py-4 gy-4">
+                        <Col xs="12">
                             <Post post={post} />
                         </Col>
-                        <Col xs="12" md="12" lg="4" xxl="3">
+                        <Col xs="12">
                             <div
                                 style={{
                                     position: "sticky",
                                     top: `calc(${filterHeight + 16}px + 10vh)`,
                                 }}
                                 id="presentation"
-                                className="mx-0 mx-lg-2"
                             >
-                                <Row>
-                                    <Col xs="12" md="6" lg="12">
+                                <Row className="gy-3">
+                                    <Col xs="12" lg="5" xxl="4">
                                         <Presentation />
                                     </Col>
-                                    <Col xs="12" md="6" lg="12">
+                                    <Col xs="12" lg="7" xxl="8">
                                         <div className="my-4">
                                             <RecentPosts />
                                         </div>

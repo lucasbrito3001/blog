@@ -30,7 +30,7 @@ export default function Post({post}) {
         };
 
         return postSections.map((section, idx) => {
-            return <Fragment key={`section-${idx}`}>{SECTION_ELEMENTS[section.type](section)}</Fragment>;
+            return <div key={`section-${idx}`} className="my-3 d-block">{SECTION_ELEMENTS[section.type](section)}</div>;
         });
     }
 
