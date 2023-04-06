@@ -105,7 +105,7 @@ export default function Contact() {
                             <a href="https://wa.me/5518997351747" target="_blank">
                                 <li className="contacts-links">whatsapp</li>
                             </a>
-                            <a href="https://www.linkedin.com/in/webdevbrito/" target="_blank">
+                            <a href="https://www.linkedin.com/in/lucasdbritodev/" target="_blank">
                                 <li className="contacts-links">linkedin</li>
                             </a>
                             <a href="https://www.instagram.com/lucasdbrito.dev/" target="_blank">

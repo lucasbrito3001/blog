@@ -60,7 +60,7 @@ export default function Career() {
                                                                     <div>
                                                                         <h2 className="positions-name">{position.name}</h2>
                                                                         <span className="positions-date">{position.time}</span>
-                                                                        <p className="mb-1 career-description">{position.description}</p>
+                                                                        <p className="mb-1 sections-text career-description">{position.description}</p>
                                                                     </div>
                                                                 </li>
                                                             )
@@ -79,7 +79,7 @@ export default function Career() {
                         }
                     </ul>
                 </Col>
-                <Col xs={12} lg={6} className="career-section-academical text-start px-3 ps-lg-5">
+                <Col xs={12} lg={6} className="career-section-academical text-start px-3 ps-lg-5 mt-5 mt-lg-0">
                 <div className="mb-4">
                         <h1 className="sections-title">xp. acadêmica</h1>
                     </div>
@@ -95,7 +95,7 @@ export default function Career() {
                                                 <span className="text-muted">{course.place}</span>
                                                 <h2 className="course-name">{course.institution}</h2>
                                                 <span className="positions-date">{course.date}</span>
-                                                { course.description.map((paragraph, idxParagraph) => <p key={`paragraph-${idxParagraph}`} className="career-description m-0">{paragraph}</p>) }
+                                                { course.description.map((paragraph, idxParagraph) => <p key={`paragraph-${idxParagraph}`} className="career-description sections-text m-0">{paragraph}</p>) }
                                             </div>
                                         </li>
                                         {

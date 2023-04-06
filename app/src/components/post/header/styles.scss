@@ -26,7 +26,7 @@
     .post-header-subtitle {
         font-size: 20px;
         color: var(--extra-light);
-        font-weight: 400;
+        font-weight: 400 !important;
 
         @include sm {
             font-size: 18px;

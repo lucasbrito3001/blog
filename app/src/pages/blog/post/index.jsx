@@ -1,9 +1,7 @@
 // react hooks
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 // components
-import Header from "../../../components/shared/header";
-import Filter from "../../../components/shared/filter";
 import Post from "../../../components/post/index";
 import Presentation from "../../../components/shared/presentation/index";
 import Footer from "../../../components/shared/footer/index";
@@ -46,11 +44,13 @@ import API_INTEGRATION from "../../../posts/apiIntegration/index.js";
 import TEST_CODE from "../../../posts/testCode/index.js";
 import { useParams } from "react-router-dom";
 import RecentPosts from "../../../components/post/recentPosts";
+import STACK_TYPESCRIPT from "../../../posts/stackTypescript";
 
 const POST_BY_TITLE = {
     "manipulação-de-arrays-javascript-es6": HANDLE_ARRAY,
     "testando-quadro-de-código-no-post": TEST_CODE,
     "como-consumir-uma-api-com-javascript": API_INTEGRATION,
+    "pilhas-em-typescript": STACK_TYPESCRIPT
 };
 
 export default function Home() {
@@ -61,6 +61,7 @@ export default function Home() {
     useEffect(() => {
         if (!title) return;
         setPost(POST_BY_TITLE[title]);
+        window.scrollTo(0, 0)
     }, [title]);
 
     const [categorySelected, setCategorySelected] = useState("");
@@ -87,30 +88,31 @@ export default function Home() {
                     ></PostHeader>
                 )}
                 <Container>
-                    <Row className="py-4 gx-lg-2 gy-lg-0">
-                        <Col xs="12" md="12" lg="8" xxl="9" className="mb-4 mb-lg-0">
+                    <Row className="py-4 gy-4">
+                        <Col xs="12">
                             <Post post={post} />
                         </Col>
-                        <Col xs="12" md="12" lg="4" xxl="3">
-                            <div
+                        <Col xs="12">
+                            <aside
                                 style={{
                                     position: "sticky",
                                     top: `calc(${filterHeight + 16}px + 10vh)`,
                                 }}
                                 id="presentation"
-                                className="mx-0 mx-lg-2"
                             >
-                                <Row>
-                                    <Col xs="12" md="6" lg="12">
-                                        <Presentation />
+                                <Row className="gy-3">
+                                    <Col xs="12" lg="5" xxl="4">
+                                        <div className="h-100">
+                                            <Presentation />
+                                        </div>
                                     </Col>
-                                    <Col xs="12" md="6" lg="12">
-                                        <div className="my-4">
+                                    <Col xs="12" lg="7" xxl="8">
+                                        <div className="h-100">
                                             <RecentPosts />
                                         </div>
                                     </Col>
                                 </Row>
-                            </div>
+                            </aside>
                         </Col>
                     </Row>
                 </Container>

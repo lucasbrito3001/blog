@@ -46,7 +46,7 @@ export default function Footer() {
                             <h1 className="title">redes sociais</h1>
                         </header>
                         <ul>
-                            <a href="https://www.linkedin.com/in/webdevbrito/" target="_blank" className="network-links">
+                            <a href="https://www.linkedin.com/in/lucasdbritodev/" target="_blank" className="network-links">
                                 <li>linkedin</li>
                             </a>
                             <a href="https://github.com/lucasbrito3001" target="_blank" className="network-links">

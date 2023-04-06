@@ -30,13 +30,13 @@ export default function Post({post}) {
         };
 
         return postSections.map((section, idx) => {
-            return <Fragment key={`section-${idx}`}>{SECTION_ELEMENTS[section.type](section)}</Fragment>;
+            return <div key={`section-${idx}`} className="my-3 d-block">{SECTION_ELEMENTS[section.type](section)}</div>;
         });
     }
 
     return (
         post.title && (
-            <article className="wrapper-post-content shadow p-4 p-lg-5">
+            <main className="wrapper-post-content shadow p-4 p-lg-5">
                 <section>
                     <SectionTitle title="Introdução"></SectionTitle>
                     <Introduction intro={post.introduction}></Introduction>
@@ -47,7 +47,7 @@ export default function Post({post}) {
                         {renderSections(section.content)}
                     </section>
                 ))}
-            </article>
+            </main>
         )
     );
 }
