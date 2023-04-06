@@ -26,7 +26,7 @@ const STACK_TYPESCRIPT = {
             content: [
                 {
                     type: "text",
-                    value: "Quando falamos de listagem de dados em JavaScript / TypeScript, é comum pensarmos na utilização de arrays, que é a estrutura comumente usada para tratar esse tipo de dado, porém, também é possível trabalhar com listas utilizando objetos. Ambos os tipos solucionam bem o problema, a diferença está no nível de complexidade das operações, seguindo a notação Big O, em um objeto o nível para operações de leitura e inserções é de O(1), ou seja, constante, enquanto nos arrays a ordem de leitura também é O(1) mas e a de inserção é O(n) ou seja, linear, por isso, utilizar objetos pode trazer maior performance para o nosso código. Para fins didáticos, iremos criar exemplos com os dois tipos de dados."
+                    value: "Quando falamos de listagem de dados em JavaScript / TypeScript, é comum pensarmos na utilização de arrays, que é a estrutura comumente usada para tratar esse tipo de dado, porém, também é possível trabalhar com listas utilizando objetos. Ambos os tipos solucionam bem o problema, a diferença está no nível de complexidade das operações, seguindo a notação Big O, em um objeto o nível para operações de leitura e inserções é de O(1), ou seja, constante, enquanto nos arrays a ordem de leitura também é O(1) mas a de inserção é O(n) ou seja, linear, por isso, utilizar objetos pode trazer maior performance para o nosso código. Para fins didáticos, iremos criar exemplos com os dois tipos de dados."
                 }
             ]
         },
@@ -65,7 +65,7 @@ const STACK_TYPESCRIPT = {
             content: [
                 {
                     type: "text",
-                    value: "O método push recebe um parâmetro chamado item, que deve ter o mesmo tipo T passado ao instanciar a classe, e para adicionar o item ao final do array usamos a função .push() do JavaScript."
+                    value: "O método push recebe um parâmetro chamado item, que deve ter o mesmo tipo T passado ao instanciar a classe, e para adicionar o item ao final do array usamos a função .push() dos arrays JavaScript."
                 },
                 {
                     type: "code",
@@ -78,7 +78,7 @@ const STACK_TYPESCRIPT = {
             content: [
                 {
                     type: "text",
-                    value: "O método pop deve retirar o último item adicionado na lista, nesse caso, é o último elemento do array, portanto, para isso pode-se utilizar a função .pop() do JavaScript."
+                    value: "O método pop deve retirar o último item adicionado na lista, nesse caso, é o último elemento do array, portanto, para isso pode-se utilizar a função .pop() dos arrays JavaScript."
                 },
                 {
                     type: "code",

@@ -1,9 +1,7 @@
 // react hooks
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 // components
-import Header from "../../../components/shared/header";
-import Filter from "../../../components/shared/filter";
 import Post from "../../../components/post/index";
 import Presentation from "../../../components/shared/presentation/index";
 import Footer from "../../../components/shared/footer/index";
@@ -63,7 +61,7 @@ export default function Home() {
     useEffect(() => {
         if (!title) return;
         setPost(POST_BY_TITLE[title]);
-        // window.scrollTo(0, 0)
+        window.scrollTo(0, 0)
     }, [title]);
 
     const [categorySelected, setCategorySelected] = useState("");
@@ -95,7 +93,7 @@ export default function Home() {
                             <Post post={post} />
                         </Col>
                         <Col xs="12">
-                            <div
+                            <aside
                                 style={{
                                     position: "sticky",
                                     top: `calc(${filterHeight + 16}px + 10vh)`,
@@ -104,15 +102,17 @@ export default function Home() {
                             >
                                 <Row className="gy-3">
                                     <Col xs="12" lg="5" xxl="4">
-                                        <Presentation />
+                                        <div className="h-100">
+                                            <Presentation />
+                                        </div>
                                     </Col>
                                     <Col xs="12" lg="7" xxl="8">
-                                        <div className="my-4">
+                                        <div className="h-100">
                                             <RecentPosts />
                                         </div>
                                     </Col>
                                 </Row>
-                            </div>
+                            </aside>
                         </Col>
                     </Row>
                 </Container>

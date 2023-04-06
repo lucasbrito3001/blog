@@ -79,7 +79,7 @@ export default function Career() {
                         }
                     </ul>
                 </Col>
-                <Col xs={12} lg={6} className="career-section-academical text-start px-3 ps-lg-5 mt-5">
+                <Col xs={12} lg={6} className="career-section-academical text-start px-3 ps-lg-5 mt-5 mt-lg-0">
                 <div className="mb-4">
                         <h1 className="sections-title">xp. acadêmica</h1>
                     </div>

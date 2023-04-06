@@ -12,7 +12,7 @@ const MANIPULACAO_ARRAY = {
     title: "Manipulação de Arrays JavaScript ES6",
     subtitle: "Funções filter, find, map, reduce, some, e every.",
     categories: [{ value: "tutorial", text: "Tutorial" }],
-    createdAt: '2022-01-13',
+    createdAt: '2022/01/13',
     introduction: "O ECMAScript 6 ou ECMAScript 2015 ou ES6, é uma padronização da linguagem JavaScript, que trouxe várias novas funcionalidades, como declaração de variáveis com let e const, as arrow functions, e também as funções de manipulação de arrays que é o tema que será abordado nesse artigo.",
     sections: [
         {

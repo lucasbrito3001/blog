@@ -1,11 +1,11 @@
 export default `type StackRecord<T> = Record<number, T>
 
 class Stack<T> {
-    private items: StackRecord<T>;
-    private count;
+    private items: StackRecord<T>
+    private count
     constructor() {
-        this.items = {};
-        this.count = 0;
+        this.items = {}
+        this.count = 0
     }
     push(item: T): void {
         this.items[this.count] = item

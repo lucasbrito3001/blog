@@ -9,10 +9,6 @@
     h1 {
         font-size: 28px;
         color: var(--principal-color);
-
-        @include md {
-            font-size: 28px;
-        }
     }
 
     p {
