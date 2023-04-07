@@ -17,7 +17,9 @@ jobs:
         port: ${{ secrets.PORT }}
         username: ${{ secrets.USER }}
         key: ${{ secrets.SSH_KEY }}
+        password: ${{ secrets.PASSWORD }}
         script: |
+          sudo su
           export NVM_DIR=~/.nvm
           source ~/.nvm/nvm.sh
           sh /var/app/blog/deploy-app.sh
