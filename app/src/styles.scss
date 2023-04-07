@@ -83,6 +83,18 @@ code {
   font-family: 'Fira Mono' !important;
 }
 
+.token {
+  font-family: 'Fira Mono' !important;
+}
+
+.react-syntax-highlighter-line-number {
+  font-family: 'Fira Mono' !important;
+  text-align: right;
+  width: 100%;
+  display: block;
+  color: var(--medium-light);
+}
+
 .token.method.property-access {
   font-weight: 500;
   color: #000000 !important;
