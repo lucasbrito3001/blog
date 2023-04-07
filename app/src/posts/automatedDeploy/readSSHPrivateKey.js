@@ -1,0 +1,1 @@
+export default `cat ~/.ssh/id_ed25519`
