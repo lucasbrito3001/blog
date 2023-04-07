@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 
 .env
+
+deploy-app.sh
+deploy-api.sh
