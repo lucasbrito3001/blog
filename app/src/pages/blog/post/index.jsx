@@ -12,45 +12,18 @@ import { Container, Row, Col } from "react-bootstrap";
 import Navbar from "../../../components/portfolio/navbar";
 import PostHeader from "../../../components/post/header";
 
-const FILTERS_FIELDS = [
-    {
-        label: "Assunto",
-        value: "category",
-        key: 1,
-        type: "select",
-        isMulti: true,
-        colsLg: "4",
-        colsMd: "12",
-        options: [
-            { label: "Arquitetura", value: "architecture" },
-            { label: "Desenvolvimento", value: "development" },
-            { label: "Tutorial", value: "tutorial" },
-            { label: "Carreira", value: "career" },
-        ],
-    },
-    {
-        label: "Buscar no título",
-        value: "title",
-        placeholder: "Busque um texto para filtrarmos no título",
-        key: 2,
-        type: "search",
-        colsLg: "6",
-        colsMd: "12",
-    },
-];
-
-import HANDLE_ARRAY from "../../../posts/handleArray/index.js";
-import API_INTEGRATION from "../../../posts/apiIntegration/index.js";
-import TEST_CODE from "../../../posts/testCode/index.js";
 import { useParams } from "react-router-dom";
 import RecentPosts from "../../../components/post/recentPosts";
+
+// posts
+import HANDLE_ARRAY from "../../../posts/handleArray/index.js";
 import STACK_TYPESCRIPT from "../../../posts/stackTypescript";
+import AUTOMATED_DEPLOY from "../../../posts/automatedDeploy";
 
 const POST_BY_TITLE = {
     "manipulação-de-arrays-javascript-es6": HANDLE_ARRAY,
-    "testando-quadro-de-código-no-post": TEST_CODE,
-    "como-consumir-uma-api-com-javascript": API_INTEGRATION,
-    "pilhas-em-typescript": STACK_TYPESCRIPT
+    "pilhas-em-typescript": STACK_TYPESCRIPT,
+    "como-automatizar-deploy-em-um-vps-com-github-actions": AUTOMATED_DEPLOY
 };
 
 export default function Home() {
@@ -61,7 +34,7 @@ export default function Home() {
     useEffect(() => {
         if (!title) return;
         setPost(POST_BY_TITLE[title]);
-        window.scrollTo(0, 0)
+        // window.scrollTo(0, 0)
     }, [title]);
 
     const [categorySelected, setCategorySelected] = useState("");

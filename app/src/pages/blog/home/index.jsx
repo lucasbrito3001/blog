@@ -23,10 +23,13 @@ const FILTERS_FIELDS = [
         colsLg: "4",
         colsMd: "12",
         options: [
-            { label: "Arquitetura", value: "architecture" },
-            { label: "Desenvolvimento", value: "development" },
-            { label: "Tutorial", value: "tutorial" },
-            { label: "Carreira", value: "career" },
+            // { label: "Arquitetura", value: "architecture" },
+            { label: "Estrutura de Dados", value: "data-structure" },
+            { label: "JavaScript", value: "js" },
+            { label: "TypeScript", value: "ts" },
+            // { label: "Tutorial", value: "tutorial" },
+            // { label: "Carreira", value: "career" },
+            { label: "DevOps", value: "devops" },
         ],
     },
     {
@@ -71,11 +74,6 @@ export default function Home() {
                                 titleSearched={titleSearched}
                             />
                         </Col>
-                        {/* <Col xs="12" md="6" lg="3">
-                            <div style={{ top: `${filterHeight + 16}px` }} id="presentation" className="mx-2">
-                                <Presentation />
-                            </div>
-                        </Col> */}
                     </Row>
                 </Container>
             </div>

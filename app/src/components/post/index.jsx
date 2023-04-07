@@ -25,7 +25,7 @@ export default function Post({post}) {
                 <UnorderedList list={section.items}></UnorderedList>
             ),
             code: (section) => (
-                <Code code={section.value}></Code>
+                <Code code={section.value} lang={section.lang}></Code>
             )
         };
 

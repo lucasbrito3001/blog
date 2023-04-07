@@ -14,8 +14,11 @@ import StackPNG from './assets/stack.jpg'
 const STACK_TYPESCRIPT = {
     title: "Pilhas em TypeScript",
     subtitle: "O que é a estrutura de dados de pilha, para que serve e como criar uma com TypeScript.",
-    categories: [{ value: "data-sctructure", text: "Estrutura de Dados"}],
-    createdAt: "2023/03/25",
+    categories: [
+        { value: "data-structure", text: "Estrutura de Dados"},
+        { value: "ts", text: "TypeScript"}
+    ],
+    createdAt: "2023/04/06",
     introduction: `
         Uma pilha basicamente é uma lista de dados, que armazena items empilhando um acima do outro, e que segue o princípio LIFO (last-in first-out), onde o último item a entrar será o primeiro a sair, isso significa que, as ações de inserir e retirar itens devem ser feitas no topo da pilha.
         Uma pilha de pratos em um buffet é um exemplo de uma pilha, sempre que um prato é adicionado na pilha, ele fica no topo e passa a ser também o primeiro item que sairá. Acontece a mesma coisa com o botão de voltar do seu navegador, quando você clica nele, a última página que você visitou (last-in) será a primeira a ser acessada (first-out).
