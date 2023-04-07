@@ -186,4 +186,4 @@ const STACK_TYPESCRIPT = {
     ]
 }
 
-export default STACK_TYPESCRIPT
+export default STACK_TYPESCRIPT;
