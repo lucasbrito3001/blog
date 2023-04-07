@@ -1,4 +1,7 @@
 #!/bin/bash
+echo 'sudo su'
+sudo su
+
 echo 'Going to the app directory'
 cd /var/app/blog
 
