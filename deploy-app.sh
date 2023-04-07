@@ -1,5 +1,6 @@
 #!/bin/bash
-echo 'sudo su'
+
+echo 'Sudo su'
 sudo su
 
 echo 'Going to the app directory'
