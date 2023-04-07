@@ -18,12 +18,12 @@ import RecentPosts from "../../../components/post/recentPosts";
 // posts
 import HANDLE_ARRAY from "../../../posts/handleArray/index.js";
 import STACK_TYPESCRIPT from "../../../posts/stackTypescript";
-import AUTOMATED_DEPLOY from "../../../posts/automatedDeploy";
+// import AUTOMATED_DEPLOY from "../../../posts/automatedDeploy";
 
 const POST_BY_TITLE = {
     "manipulação-de-arrays-javascript-es6": HANDLE_ARRAY,
     "pilhas-em-typescript": STACK_TYPESCRIPT,
-    "como-automatizar-deploy-em-um-vps-com-github-actions": AUTOMATED_DEPLOY
+    // "como-automatizar-deploy-em-um-vps-com-github-actions": AUTOMATED_DEPLOY
 };
 
 export default function Home() {
