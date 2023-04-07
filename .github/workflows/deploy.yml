@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    name: Front-end
+    name: front-end - vite react
     runs-on: ubuntu-latest
 
     steps:
