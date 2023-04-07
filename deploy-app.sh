@@ -3,6 +3,8 @@
 echo 'Sudo su'
 sudo su
 
+echo 'TESTE'
+
 echo 'Going to the app directory'
 cd /var/app/blog
 
