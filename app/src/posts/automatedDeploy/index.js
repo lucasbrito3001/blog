@@ -13,7 +13,7 @@ const AUTOMATED_DEPLOY = {
     createdAt: "2023/04/06",
     categories: [{ value: 'devops', text: "DevOps" }],
     subtitle: "Configurando o GitHub Actions para acessar seu VPS via SSH e rodar scripts para automatizar seu deploy.",
-    introduction: "O processo de deploy manual pode ser uma tarefa longa e cansativa para seu responsável. Dito isso, a automatização desse processo é uma tarefa muito interessante, principalmente em ambientes de desenvolvimento, onde várias vezes o tempo é um recurso escasso. Nesse artigo, vamos ver como acessar um servidor VPS via SSH com o GitHub Actions e mostrar um exemplo automatizando o deploy de uma aplicação ReactJs buildada pelo vite utilizando shell scripts. Vale ressaltar que o processo é o mesmo para qualquer linguagem / projeto, mudando somente o processo realizado depois que já tenha acessado a sua máquina.",
+    introduction: "O processo de deploy manual pode ser uma tarefa longa e cansativa, dito isso, a automatização desse processo é uma tarefa muito interessante, principalmente em ambientes de desenvolvimento, onde várias vezes o tempo é um recurso escasso. Nesse artigo, vamos ver como acessar um servidor VPS via SSH com o GitHub Actions e mostrar um exemplo automatizando o deploy de uma aplicação ReactJs buildada pelo vite. Vale ressaltar que o processo é o mesmo para qualquer linguagem / projeto, mudando somente o processo realizado depois que já tenha acessado a sua máquina.",
     sections: [
         {
             title: "Benefícios",
@@ -27,7 +27,7 @@ const AUTOMATED_DEPLOY = {
                     items: [
                         "Mais tempo para os desenvolvedores focarem nas tarefas.",
                         "Evitar erros humanos durante o processo.",
-                        "Publicação constante de novas features, solução de issues / bugs, possibilitando testes menores e mais frequentes."
+                        "Publicação constante de novas features e solução de issues / bugs, possibilitando testes menores e mais frequentes."
                     ]
                 }
             ]
@@ -83,7 +83,7 @@ const AUTOMATED_DEPLOY = {
                     items: [
                         "SSH_KEY - conteúdo da chave privada copiada acima",
                         "PORT - 22 (ou a porta SSH configurada no seu VPS)",
-                        "USERNAME - usuário existente na máquina utilizado para acesso SSH",
+                        "USER - usuário existente na máquina utilizado para acesso SSH",
                         "HOST - endereço IP do servidor"
                     ]
                 },
@@ -105,13 +105,9 @@ const AUTOMATED_DEPLOY = {
                     value: "Vamos então para a última parte do tutorial, criar a configuração do GitHub Actions. Primeiro, assumindo que você tenha o repositório clonado na sua máquina, crie na raiz do seu projeto a pasta .github/workflows e dentro dela o arquivo deploy.yml e insira o seguinte conteúdo nele:"
                 },
                 {
-                    type: "text",
-                    value: "Vamos então para a última parte do tutorial, criar a configuração do GitHub Actions. Primeiro, assumindo que você tenha o repositório clonado na sua máquina, crie na raiz do seu projeto a pasta .github/workflows e dentro dela o arquivo deploy.yml e insira o seguinte conteúdo nele:"
-                },
-                {
                     type: "code",
                     value: DeployYml,
-                    lang: 'bash'
+                    lang: 'yml'
                 },
                 {
                     type: "text",
@@ -129,7 +125,7 @@ const AUTOMATED_DEPLOY = {
                 {
                     type: "code",
                     value: PushDiffsToRepo,
-                    lang: "bash"
+                    lang: "git"
                 },
                 {
                     type: "text",
@@ -145,7 +141,7 @@ const AUTOMATED_DEPLOY = {
                 },
                 {
                     type: "text",
-                    value: "E aí está, se estiver tudo verdinho como nas imagens acima, significa que o seu deploy automático foi configurado com sucesso, e agora toda vez que você houver um push de código na branch develop essa ação irá ser executada e seu código será auto-implementado no seu servidor"
+                    value: "E aí está, se estiver tudo verdinho como nas imagens acima, significa que o seu deploy automático foi configurado com sucesso, e agora toda vez que você houver um push de código na branch develop essa ação será executada e seu código será auto-implementado no seu servidor"
                 }
             ]
         },

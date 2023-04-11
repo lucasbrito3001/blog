@@ -1,6 +1,6 @@
-import client from "../httpClient"
+import httpClient from "../httpClient"
 
-export async function sendMail({ subject, text }) {
+export async function sendMail({ subject, text }, client = httpClient) {
     try {
         const result = await client.post('/email', { subject, text });
 
