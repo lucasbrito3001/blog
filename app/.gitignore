@@ -27,3 +27,4 @@ dist-ssr
 
 deploy-app.sh
 deploy-api.sh
+coverage
