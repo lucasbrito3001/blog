@@ -6,8 +6,6 @@ import { Post } from "../../../entities/post/post.entity";
 const newPost = {
     title: 'post title',
     subtitle: 'post subtitle',
-    imagePath: 'imagePath.png',
-    description: 'post description',
     creationDate: new Date,
 };
 

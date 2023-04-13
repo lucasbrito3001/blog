@@ -15,9 +15,9 @@ export class CreatePostUseCase implements ICreatePost {
     }
 
     async execute() {
-        const postEntity = this.postEntity.create()
-
         try {
+            const postEntity = this.postEntity.create()
+            
             if("error" in postEntity) throw new Error(postEntity.error) 
 
             const isPostCreated = await this.postRepository.createPost()

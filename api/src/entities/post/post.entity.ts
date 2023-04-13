@@ -6,26 +6,22 @@ import { IStringError } from "../../interfaces/stringError.interface";
 export class Post implements IPostEntity {
     public readonly title;
     public readonly subtitle;
-    public readonly imagePath;
-    public readonly description;
     public readonly creationDate;
+    public readonly likes;
 
-    constructor({ title, subtitle, imagePath, description, creationDate }: IPostDTO) {
+    constructor({ title, subtitle, creationDate }: IPostDTO) {
         this.title = title;
         this.subtitle = subtitle;
-        this.imagePath = imagePath;
-        this.description = description;
         this.creationDate = creationDate;
+        this.likes = 0;
     }
 
     public create() {
         const isValidTitle = this.validateTitle();
         const isValidSubtitle = this.validateSubtitle();
-        const isValidImagePath = this.validateImagePath();
-        const isValidDescription = this.validateDescription();
         const isValidCreationDate = this.validateCreationDate();
         
-        if (!isValidTitle || !isValidSubtitle || !isValidImagePath || !isValidDescription || !isValidCreationDate) {
+        if (!isValidTitle || !isValidSubtitle || !isValidCreationDate) {
             const error: IStringError = { 
                 error: "Error to create post, invalid or missing infos" 
             }
@@ -36,9 +32,8 @@ export class Post implements IPostEntity {
         const post: IPostDTO = {
             title: this.title,
             subtitle: this.subtitle,
-            imagePath: this.imagePath,
-            description: this.description,
             creationDate: this.creationDate,
+            likes: this.likes
         }
          
         return post;
@@ -50,14 +45,6 @@ export class Post implements IPostEntity {
 
     public validateSubtitle() {
         return this.subtitle.length > 0;
-    }
-
-    public validateImagePath() {
-        return existsSync(`upload/${this.imagePath}`);
-    }
-
-    public validateDescription() {
-        return this.description.length > 0;
     }
 
     public validateCreationDate() {
