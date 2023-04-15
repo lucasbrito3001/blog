@@ -4,30 +4,23 @@ import { IPostEntity } from "./post.entity.interface";
 import { IStringError } from "../../interfaces/stringError.interface";
 
 export class Post implements IPostEntity {
-    public readonly title;
-    public readonly subtitle;
-    public readonly creationDate;
-    public readonly likes;
+    public title: string = '';
+    public subtitle: string = '';
+    public creationDate: string  = '';
+    public likes: number = 0;
 
-    constructor({ title, subtitle, creationDate }: IPostDTO) {
+    public create({ title, subtitle, creationDate }: IPostDTO) {
+        if([title, subtitle, creationDate].some(param => param === undefined)) return { error: 'MISSING_INFORMATIONS' }
+
         this.title = title;
         this.subtitle = subtitle;
         this.creationDate = creationDate;
-        this.likes = 0;
-    }
 
-    public create() {
         const isValidTitle = this.validateTitle();
         const isValidSubtitle = this.validateSubtitle();
         const isValidCreationDate = this.validateCreationDate();
         
-        if (!isValidTitle || !isValidSubtitle || !isValidCreationDate) {
-            const error: IStringError = { 
-                error: "Error to create post, invalid or missing infos" 
-            }
-            
-            return error;
-        }
+        if (!isValidTitle || !isValidSubtitle || !isValidCreationDate) return { error: "INVALID_INFORMATIONS" }
 
         const post: IPostDTO = {
             title: this.title,
@@ -48,6 +41,10 @@ export class Post implements IPostEntity {
     }
 
     public validateCreationDate() {
-        return new Date(this.creationDate).toDateString() !== 'Invalid Date';
+        if(new Date(this.creationDate) instanceof Date) {
+            return new Date(this.creationDate).toDateString() !== 'Invalid Date';
+        }
+
+        return false
     }
 }

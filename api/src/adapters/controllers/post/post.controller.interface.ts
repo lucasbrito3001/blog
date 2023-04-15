@@ -1,16 +1,9 @@
-import { IPost } from "../../../interfaces/post.interface"
-import { ICreatePost } from "../../../usecases/post/createPost/createPost.usecase.interface"
-import { IReadPosts } from "../../../usecases/post/readPosts/readPosts.usecase.interface"
+import { NextFunction, Request, Response } from "express"
 
 export interface IPostController {
-    useCases: {
-        createPost: ICreatePost
-        readPosts: IReadPosts
-    }
-
-    readOne: () => Promise<IPost>
-    readAll: () => Promise<IPost[]>
-    createOne: () => Promise<boolean>
-    updateOne: () => Promise<boolean>
-    deleteOne: () => Promise<boolean>
+    // readOne: () => Promise<IPost>
+    // readAll: () => Promise<IPost[]>
+    createOne: (req: Request, res: Response, next: NextFunction) => Promise<void>
+    // updateOne: () => Promise<boolean>
+    // deleteOne: () => Promise<boolean>
 }

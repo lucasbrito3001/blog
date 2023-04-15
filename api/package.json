@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "vitest",
-    "prod": "tsc && node dist/server.js",
-    "dev": "tsnd --respawn --transpile-only server.ts",
-    "coverage": "vitest run --coverage"
+    "prod": "tsc && pm2 start dist/index.js",
+    "dev": "tsnd --respawn --transpile-only index.ts",
+    "coverage": "vitest run --coverage",
+    "test": "vitest"
   },
   "keywords": [],
   "author": "",

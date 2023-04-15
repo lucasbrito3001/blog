@@ -1,6 +1,6 @@
 export interface IPostDTO {
     title: string
     subtitle: string
-    creationDate: Date
+    creationDate: string
     likes?: number
 }

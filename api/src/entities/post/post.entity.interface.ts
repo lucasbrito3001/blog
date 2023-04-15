@@ -6,10 +6,10 @@ export interface IPostEntity {
     id?: typeof UUIDV4
     title: string
     subtitle: string
-    creationDate: Date
-    likes: number
+    creationDate: string | undefined
+    likes: number | undefined
 
-    create: () => IStringError | IPostDTO
+    create: (post: IPostDTO) => IStringError | IPostDTO
 
     validateTitle(): boolean
     validateSubtitle(): boolean
