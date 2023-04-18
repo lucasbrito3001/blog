@@ -1,13 +1,11 @@
 import os from 'os'
 import express, { Router } from 'express'
-import dotenv from 'dotenv'
 import cors from 'cors'
 import morgan from 'morgan'
 import { getRoutes as getPostRoutes } from "./post.routes"
 import { Server } from 'http'
 import { handleResponse } from '../middlewares/handleErrorResponse'
-
-dotenv.config()
+import "reflect-metadata"
 
 export class ApplicationServer {
     private app = express()
@@ -15,7 +13,7 @@ export class ApplicationServer {
 
     constructor() {}
     
-    start(PORT: string): Server {
+    start(PORT: string, callback: (result: boolean) => void): void {
         this.app.use(cors())
         this.app.use(express.json())
         this.app.use(morgan(process.env.MORGAN_CONFIG || 'dev'))
@@ -37,9 +35,9 @@ export class ApplicationServer {
             console.log(`- arch: ${process.arch}`)
             console.log(`- os: ${process.platform}`)
             console.log('=======================================================')
-        })
 
-        return this.server
+            callback(false)
+        })
     }
 
     stop(serverStopped: (err?: any) => never): void {

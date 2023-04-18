@@ -6,7 +6,7 @@ import { Post } from "../../../entities/post/post.entity";
 const newPost = {
     title: 'post title',
     subtitle: 'post subtitle',
-    creationDate: new Date,
+    creationDate: '2022-03-20',
 };
 
 describe("Testing use case - Create Post", () => {

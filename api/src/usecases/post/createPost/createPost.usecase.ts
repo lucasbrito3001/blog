@@ -20,8 +20,6 @@ export class CreatePostUseCase implements ICreatePost {
 
             const resultCreatePost = await this.postRepository.createPost()
 
-            console.log("TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT: ", resultCreatePost)
-
             if(!resultCreatePost.status) throw new Error(resultCreatePost.error)
 
             return { status: true, message: 'Post created successfully' }
