@@ -40,7 +40,7 @@ export default function Home() {
     useEffect(() => {
         if (!title) return;
         setPost(POST_BY_TITLE[title]);
-        // window.scrollTo(0, 0)
+        window.scrollTo(0, 0)
     }, [title]);
 
     return (
