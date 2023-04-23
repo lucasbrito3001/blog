@@ -26,7 +26,7 @@ export default function Navbar() {
             <div className="navbar-wrapper">
                 <div className={`navbar ${ !isCollapsed ? 'extended' : "" } ${ isMobile ? 'mobile' : "" }`}>
                     <div id="navbar-logo-toggle">
-                        <Link to="/#presentation" className="navbar-links">
+                        <Link to="/" className="navbar-links" onClick={() => scrollTo(0, 0)}>
                             <Logo theme="dark"></Logo>
                         </Link>
                         { isMobile && <span id="navbar-menu-toggle" onClick={toggleMenu}></span> }

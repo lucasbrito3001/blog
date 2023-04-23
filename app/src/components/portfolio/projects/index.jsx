@@ -59,8 +59,13 @@ export default function Projects() {
                             }
                         </ul>
                         <div className="d-flex gap-2 mt-2">
-                            { project.repoUrl && <a href={project.repoUrl} target="_blank"><button size="sm" className="project-button">Ver código</button></a> }
-                            { project.appUrl && <a href={project.appUrl} target="_blank"><button size="sm" className="project-button">Ver aplicação</button></a> }
+                            { project.status === 1 
+                                ? <>
+                                    { project.repoUrl && <a href={project.repoUrl} target="_blank"><button size="sm" className="project-button">Ver código</button></a> }
+                                    { project.appUrl && <a href={project.appUrl} target="_blank"><button size="sm" className="project-button">Ver aplicação</button></a> }
+                                </>
+                                : <span className="project-category mt-1">Temporariamente inativo</span>
+                            }
                         </div>
                         <hr className={`positions-separator`}/>
                     </Col>

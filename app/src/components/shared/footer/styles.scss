@@ -2,17 +2,18 @@
     background-color: var(--bg-footer);
     color: var(--light);
     padding: 64px 0;
+    font-size: 20px;
 
     .title {
-        font-size: 26px;
+        font-size: 32px;
         font-weight: 700;
     }
 
     .text {
         line-height: 1.75;
-        font-weight: 400;
-        font-size: 18px;
-        color: var(--light);
+        font-weight: 300 !important;
+        font-size: 20px;
+        color: var(--medium-light);
 
         strong {
             font-weight: 700;
@@ -38,16 +39,23 @@
         padding: 0;
         list-style: none;
         display: flex;
+        flex-direction: column;
         gap: 8px;
         justify-content: flex-start;
+        width: 100%;
     }
 
     .network-links {
-        transition: .3s;
+        transition: .5s;
         border-bottom: 1px solid transparent;
+        width: fit-content;
     }
 
-    .network-links:hover {
-        border-bottom: 1px solid var(--principal-color) !important;
+    .network-links li {
+        text-decoration: transparent wavy underline;
+    }
+
+    .network-links li:hover {
+        text-decoration: var(--principal-color) wavy underline;
     }
 }

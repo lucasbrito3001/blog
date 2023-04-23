@@ -1,7 +1,8 @@
 @import "../../../assets/styles/breakpoints.scss";
 
 nav {
-    position: relative;
+    position: fixed;
+    top: 0;
     width: 100%;
     height: 10vh;
     z-index: 100;
@@ -9,9 +10,21 @@ nav {
     transition: .5s;
     
     @include lg {
-        position: fixed;
-        top: 0;
         height: fit-content;
+        // position: fixed;
+    }
+}
+
+nav.collapsed {
+    height: 8vh;
+    background-color: var(--dark);
+
+    .navbar-list {
+        .navbar-list-item {
+            .navbar-list-item-link {
+                color: var(--light);
+            }
+        }
     }
 }
 
@@ -112,7 +125,7 @@ nav.extended {
                 height: 100%;
                 
                 &:hover {
-                    color: var(--principal-color);   
+                    color: var(--principal-color);
                 }
                 
                 @include lg {

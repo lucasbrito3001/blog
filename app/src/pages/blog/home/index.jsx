@@ -1,11 +1,9 @@
 // react hooks
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 // components
-import Header from "../../../components/shared/header";
 import Filter from "../../../components/shared/filter";
 import Posts from "../../../components/home/posts/index";
-import Presentation from "../../../components/shared/presentation/index";
 import Footer from "../../../components/shared/footer/index";
 
 // styles
@@ -48,16 +46,22 @@ export default function Home() {
     const [titleSearched, setTitleSearched] = useState("");
 
     const [filterHeight, setFilterHeight] = useState(0);
+    const [scrollTop, setScrollTop] = useState(0);
 
     function searchByFilters(values) {
         setCategorySelected(values.category);
         setTitleSearched(values.title);
     }
+    
+    useEffect(() => {
+        const handleScroll = () => setScrollTop(window.scrollY);
+        window.addEventListener('scroll', handleScroll);
+    }, []);
 
     return (
         <>
             <div id="blog-navbar">
-                <Navbar></Navbar>
+                <Navbar scrollTop={scrollTop} transitionHeight={500}></Navbar>
             </div>
             <Filter
                 id="filter"
