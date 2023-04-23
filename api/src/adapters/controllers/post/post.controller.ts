@@ -21,7 +21,7 @@ export class PostController {
             res.responseTemplateKey = 'POST_CREATED'
         } catch (error) {
             if(error instanceof Error) {
-                console.log(error.message)
+                // console.log(error.message)
                 res.responseTemplateKey = error.message
             } 
         }

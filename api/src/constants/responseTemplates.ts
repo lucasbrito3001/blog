@@ -22,6 +22,14 @@ export const RESPONSE_TEMPLATES_DICTIONARY: Record<string, responseTemplateType>
         httpStatusCode: 500,
         data: { status: false, errors: ['An internal error ocurred, contact an administrator'] }
     },
+    "REPOSITORY_FAILED": {
+        httpStatusCode: 500,
+        data: { status: false, errors: ['A repository error ocurred, contact an administrator'] }
+    },
+    "ER_DUP_ENTRY": {
+        httpStatusCode: 400,
+        data: { status: false, errors: ['Error to persist data, duplicated values'] }
+    },
     "DEFAULT": {
         httpStatusCode: 500,
         data: { status: false, errors: ['An internal error ocurred, contact an administrator'] }

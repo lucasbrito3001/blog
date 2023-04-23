@@ -15,8 +15,6 @@ export function handleResponse(
         const { httpStatusCode, data } = RESPONSE_TEMPLATES_DICTIONARY[res.responseTemplateKey] || RESPONSE_TEMPLATE_DEFAULT
         res.status(httpStatusCode).json(data)
     } catch (error) {
-        console.log("[ERROR] Error to handle response:\n", error)
-
         const { httpStatusCode, data } = RESPONSE_TEMPLATE_DEFAULT
         res.status(httpStatusCode).json(data)
     }

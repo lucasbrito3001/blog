@@ -1,27 +1,8 @@
 import dotenv from 'dotenv'
 import { ApplicationServer } from "./src/main/app"
-import { DatabaseConnection } from "./src/main/data-source"
+import { DatabaseConnection } from "./src/main/database/data-source"
 
 dotenv.config()
-
-// function gracefulShutdown(signal: string) {
-//     console.log(`\n[APP] ${signal} sinal received\n`)
-//     console.log('[APP] Closing server...')
-
-//     appServer.stop((err: any) => {
-//         if(err) {
-//             console.log('[APP] Failed to stop the server')
-//             process.exit(1)
-//         }
-
-//         console.log('[APP] The server stopped')
-//         process.exit(0)
-//     })
-// }
-
-// ['SIGTERM', 'SIGINT', 'SIGQUIT'].forEach(signal => 
-//     process.on(signal, gracefulShutdown)
-// )
 
 const DBCONN_CONFIGS = {
     host: process.env.DB_HOST,
@@ -30,8 +11,10 @@ const DBCONN_CONFIGS = {
     database: process.env.DB_DATABASE,
     password: process.env.DB_PASSWORD,
     synchronize: process.env.NODE_ENV === 'development',
-    logging: process.env.NODE_ENV === 'development',
 }
+
+const stopAppNodeEvents = ['SIGTERM', 'SIGINT', 'SIGQUIT']
+stopAppNodeEvents.forEach(signal => process.on(signal, () => webapi.stop(signal)))
 
 class WebAPI {
     private appServer
@@ -43,49 +26,70 @@ class WebAPI {
     }
 
     start = (): void => {
-        // if(Object.values(DBCONN_CONFIGS).some(value => !value)) {
-        //     console.log('\n[ERROR] Error with the database configuration, check the env variables.')
-        //     return
-        // }
+        console.log('\n=======================================================')
+        console.log('> [APP] Welcome to the Blog Post - API')
+        console.log('> [APP] Starting the infrastructure of application...')
+        console.log('=======================================================')
+
+        if(Object.values(DBCONN_CONFIGS).some(value => !value)) {
+            console.log('\n> [ERROR] Error with the database configuration, check the env variables.')
+            return
+        }
 
         const PORT = process.env.PORT || '5003'
 
-        console.log(`\n[APP] Starting server...\n`)
+        console.log(`\n> [DB] Connecting...`)
 
-        this.databaseConnection.start((dbStatus, error) => {
-            if(!dbStatus) {
-                console.log('[DB] Error to initialize the database connection')
+        this.databaseConnection.start(async (dbStatus, dataSource, error) => {
+            if(!dbStatus || !dataSource) {
+                console.log('> [DB] Error to initialize the database connection\n')
                 console.log(error)
+                console.log('\n> [APP] The app bootstrap has stopped.')
                 return
             }
 
-            this.appServer.start(PORT, async (serverStatus) => {
+            console.log('> [DB] Connected successfully!')
 
+            console.log(`\n> [SERVER] Starting...`)
+
+            this.appServer.start(PORT, dataSource, async (serverStatus) => {
+                if(!serverStatus) {
+                    console.log('> [SERVER] Error to start the server...')
+                    this.killProcess()
+                    return
+                }
+
+                console.log('> [SERVER] Started succesfully!\n')
             })
+
         })
     }
 
     stop = (signal: string): void => {
-        console.log(`\n[APP] ${signal} sinal received\n`)
-        console.log('[APP] Shutdowning gracefully...')
+        console.log(`\n> [APP] ${signal} sinal received`)
+        console.log('> [APP] Shutdowning gracefully')
+        
+        console.log('\n> [SERVER] Stopping...')
+        console.log('> [SERVER] Closed to new and awaiting for pending requests...')
 
-        this.appServer.stop((err: any) => {
+        this.appServer.stop(async (err: any) => {
             if(err) {
-                console.log('[APP] Failed to stop the server')
+                console.log('> [SERVER] Failed to stop the server')
                 process.exit(1)
             }
+            
+            console.log('> [SERVER] Stopped successfully!')
 
-            console.log('[APP] The server stopped')
+            console.log('> [DB] Stopping connection pools...')
+            await this.databaseConnection.stop()
+            console.log('> [DB] Stopped successfully!')
+
             process.exit(0)
         })
     }
+
+    killProcess = () => process.kill(process.pid)
 }
 
 const webapi = new WebAPI()
 webapi.start()
-
-const stopAppNodeEvents = ['SIGTERM', 'SIGINT', 'SIGQUIT']
-
-stopAppNodeEvents.forEach(signal => 
-    process.on(signal, () => webapi.stop(signal))
-)

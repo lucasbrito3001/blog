@@ -9,7 +9,7 @@
     "module": "commonjs",                                /* Specify what module code is generated. */
 
     /* Emit */
-    "sourceMap": true,                                /* Create source map files for emitted JavaScript files. */
+    "sourceMap": true,                                   /* Create source map files for emitted JavaScript files. */
     "outDir": "./dist",                                  /* Specify an output folder for all emitted files. */
 
     /* Interop Constraints */
@@ -20,7 +20,8 @@
     "strict": true,                                      /* Enable all strict type-checking options. */
 
     /* Completeness */
-    "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
+    "skipLibCheck": true,                                 /* Skip type checking all .d.ts files. */
+    "strictPropertyInitialization": false
   },
   "exclude": ["src/**/*.test.ts"]
 }

@@ -5,24 +5,31 @@ import { Post } from "../entities/post/post.entity";
 import { PostRoutes } from "../routes/post.route";
 import { CreatePostUseCase } from "../usecases/post/createPost/createPost.usecase";
 import { AnyFunction } from "../constants/routes";
+import { DataSource } from "typeorm";
+import { Post as PostEntity } from "./database/entity/post.entity";
 
-const postEntity = new Post()
-const postRepository = new PostRepository()
-const createPostUseCase = new CreatePostUseCase(postEntity, postRepository)
-const postController = new PostController(createPostUseCase)
 
-function getRoutes() {
-    const router = Router()
-    
-    const routes = new PostRoutes(postController).getRoutes()
-    
-    routes.forEach(route => {
-        const routeParams: [string, AnyFunction] = [route.endpoint, route.controller]
-    
-        router[route.method](...routeParams)
-    })
+export class PostRouter {
+    private postController
 
-    return router
+    constructor(dataSource: DataSource, entity: typeof PostEntity) {
+        const postEntity = new Post()
+        const postRepository = new PostRepository(dataSource, entity)
+        const createPostUseCase = new CreatePostUseCase(postEntity, postRepository)
+
+        this.postController = new PostController(createPostUseCase)
+    }
+    getRoutes = () => {
+        const router = Router()
+        
+        const routes = new PostRoutes(this.postController).getRoutes()
+        
+        routes.forEach(route => {
+            const routeParams: [string, AnyFunction] = [route.endpoint, route.controller]
+        
+            router[route.method](...routeParams)
+        })
+    
+        return router
+    }
 }
-
-export { getRoutes }

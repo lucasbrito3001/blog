@@ -18,13 +18,13 @@ export class CreatePostUseCase implements ICreatePost {
             
             if("error" in postEntity) throw new Error(postEntity.error) 
 
-            const resultCreatePost = await this.postRepository.createPost()
+            const resultCreatePost = await this.postRepository.createPost(postEntity)
 
             if(!resultCreatePost.status) throw new Error(resultCreatePost.error)
 
             return { status: true, message: 'Post created successfully' }
         } catch (error) {
-            console.log(error)
+            // console.log(error)
             const errorMessage: any = error
 
             return { status: false, error: errorMessage.message ? errorMessage.message : 'error' }
