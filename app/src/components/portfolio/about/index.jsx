@@ -34,7 +34,7 @@ export default function About() {
                             Sou uma pessoa muito curiosa e ativa, e é somando isso com meu conhecimento técnico - em constante
                             desenvolvimento - que eu busco agregar valor para as equipes que participo. 
                             <br />
-                            Acredito que com transparência, empatia e um grupo comprometido e responsável, podemos resolver
+                            Acredito que com transparência, empatia e um grupo comprometido e responsável podemos resolver
                             qualquer problema!
                         </p>
                     </Fade>

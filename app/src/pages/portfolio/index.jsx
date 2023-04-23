@@ -13,12 +13,20 @@ import Projects from "../../components/portfolio/projects"
 import Contact from "../../components/portfolio/contact"
 import Blog from "../../components/portfolio/blog"
 import Footer from "../../components/shared/footer"
+import { useEffect, useState } from "react";
 
 export default function Portfolio() {
+    const [scrollTop, setScrollTop] = useState(0);
+
+    useEffect(() => {
+        const handleScroll = () => setScrollTop(window.scrollY);
+        window.addEventListener('scroll', handleScroll);
+    }, []);
+
     return (
         <div>
             <header className="portfolio-header">
-                <Navbar></Navbar>
+                <Navbar scrollTop={scrollTop} transitionHeight={700}></Navbar>
             </header>
             <main className="portfolio-main">
                 <div id="presentation" className="portfolio-presentation">

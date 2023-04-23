@@ -30,6 +30,12 @@ export default function Home() {
     const { title } = useParams();
 
     const [post, setPost] = useState({});
+    const [scrollTop, setScrollTop] = useState(0);
+    
+    useEffect(() => {
+        const handleScroll = () => setScrollTop(window.scrollY);
+        window.addEventListener('scroll', handleScroll);
+    }, []);
 
     useEffect(() => {
         if (!title) return;
@@ -37,20 +43,10 @@ export default function Home() {
         window.scrollTo(0, 0)
     }, [title]);
 
-    const [categorySelected, setCategorySelected] = useState("");
-    const [titleSearched, setTitleSearched] = useState("");
-
-    const [filterHeight, setFilterHeight] = useState(0);
-
-    function searchByFilters(values) {
-        setCategorySelected(values.category);
-        setTitleSearched(values.title);
-    }
-
     return (
         <>
             <div id="blog-navbar">
-                <Navbar />
+                <Navbar scrollTop={scrollTop} transitionHeight={400}/>
             </div>
             <div className="wrapper-post">
                 { post.categories && (
@@ -66,13 +62,7 @@ export default function Home() {
                             <Post post={post} />
                         </Col>
                         <Col xs="12">
-                            <aside
-                                style={{
-                                    position: "sticky",
-                                    top: `calc(${filterHeight + 16}px + 10vh)`,
-                                }}
-                                id="presentation"
-                            >
+                            <aside id="presentation">
                                 <Row className="gy-3">
                                     <Col xs="12" lg="5" xxl="4">
                                         <div className="h-100">
