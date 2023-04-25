@@ -4,41 +4,29 @@ import { IPostEntity } from "./post.entity.interface";
 import { IStringError } from "../../interfaces/stringError.interface";
 
 export class Post implements IPostEntity {
-    public readonly title;
-    public readonly subtitle;
-    public readonly imagePath;
-    public readonly description;
-    public readonly creationDate;
+    public title: string = '';
+    public subtitle: string = '';
+    public creationDate: string  = '';
+    public likes: number = 0;
 
-    constructor({ title, subtitle, imagePath, description, creationDate }: IPostDTO) {
+    public create({ title, subtitle, creationDate }: IPostDTO) {
+        if([title, subtitle, creationDate].some(param => param === undefined)) return { error: 'MISSING_INFORMATIONS' }
+
         this.title = title;
         this.subtitle = subtitle;
-        this.imagePath = imagePath;
-        this.description = description;
         this.creationDate = creationDate;
-    }
 
-    public create() {
         const isValidTitle = this.validateTitle();
         const isValidSubtitle = this.validateSubtitle();
-        const isValidImagePath = this.validateImagePath();
-        const isValidDescription = this.validateDescription();
         const isValidCreationDate = this.validateCreationDate();
         
-        if (!isValidTitle || !isValidSubtitle || !isValidImagePath || !isValidDescription || !isValidCreationDate) {
-            const error: IStringError = { 
-                error: "Error to create post, invalid or missing infos" 
-            }
-            
-            return error;
-        }
+        if (!isValidTitle || !isValidSubtitle || !isValidCreationDate) return { error: "INVALID_INFORMATIONS" }
 
         const post: IPostDTO = {
             title: this.title,
             subtitle: this.subtitle,
-            imagePath: this.imagePath,
-            description: this.description,
             creationDate: this.creationDate,
+            likes: this.likes
         }
          
         return post;
@@ -52,15 +40,11 @@ export class Post implements IPostEntity {
         return this.subtitle.length > 0;
     }
 
-    public validateImagePath() {
-        return existsSync(`upload/${this.imagePath}`);
-    }
-
-    public validateDescription() {
-        return this.description.length > 0;
-    }
-
     public validateCreationDate() {
-        return new Date(this.creationDate).toDateString() !== 'Invalid Date';
+        if(new Date(this.creationDate) instanceof Date) {
+            return new Date(this.creationDate).toDateString() !== 'Invalid Date';
+        }
+
+        return false
     }
 }

@@ -1,18 +1,17 @@
 import { IPostDTO } from "../../interfaces/dto/post.interface.dto";
 import { IStringError } from "../../interfaces/stringError.interface";
+import { UUIDV4 } from "sequelize";
 
 export interface IPostEntity {
+    id?: typeof UUIDV4
     title: string
     subtitle: string
-    imagePath: string
-    description: string
-    creationDate: Date
+    creationDate: string | undefined
+    likes: number | undefined
 
-    create: () => IStringError | IPostDTO
+    create: (post: IPostDTO) => IStringError | IPostDTO
 
     validateTitle(): boolean
     validateSubtitle(): boolean
-    validateImagePath(): boolean
-    validateDescription(): boolean
     validateCreationDate(): boolean
 }

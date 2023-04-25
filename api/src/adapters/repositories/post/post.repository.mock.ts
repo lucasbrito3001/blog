@@ -13,8 +13,8 @@ export class MockPostRepository {
                     id: 1,
                     title: "post title",
                     subtitle: "post subtitle",
-                    imagePath: "imagePath.png",
                     creationDate: new Date().toLocaleString("pt-BR"),
+                    likes: 0
                 }
             ]
         };
@@ -28,8 +28,8 @@ export class MockPostRepository {
                     id: 1,
                     title: "post title",
                     subtitle: "post subtitle",
-                    imagePath: "imagePath.png",
                     creationDate: new Date().toLocaleString("pt-BR"),
+                    likes: 0
                 },
             ]
         }

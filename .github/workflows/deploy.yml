@@ -20,5 +20,5 @@ jobs:
         script: |
           export NVM_DIR=~/.nvm
           source ~/.nvm/nvm.sh
-          sh /var/app/blog/deploy-app.sh
+          sh /var/app/blog/deploy.sh
           sudo systemctl reload apache2
