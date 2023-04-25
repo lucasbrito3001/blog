@@ -13,7 +13,10 @@ export function handleResponse(
 ) {
     try {
         const { httpStatusCode, data } = RESPONSE_TEMPLATES_DICTIONARY[res.responseTemplateKey] || RESPONSE_TEMPLATE_DEFAULT
-        res.status(httpStatusCode).json(data)
+        res.status(httpStatusCode).json({
+            ...data,
+            ...(res.responseContent && { content: res.responseContent })
+        })
     } catch (error) {
         const { httpStatusCode, data } = RESPONSE_TEMPLATE_DEFAULT
         res.status(httpStatusCode).json(data)

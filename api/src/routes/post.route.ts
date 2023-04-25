@@ -3,24 +3,24 @@ import { IRoutes } from "../constants/routes";
 
 export class PostRoutes {
     private controller
-    private routes: IRoutes[] = []
+    private _routes: IRoutes[] = []
 
     constructor(controller: IPostController) {
         this.controller = controller
 
-        this.routes = [
+        this._routes = [
             {
                 method: "post",
                 endpoint: "/",
                 middlewares: [],
                 controller: this.controller.createOne.bind(this)
             },
-            // {
-            //     method: "GET",
-            //     endpoint: "/",
-            //     middlewares: [],
-            //     controller: this.controller.readAll
-            // },
+            {
+                method: "get",
+                endpoint: "/",
+                middlewares: [],
+                controller: this.controller.readAll.bind(this)
+            },
             // {
             //     method: "GET",
             //     endpoint: "/:id",
@@ -30,7 +30,7 @@ export class PostRoutes {
         ]
     }
 
-    getRoutes() {
-        return this.routes
+    public get routes() {
+        return this._routes
     }
 }

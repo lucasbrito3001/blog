@@ -6,5 +6,6 @@ declare namespace Express {
 
     export interface Response {
         responseTemplateKey: string
+        responseContent: any
     }
 }

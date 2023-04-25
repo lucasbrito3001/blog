@@ -1,11 +1,14 @@
 import { NextFunction, Request, Response } from "express"
 import { ICreatePost } from "../../../usecases/post/createPost/createPost.usecase.interface"
+import { IReadPosts } from "../../../usecases/post/readPosts/readPosts.usecase.interface"
 
 export class PostController {
     public createPostUseCase
+    public readPostsUseCase
 
-    constructor(createPostUseCase: ICreatePost) {
+    constructor(createPostUseCase: ICreatePost, readPostsUseCase: IReadPosts) {
         this.createPostUseCase = createPostUseCase
+        this.readPostsUseCase = readPostsUseCase
     }
 
     createOne = async (req: Request, res: Response, next: NextFunction) => {
@@ -19,11 +22,28 @@ export class PostController {
             if(!status) throw new Error(error)
 
             res.responseTemplateKey = 'POST_CREATED'
-        } catch (error) {
-            if(error instanceof Error) {
-                // console.log(error.message)
-                res.responseTemplateKey = error.message
-            } 
+        } catch (error: any) {
+            res.responseTemplateKey = error.message || 'INTERNAL_CONTROLLER_ERROR'
+        }
+
+        next()
+    }
+
+    readAll = async (req: Request, res: Response, next: NextFunction) => {
+        try {
+            let { page: pageQuery, limit: limitQuery } = req.query
+    
+            let page: number = parseInt(typeof pageQuery === 'string' ? pageQuery : '0')
+            let limit: number = parseInt(typeof limitQuery === 'string' ? limitQuery : '12')
+
+            const { status, message, content, error } = await this.readPostsUseCase.execute(page, limit)
+
+            if(!status) throw new Error(error)
+    
+            res.responseContent = content || []
+            res.responseTemplateKey = 'READ_POSTS_OK'
+        } catch (error: any) {
+            res.responseTemplateKey = error.message || 'INTERNAL_CONTROLLER_ERROR'
         }
 
         next()

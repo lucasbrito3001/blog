@@ -1,18 +1,20 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { MockCreatePostUseCase } from "../../../usecases/post/createPost/createPost.usecase.mock"
+import { MockCreatePostUseCase } from "./../../../usecases/post/createPost/createPost.usecase.mock"
 import { PostController } from "./post.controller"
-import { mockRequest } from "../../../tests/mocks/req.mock"
-import { mockResponse } from "../../../tests/mocks/res.mock"
+import { mockRequest } from "./../../../tests/mocks/req.mock"
+import { mockResponse } from "./../../../tests/mocks/res.mock"
+import { MockReadPostsUseCase } from "./../../../usecases/post/readPosts/readPosts.usecase.mock";
 
 let next: () => void
 
 const mockCreatePostUseCase = new MockCreatePostUseCase()
+const mockReadPostsUseCase = new MockReadPostsUseCase()
 
 mockCreatePostUseCase.execute
     .mockImplementationOnce(async () => ({ status: true, message: 'Post created successfully' }))
     .mockImplementationOnce(async () => ({ status: false, error: 'REPOSITORY_FAILED' }))
     
-const postController = new PostController(mockCreatePostUseCase)
+const postController = new PostController(mockCreatePostUseCase, mockReadPostsUseCase)
 
 next = vi.fn()
 
@@ -26,7 +28,7 @@ const mockPost = {
 
 let mockRes: any
 
-describe('Testing controller - Post', () => {
+describe('Testing controller - Post - createOne', () => {
     beforeEach(() => {
         mockRes = mockResponse()
         spyExecute = vi.spyOn(mockCreatePostUseCase, 'execute')

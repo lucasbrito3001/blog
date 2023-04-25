@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "prod": "tsc && pm2 start dist/index.js",
-    "dev": "tsnd --respawn --transpile-only index.ts",
+    "start:prod": "tsc && pm2 start dist/index.js",
+    "start:dev": "tsnd --respawn --transpile-only index.ts",
     "coverage": "vitest run --coverage",
     "test": "vitest"
   },
