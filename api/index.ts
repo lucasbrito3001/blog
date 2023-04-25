@@ -10,7 +10,7 @@ const DBCONN_CONFIGS = {
     username: process.env.DB_USERNAME,
     database: process.env.DB_DATABASE,
     password: process.env.DB_PASSWORD,
-    synchronize: process.env.NODE_ENV === 'development',
+    ...(process.env.NODE_ENV === 'development' && { synchronize: true }),
 }
 
 const stopAppNodeEvents = ['SIGTERM', 'SIGINT', 'SIGQUIT']

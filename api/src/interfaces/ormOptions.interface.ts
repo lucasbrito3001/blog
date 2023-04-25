@@ -4,5 +4,5 @@ export type OrmOptions = {
     username: string | undefined
     password: string | undefined
     database: string | undefined
-    synchronize: boolean | undefined
+    synchronize?: boolean | undefined
 }
