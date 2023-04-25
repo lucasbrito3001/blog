@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:prod": "tsc && pm2 start dist/index.js",
+    "build": "tsc",
+    "start:prod": "pm2 restart dist/index.js --name blog-posts",
     "start:dev": "tsnd --respawn --transpile-only index.ts",
     "coverage": "vitest run --coverage",
     "test": "vitest"
