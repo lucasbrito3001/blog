@@ -3,7 +3,5 @@ import { IPost } from "../../../interfaces/post.interface";
 import { IReadPostsResponse } from "../../../interfaces/readPosts.interface";
 
 export interface IReadPosts {
-    postRepository: IPostRepository
-
-    execute: (offset: number, limit: number) => Promise<IReadPostsResponse>
+    execute: (page: number, limit: number) => Promise<IReadPostsResponse>
 }

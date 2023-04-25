@@ -2,51 +2,67 @@ import { describe, expect, it, vi } from "vitest";
 import { MockPostRepository } from "../../../adapters/repositories/post/post.repository.mock";
 import { ReadPostsUseCase } from "./readPosts.usecase";
 
-describe("Testing use case - Read Posts", () => {
-    it("should read between 0 and 12 posts successfully", async () => {
-        const postRepository = new MockPostRepository();
+const readPostResponse = {
+    status: true,
+    content: [
+        {
+            id: 1,
+            title: "post title",
+            subtitle: "post subtitle",
+            creationDate: new Date().toLocaleString("pt-BR"),
+            likes: 0
+        },
+    ],
+    message: 'ok'
+}
 
-        const postUseCase = new ReadPostsUseCase(postRepository, 12, 0);
+describe("Testing use case - Read Posts", async () => {
+    const postRepository = new MockPostRepository();
+    const spyGetPosts = vi.spyOn(postRepository, 'getPosts')
 
-        const posts = await postUseCase.execute();
-
-        const postsLength = posts.content.length;
-
-        expect(posts.status).toBe(true);
-        expect(postsLength).toBeGreaterThanOrEqual(0);
-        expect(postsLength).toBeLessThan(12);
-    });
-
-    it("should return posts successfully with an empty array of posts", async () => {
-        const postRepository = new MockPostRepository();
-
-        vi.spyOn(postRepository, "getPosts").mockImplementation(() =>
-            Promise.resolve({ status: true, content: [], message: 'ok' })
-        );
-
-        const postUseCase = new ReadPostsUseCase(postRepository, 12, 0);
-
-        const post = await postUseCase.execute();
-
-        expect(postRepository.getPosts).toHaveBeenCalled();
-        expect(post).toStrictEqual({
-            status: true,
-            content: [],
-            message: "ok",
+    spyGetPosts
+        .mockImplementationOnce(() => Promise.resolve(readPostResponse))
+        .mockImplementationOnce(() => Promise.resolve({ ...readPostResponse, content: [] }))
+        .mockImplementationOnce(() => {
+            throw new Error('REPOSITORY_FAILED')
+        })
+        .mockImplementationOnce(() => {
+            throw new Error('')
         });
+
+    it("should read between posts successfully, calling the function with 24 page and 12 limit", async () => {
+        const postUseCase = new ReadPostsUseCase(postRepository);
+
+        const posts = await postUseCase.execute(2, 12);
+
+        expect(posts).toStrictEqual(readPostResponse);
+        expect(spyGetPosts).toHaveBeenCalledWith(24, 12)
     });
 
-    it("should return an error getting posts", async () => {
-        const postRepository = new MockPostRepository();
+    it("should return posts successfully with an empty array of posts, calling the function with page and limit as 12", async () => {
+        const postUseCase = new ReadPostsUseCase(postRepository);
 
-        vi.spyOn(postRepository, "getPosts").mockImplementation(() =>
-            Promise.resolve({ status: false, error: 'Erro no acesso da base de dados', content: [] })
-        );
+        const post = await postUseCase.execute(1, 12);
 
-        const postUseCase = new ReadPostsUseCase(postRepository, 12, 0)
+        expect(postRepository.getPosts).toHaveBeenCalledWith(12, 12);
+        expect(post).toStrictEqual({ ...readPostResponse, content: [] });
+    });
 
-        const post = await postUseCase.execute()
+    it("should return an error in repository getting posts", async () => {
+        const postUseCase = new ReadPostsUseCase(postRepository)
 
-        expect(post).toStrictEqual({ status: false, error: 'Erro no acesso da base de dados' })
+        const post = await postUseCase.execute(0, 12)
+
+        expect(postRepository.getPosts).toHaveBeenCalledWith(0, 12);
+        expect(post).toStrictEqual({ status: false, error: 'REPOSITORY_FAILED' })
+    });
+
+    it("should return an error getting posts when not getting an error message from repository", async () => {
+        const postUseCase = new ReadPostsUseCase(postRepository)
+
+        const post = await postUseCase.execute(0, 12)
+
+        expect(postRepository.getPosts).toHaveBeenCalledWith(0, 12);
+        expect(post).toStrictEqual({ status: false, error: 'INTERNAL_USECASE_ERROR' })
     });
 });
