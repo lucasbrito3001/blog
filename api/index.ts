@@ -2,7 +2,7 @@ import dotenv from 'dotenv'
 import { ApplicationServer } from "./src/main/app"
 import { DatabaseConnection } from "./src/main/database/data-source"
 
-dotenv.config({ path: __dirname + '/.env' })
+dotenv.config()
 
 const DBCONN_CONFIGS = {
     host: process.env.DB_HOST,
