@@ -5,5 +5,5 @@ import { IReadPostsResponse } from "../../../interfaces/readPosts.interface"
 export interface IPostRepository {
     createPost: (post: IPostDTO) => Promise<IReadPostsResponse>
     // getPost: () => Promise<IReadPostsResponse>
-    getPosts: (page: number, limit: number) => Promise<IReadPostsResponse>
+    getPosts: (page: number, limit: number, title?: string) => Promise<IReadPostsResponse>
 }

@@ -1,6 +1,6 @@
-import httpClient from "../httpClient"
+import { httpClient } from "../httpClient"
 
-export async function sendMail({ subject, text }, client = httpClient) {
+export async function sendMail({ subject, text }, client = httpClient('nodejsmailer')) {
     try {
         const result = await client.post('/email', { subject, text });
 

@@ -1,4 +1,4 @@
-import { DataSource, EntityManager } from "typeorm";
+import { DataSource, Like } from "typeorm";
 import { IPostRepository } from "./post.repository.interface";
 import { IPostDTO } from "../../../interfaces/dto/post.interface.dto";
 import { Post } from "../../../main/database/entity/post.entity";
@@ -28,11 +28,15 @@ export class PostRepository implements IPostRepository {
         }
     }
 
-    getPosts = async (offset: number, limit: number) => {
+    getPosts = async (offset: number, limit: number, title?: string) => {
         try {
             const posts = await this.dataSourceRepository.find({
                 skip: offset,
-                take: limit
+                take: limit,
+                order: { creationDate: 'DESC' },
+                where: {
+                    title: Like(`%${title || ''}%`)
+                }
             })
     
             return { status: true, content: posts }

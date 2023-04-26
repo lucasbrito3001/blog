@@ -7,13 +7,7 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 
 const filters = {};
 
-export default function Filter({ filterFields, submitForm, setElementHeight }) {
-    const filterRef = useRef()
-
-    useEffect(() => {
-        setElementHeight(filterRef.current.clientHeight);
-    }, [])
-
+export default function Filter({ filterFields, submitForm }) {
     function renderFields() {
         const fieldByType = {
             select(field) {
@@ -21,7 +15,6 @@ export default function Filter({ filterFields, submitForm, setElementHeight }) {
                     <Select
                         size="md"
                         isMulti={field.isMulti}
-                        // label={field.label}
                         selectOptions={field.options}
                         onChange={(e) => (filters[field.value] = e)}
                     />
@@ -55,11 +48,12 @@ export default function Filter({ filterFields, submitForm, setElementHeight }) {
 
     function onSubmit(e) {
         e.preventDefault();
+        console.log(filters)
         submitForm(filters);
     }
 
     return (
-        <section id="filter" className="py-5" ref={filterRef}>
+        <section id="filter" className="py-5">
             <Container>
                 <form onSubmit={onSubmit}>
                     <Row className="mb-3">

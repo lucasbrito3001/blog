@@ -31,12 +31,13 @@ export class PostController {
 
     readAll = async (req: Request, res: Response, next: NextFunction) => {
         try {
-            let { page: pageQuery, limit: limitQuery } = req.query
+            let { page: pageQuery, limit: limitQuery, title: titleQuery } = req.query
     
             let page: number = parseInt(typeof pageQuery === 'string' ? pageQuery : '0')
             let limit: number = parseInt(typeof limitQuery === 'string' ? limitQuery : '12')
+            let title: string = '' + (titleQuery || '')
 
-            const { status, message, content, error } = await this.readPostsUseCase.execute(page, limit)
+            const { status, message, content, error } = await this.readPostsUseCase.execute(page, limit, title)
 
             if(!status) throw new Error(error)
     

@@ -1,20 +1,21 @@
 import POSTS from "../../posts";
+import { formatTitle } from "../blog";
+import { httpClient } from "../httpClient";
 
-export async function getPosts(categories, titleSearched) {
-    return POSTS.filter((post) => {
-        return (
-            (
-                titleSearched
-                ? post.title.toLowerCase().includes(titleSearched ? titleSearched.toLowerCase() : "")
-                : true
-            ) &&
-            (
-                categories && categories.length > 0
-                ? categories.some((category) => post.categories.find((postCategory) => (category.value === postCategory.value)))
-                : true
-            )
-        );
-    });
+const categoriesByPost = {
+    'como-automatizar-deploy-em-um-vps-com-github-actions': [{ value: 'devops', text: "DevOps" }],
+    'pilhas-em-typescript': [{ value: "data-structure", text: "Estrutura de Dados"}, { value: "ts", text: "TypeScript"}],
+    'manipulação-de-arrays-javascript-es6': [{ value: "js", text: "JavaScript" }]
+}
+
+export async function getPosts({ page, limit = 12, title, categories }, client = httpClient('blogposts')) {
+    try {
+        const { data } = await client.get('/post', { params: { page, limit, title, categories } })
+        data.content = data.content.map(post => ({ ...post, categories: categoriesByPost[formatTitle(post.title)] }))
+        return data
+    } catch (error) {
+        return { status: false, error }
+    }
 }
 
 export async function getRecentPosts() {

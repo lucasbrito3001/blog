@@ -5,7 +5,7 @@ import { mockRequest } from "../../../tests/mocks/req.mock"
 import { mockResponse } from "../../../tests/mocks/res.mock"
 import { MockCreatePostUseCase } from "../../../usecases/post/createPost/createPost.usecase.mock";
 
-const mockQueryParamsOffsetLimit = { page: '3', limit: '12' }
+const mockQueryParamsOffsetLimit = { page: '3', limit: '12', title: 'act' }
 
 let mockRes: any
 let next: () => void = vi.fn()
@@ -47,7 +47,7 @@ describe('Testing controller - Post - readAll', () => {
 
         const result = await postController.readAll(mockReq, mockRes, next)
         
-        expect(spyExecute).toHaveBeenCalledWith(0, 12)
+        expect(spyExecute).toHaveBeenCalledWith(0, 12, '')
         expect(mockRes.responseTemplateKey).toBe('READ_POSTS_OK')
         expect(mockRes.responseContent).toStrictEqual(readPostsResponse.content)
     })
@@ -75,7 +75,7 @@ describe('Testing controller - Post - readAll', () => {
 
         const result = await postController.readAll(mockReq, mockRes, next)
         
-        expect(spyExecute).toHaveBeenCalledWith(3, 12)
+        expect(spyExecute).toHaveBeenCalledWith(3, 12, 'act')
     })
 
     it('should call the use case passing default query parameters, when not receive an page and limit', async () => {
@@ -83,6 +83,6 @@ describe('Testing controller - Post - readAll', () => {
 
         const result = await postController.readAll(mockReq, mockRes, next)
         
-        expect(spyExecute).toHaveBeenCalledWith(0, 12)
+        expect(spyExecute).toHaveBeenCalledWith(0, 12, '')
     })
 })

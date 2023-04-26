@@ -17,10 +17,8 @@ export default function newCardPosts({ postImage, postTitle, postDate, postCateg
                     })}
                 </div>
                 <Card.Title className="card-title mb-0">{postTitle}</Card.Title>
-                <Card.Text className="text-muted card-subtitle">
-                    <small>{new Date(postDate).toLocaleDateString('pt-BR', { timezone: 'UTC' })}</small>
-                    <p className="mb-0 card-description">{postDescription}</p>
-                </Card.Text>
+                <small className="text-muted">{new Date(postDate.replace(/-/g, '/')).toLocaleDateString('pt-BR', { timezone: 'UTC' })}</small>
+                <Card.Text className="text-muted card-subtitle mt-1">{postDescription}</Card.Text>
             </Card.Body>
         </Card>
     );

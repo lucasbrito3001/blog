@@ -8,9 +8,9 @@ export class ReadPostsUseCase implements IReadPosts {
         this.postRepository = postRepository;
     }
 
-    async execute(page: number, limit: number) {
+    async execute(page: number, limit: number, title: string) {
         try {
-            const { status, content, message, error } = await this.postRepository.getPosts(limit * page, limit)
+            const { status, content, message, error } = await this.postRepository.getPosts(limit * page, limit, title)
             
             if(!status) throw new Error(error)
 

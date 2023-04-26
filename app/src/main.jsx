@@ -31,8 +31,8 @@ const router = createHashRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  <>
     <ToastContainer autoClose={2500}/>
     <RouterProvider router={router}/>
-  </React.StrictMode>,
+  </>
 )
