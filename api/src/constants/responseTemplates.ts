@@ -6,17 +6,29 @@ type responseTemplateType = {
 }
 
 export const RESPONSE_TEMPLATES_DICTIONARY: Record<string, responseTemplateType> = {
-    "POST_CREATED": {
+    "CREATED": {
         httpStatusCode: 201,
-        data: { status: true, message: 'Post created successfully' }
+        data: { status: true, message: 'Created successfully' }
     },
-    "READ_POSTS_OK": {
+    "OK": {
         httpStatusCode: 200,
         data: { status: true, message: 'ok' }
+    },
+    "NOT_FOUND_BY_KEY": {
+        httpStatusCode: 200,
+        data: { status: false, message: 'Resource not found' }
     },
     "MISSING_INFORMATIONS": {
         httpStatusCode: 400,
         data: { status: false, errors: ['There was an error creating, information is missing'] }
+    },
+    "MISSING_ID": {
+        httpStatusCode: 400,
+        data: { status: false, errors: ['There was an error to read value, missing ID'] }
+    },
+    "MISSING_PAGINATION_INFORMATIONS": {
+        httpStatusCode: 400,
+        data: { status: false, errors: ['There was an error getting values, pagination information is missing'] }
     },
     "INVALID_INFORMATIONS": {
         httpStatusCode: 400,

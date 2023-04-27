@@ -1,8 +1,8 @@
 import { IPost } from "./post.interface"
 
-export interface IReadPostsResponse {
+export interface IReadPostResponse {
     status: boolean
     error?: string
     message?: string
-    content?: IPost[]
+    content?: IPost | null
 }

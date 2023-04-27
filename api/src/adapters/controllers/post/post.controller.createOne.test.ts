@@ -40,7 +40,7 @@ describe('Testing controller - Post - createOne', () => {
         const result = await postController.createOne(mockReq, mockRes, next)
 
         expect(spyExecute).toHaveBeenCalled()
-        expect(mockRes.responseTemplateKey).toBe("POST_CREATED")
+        expect(mockRes.responseTemplateKey).toBe("CREATED")
     })
 
     it('Should return an error to create a post due to missing information', async () => {

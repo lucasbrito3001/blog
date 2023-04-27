@@ -21,12 +21,12 @@ export class PostRoutes {
                 middlewares: [],
                 controller: this.controller.readAll.bind(this)
             },
-            // {
-            //     method: "GET",
-            //     endpoint: "/:id",
-            //     middlewares: [],
-            //     controller: this.controller.readOne
-            // },
+            {
+                method: "get",
+                endpoint: "/:id",
+                middlewares: [],
+                controller: this.controller.readOne.bind(this)
+            },
         ]
     }
 

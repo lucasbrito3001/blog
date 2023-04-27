@@ -1,9 +1,9 @@
 import { IPostDTO } from "../../../interfaces/dto/post.interface.dto"
-import { IPost } from "../../../interfaces/post.interface"
+import { IReadPostResponse } from "../../../interfaces/readPost.interface"
 import { IReadPostsResponse } from "../../../interfaces/readPosts.interface"
 
 export interface IPostRepository {
     createPost: (post: IPostDTO) => Promise<IReadPostsResponse>
-    // getPost: () => Promise<IReadPostsResponse>
     getPosts: (page: number, limit: number, title?: string) => Promise<IReadPostsResponse>
+    getPost: (id: number) => Promise<IReadPostResponse>
 }

@@ -5,9 +5,10 @@ import { Post } from "../entities/post/post.entity";
 import { PostRoutes } from "../routes/post.route";
 import { CreatePostUseCase } from "../usecases/post/createPost/createPost.usecase";
 import { AnyFunction } from "../constants/routes";
-import { DataSource } from "typeorm";
+import { DataSource, Like } from "typeorm";
 import { Post as PostEntity } from "./database/entity/post.entity";
 import { ReadPostsUseCase } from "../usecases/post/readPosts/readPosts.usecase";
+import { ReadPostUseCase } from "../usecases/post/readPost/readPost.usecase";
 
 
 export class PostRouter {
@@ -15,11 +16,12 @@ export class PostRouter {
 
     constructor(dataSource: DataSource, entity: typeof PostEntity) {
         const postEntity = new Post()
-        const postRepository = new PostRepository(dataSource, entity)
+        const postRepository = new PostRepository(dataSource, entity, Like)
         const createPostUseCase = new CreatePostUseCase(postEntity, postRepository)
         const readPostsUseCase = new ReadPostsUseCase(postRepository)
+        const readPostUseCase = new ReadPostUseCase(postRepository)
 
-        this.postController = new PostController(createPostUseCase, readPostsUseCase)
+        this.postController = new PostController(createPostUseCase, readPostsUseCase, readPostUseCase)
     }
     
     getRoutes = () => {

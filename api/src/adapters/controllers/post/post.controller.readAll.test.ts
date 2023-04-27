@@ -1,9 +1,10 @@
-import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import { MockReadPostsUseCase } from "../../../usecases/post/readPosts/readPosts.usecase.mock"
 import { PostController } from "./post.controller"
 import { mockRequest } from "../../../tests/mocks/req.mock"
 import { mockResponse } from "../../../tests/mocks/res.mock"
 import { MockCreatePostUseCase } from "../../../usecases/post/createPost/createPost.usecase.mock";
+import { MockReadPostUseCase } from "../../../usecases/post/readPost/readPost.usecase.mock";
 
 const mockQueryParamsOffsetLimit = { page: '3', limit: '12', title: 'act' }
 
@@ -26,6 +27,8 @@ const readPostsResponse = {
 
 const mockCreatePostUseCase = new MockCreatePostUseCase()
 const mockReadPostsUseCase = new MockReadPostsUseCase()
+const mockReadPostUseCase = new MockReadPostUseCase()
+
 const spyExecute: any = vi.spyOn(mockReadPostsUseCase, 'execute')
 
 spyExecute
@@ -35,7 +38,7 @@ spyExecute
     .mockImplementationOnce(async () => ({ status: true }))
     .mockImplementationOnce(async () => ({ status: true }))
     
-const postController = new PostController(mockCreatePostUseCase, mockReadPostsUseCase)
+const postController = new PostController(mockCreatePostUseCase, mockReadPostsUseCase, mockReadPostUseCase)
 
 describe('Testing controller - Post - readAll', () => {
     beforeEach(() => {
@@ -48,7 +51,7 @@ describe('Testing controller - Post - readAll', () => {
         const result = await postController.readAll(mockReq, mockRes, next)
         
         expect(spyExecute).toHaveBeenCalledWith(0, 12, '')
-        expect(mockRes.responseTemplateKey).toBe('READ_POSTS_OK')
+        expect(mockRes.responseTemplateKey).toBe('OK')
         expect(mockRes.responseContent).toStrictEqual(readPostsResponse.content)
     })
 
@@ -57,7 +60,7 @@ describe('Testing controller - Post - readAll', () => {
 
         await postController.readAll(mockReq, mockRes, next)
         
-        expect(mockRes.responseTemplateKey).toBe('READ_POSTS_OK')
+        expect(mockRes.responseTemplateKey).toBe('OK')
         expect(mockRes.responseContent).toStrictEqual([])
     })
 

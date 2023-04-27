@@ -1,14 +1,21 @@
 import { NextFunction, Request, Response } from "express"
 import { ICreatePost } from "../../../usecases/post/createPost/createPost.usecase.interface"
 import { IReadPosts } from "../../../usecases/post/readPosts/readPosts.usecase.interface"
+import { IReadPost } from "../../../usecases/post/readPost/readPost.usecase.interface"
 
 export class PostController {
-    public createPostUseCase
-    public readPostsUseCase
+    private createPostUseCase
+    private readPostsUseCase
+    private readPostUseCase
 
-    constructor(createPostUseCase: ICreatePost, readPostsUseCase: IReadPosts) {
+    constructor(
+        createPostUseCase: ICreatePost,
+        readPostsUseCase: IReadPosts,
+        readPostUseCase: IReadPost
+    ) {
         this.createPostUseCase = createPostUseCase
         this.readPostsUseCase = readPostsUseCase
+        this.readPostUseCase = readPostUseCase
     }
 
     createOne = async (req: Request, res: Response, next: NextFunction) => {
@@ -21,7 +28,26 @@ export class PostController {
 
             if(!status) throw new Error(error)
 
-            res.responseTemplateKey = 'POST_CREATED'
+            res.responseTemplateKey = 'CREATED'
+        } catch (error: any) {
+            res.responseTemplateKey = error.message || 'INTERNAL_CONTROLLER_ERROR'
+        }
+
+        next()
+    }
+
+    readOne = async (req: Request, res: Response, next: NextFunction) => {
+        try {
+            const { id } = req.params
+
+            if(!id) throw new Error('MISSING_ID')
+
+            const { status, error, message, content } = await this.readPostUseCase.execute(parseInt(id))
+
+            if(!status) throw new Error(error)
+
+            res.responseTemplateKey = content ? 'OK' : 'NOT_FOUND_BY_KEY'
+            res.responseContent = content || null
         } catch (error: any) {
             res.responseTemplateKey = error.message || 'INTERNAL_CONTROLLER_ERROR'
         }
@@ -41,8 +67,8 @@ export class PostController {
 
             if(!status) throw new Error(error)
     
+            res.responseTemplateKey = 'OK'
             res.responseContent = content || []
-            res.responseTemplateKey = 'READ_POSTS_OK'
         } catch (error: any) {
             res.responseTemplateKey = error.message || 'INTERNAL_CONTROLLER_ERROR'
         }
