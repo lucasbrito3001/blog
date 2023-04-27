@@ -3,7 +3,7 @@ import { Post } from "./post.entity";
 
 const title = 'post title'
 const subtitle = 'post subtitle'
-const creationDate = new Date
+const creationDate = '2023-01-01'
 
 const postInfos = {
     title,
@@ -39,7 +39,7 @@ describe('Testing entity - Post', () => {
     })
 
     it('should have an error creating a post - invalid dateCreation', () => {
-        const post = postEntity.create({ ...postInfos, creationDate: new Date('2023-13-01') })
+        const post = postEntity.create({ ...postInfos, creationDate: 'tenis' })
 
         expect(post).toStrictEqual({ error: 'INVALID_INFORMATIONS' })
     })

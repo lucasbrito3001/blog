@@ -23,12 +23,9 @@ describe("Testing use case - Read Posts", async () => {
     spyGetPosts
         .mockImplementationOnce(() => Promise.resolve(readPostResponse))
         .mockImplementationOnce(() => Promise.resolve({ ...readPostResponse, content: [] }))
-        .mockImplementationOnce(() => {
-            throw new Error('REPOSITORY_FAILED')
-        })
-        .mockImplementationOnce(() => {
-            throw new Error('')
-        });
+        .mockImplementationOnce(() => { throw new Error('REPOSITORY_FAILED') })
+        .mockImplementationOnce(() => { throw new Error('') })
+        .mockImplementationOnce(() => Promise.resolve({ status: false, content: [], error: 'ERROR_STATUS_FALSE' }))
 
     it("should read between posts successfully, calling the function with 24 page and 12 limit", async () => {
         const postUseCase = new ReadPostsUseCase(postRepository);
@@ -65,4 +62,12 @@ describe("Testing use case - Read Posts", async () => {
         expect(postRepository.getPosts).toHaveBeenCalledWith(0, 12, '');
         expect(post).toStrictEqual({ status: false, error: 'INTERNAL_USECASE_ERROR' })
     });
+
+    it('should throw an error when the status returns false', async () => {
+        const postUseCase = new ReadPostsUseCase(postRepository)
+
+        const post = await postUseCase.execute(0, 12, '')
+        
+        expect(post).toStrictEqual({ status: false, error: 'ERROR_STATUS_FALSE' })
+    })
 });

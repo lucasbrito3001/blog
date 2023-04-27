@@ -41,10 +41,6 @@ export class Post implements IPostEntity {
     }
 
     public validateCreationDate() {
-        if(new Date(this.creationDate) instanceof Date) {
-            return new Date(this.creationDate).toDateString() !== 'Invalid Date';
-        }
-
-        return false
+        return new Date(this.creationDate).toDateString() !== 'Invalid Date';
     }
 }
