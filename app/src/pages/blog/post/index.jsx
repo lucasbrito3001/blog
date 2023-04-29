@@ -16,14 +16,16 @@ import { useParams } from "react-router-dom";
 import RecentPosts from "../../../components/post/recentPosts";
 
 // posts
-import HANDLE_ARRAY from "../../../posts/handleArray/index.js";
+import HANDLE_ARRAY from "../../../posts/handleArray";
 import STACK_TYPESCRIPT from "../../../posts/stackTypescript";
 import AUTOMATED_DEPLOY from "../../../posts/automatedDeploy";
+import GRACEFUL_SHUTDOWN from "../../../posts/gracefulShutdown"
 
 const POST_BY_TITLE = {
     "manipulação-de-arrays-javascript-es6": HANDLE_ARRAY,
     "pilhas-em-typescript": STACK_TYPESCRIPT,
-    "como-automatizar-deploy-em-um-vps-com-github-actions": AUTOMATED_DEPLOY
+    "como-automatizar-deploy-em-um-vps-com-github-actions": AUTOMATED_DEPLOY,
+    "graceful-shutdown-com-node.js-e-express": GRACEFUL_SHUTDOWN
 };
 
 export default function Home() {
