@@ -1,14 +1,21 @@
 @import "../../../assets/styles/breakpoints.scss";
 
 .image {
+    cursor: zoom-in;
     position: relative;
     width: 100%;
     max-width: 700px;
     max-height: 450px;
     display: block;
     margin: auto;
+    transition: .4s;
+}
+
+.zoom-image {
+    cursor: zoom-out;
+    transform: scale(1.5);
 
     @include md {
-        // max-width: 350px;
+        transform: scale(1.2);
     }
 }
