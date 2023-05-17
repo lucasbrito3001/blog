@@ -40,10 +40,6 @@ export default {
             content: [
                 {
                     type: 'text',
-                    value: 'Existem algumas formas de dizer para um processo que queremos finalizar a sua execução, nesse caso iremos tratar apenas dois desses eventos, quando for pressionado <code class="text-code">CTRL + C</code> no teclado e quando for utilizado o comando <code class="text-code">kill &lt;pid&gt;</code> para o pid (process id) do processo atual, cada um deles emite um sinal de terminação diferente, sendo <code class="text-code">SIGINT</code> e <code class="text-code">SIGTERM</code> respectivamente.'
-                },
-                {
-                    type: 'text',
                     value: 'Existem várias formas de indicar a um processo que desejamos encerrar sua execução. Neste caso, abordaremos apenas duas dessas situações: quando pressionamos <code class="text-code">CTRL + C</code> no teclado que emite o sinal <code class="text-code">SIGINT</code> e quando usamos o comando <code class="text-code">kill &lt;pid&gt;</code> para o PID (process id) do processo atual que emite o sinal <code class="text-code">SIGTERM</code>.'
                 }
             ]

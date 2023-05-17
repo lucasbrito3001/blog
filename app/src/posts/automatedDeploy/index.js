@@ -12,7 +12,7 @@ const AUTOMATED_DEPLOY = {
     title: "Como automatizar deploy em um VPS com GitHub Actions",
     createdAt: "2023/04/10",
     categories: [{ value: 'devops', text: "DevOps" }],
-    subtitle: "Configurando o GitHub Actions para acessar um VPS via SSH e automatizar seu deploy.",
+    subtitle: "Configurando o GitHub Actions para acessar seu VPS via SSH e rodar scripts para automatizar seu deploy.",
     introduction: "O processo de deploy manual pode ser uma tarefa longa e cansativa, dito isso, a automatização desse processo é uma tarefa muito interessante, principalmente em ambientes de desenvolvimento, onde várias vezes o tempo é um recurso escasso. Nesse artigo, vamos ver como acessar um servidor VPS via SSH com o GitHub Actions e mostrar um exemplo automatizando o deploy de uma aplicação ReactJs buildada pelo vite. Vale ressaltar que o processo é o mesmo para qualquer linguagem / projeto, mudando somente o processo realizado depois que já tenha acessado a sua máquina.",
     sections: [
         {
