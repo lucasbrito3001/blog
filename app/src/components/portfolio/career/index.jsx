@@ -29,7 +29,7 @@ export default function Career() {
     return (
         <Container>
             <Row className="py-lg-5 py-4 career-section">
-                <Col className="pb-3 py-2 pe-lg-5 mb-4 mb-lg-0 career-section-career text-start text-lg-end" xs={12} lg={6}>
+                <Col className="pb-3 pe-lg-5 mb-4 mb-lg-0 career-section-career text-start text-lg-end" xs={12} lg={6}>
                     <div className="mb-4">
                         <h1 className="sections-title">xp. profissional</h1>
                     </div>
@@ -50,62 +50,62 @@ export default function Career() {
                                             </header>
                                             <main>
                                                 {/* <Fade cascade> */}
-                                                    <ul>
-                                                        {enterprise.positions.map(
-                                                            (position, idxPosition) => (
-                                                                <li
-                                                                    key={`enterprise-${idxEnterprise}-position-${idxPosition}`}
-                                                                    className={idxPosition < enterprise.positions.length - 1 ? "pb-4" : ""}
-                                                                >
-                                                                    <div>
-                                                                        <h2 className="positions-name">{position.name}</h2>
-                                                                        <span className="positions-date">{position.time}</span>
-                                                                        <p className="mb-1 sections-text career-description">{position.description}</p>
-                                                                    </div>
-                                                                </li>
-                                                            )
-                                                            )}
-                                                    </ul>
+                                                <ul>
+                                                    {enterprise.positions.map(
+                                                        (position, idxPosition) => (
+                                                            <li
+                                                                key={`enterprise-${idxEnterprise}-position-${idxPosition}`}
+                                                                className={idxPosition < enterprise.positions.length - 1 ? "pb-4" : ""}
+                                                            >
+                                                                <div>
+                                                                    <h2 className="positions-name">{position.name}</h2>
+                                                                    <span className="positions-date">{position.time}</span>
+                                                                    <p className="mb-1 sections-text career-description">{position.description}</p>
+                                                                </div>
+                                                            </li>
+                                                        )
+                                                    )}
+                                                </ul>
                                                 {/* </Fade> */}
                                             </main>
                                         </div>
                                     </li>
                                     {
                                         idxEnterprise < (career.length - 1) &&
-                                            <hr className={`${idxEnterprise < career.length - 1 ? "my-4" : ''} positions-separator`}/>
+                                        <hr className={`${idxEnterprise < career.length - 1 ? "my-4" : ''} positions-separator`} />
                                     }
                                 </div>
                             })
                         }
                     </ul>
                 </Col>
-                <Col xs={12} lg={6} className="career-section-academical text-start px-3 ps-lg-5 mt-5 mt-lg-0">
-                <div className="mb-4">
+                <Col xs={12} lg={6} className="career-section-academical text-start px-3 ps-lg-5 mt-3 mt-lg-0">
+                    <div className="mb-4">
                         <h1 className="sections-title">xp. acadêmica</h1>
                     </div>
                     {/* <Fade cascade> */}
-                        <ul className="career-list">
-                            {academical.length > 0 && academical.map((course, idx) => {
-                                    return <div key={`course-${idx}`}>
-                                        <li>
-                                            <div>
-                                                <h1 className="enterprise-name mb-0">
-                                                    {course.name}
-                                                </h1>
-                                                <span className="text-muted">{course.place}</span>
-                                                <h2 className="course-name">{course.institution}</h2>
-                                                <span className="positions-date">{course.date}</span>
-                                                { course.description.map((paragraph, idxParagraph) => <p key={`paragraph-${idxParagraph}`} className="career-description sections-text m-0">{paragraph}</p>) }
-                                            </div>
-                                        </li>
-                                        {
-                                            idx < (academical.length - 1) &&
-                                                <hr className={`${idx < career.length - 1 ? "my-4" : ''} positions-separator`}/>
-                                        }
+                    <ul className="career-list">
+                        {academical.length > 0 && academical.map((course, idx) => {
+                            return <div key={`course-${idx}`}>
+                                <li>
+                                    <div>
+                                        <h1 className="enterprise-name mb-0">
+                                            {course.name}
+                                        </h1>
+                                        <span className="text-muted">{course.place}</span>
+                                        <h2 className="course-name">{course.institution}</h2>
+                                        <span className="positions-date">{course.date}</span>
+                                        {course.description.map((paragraph, idxParagraph) => <p key={`paragraph-${idxParagraph}`} className="career-description sections-text m-0">{paragraph}</p>)}
                                     </div>
-                                })
-                            }
-                        </ul>
+                                </li>
+                                {
+                                    idx < (academical.length - 1) &&
+                                    <hr className={`${idx < career.length - 1 ? "my-4" : ''} positions-separator`} />
+                                }
+                            </div>
+                        })
+                        }
+                    </ul>
                     {/* </Fade> */}
                 </Col>
                 <Col xs={6}></Col>
@@ -116,8 +116,6 @@ export default function Career() {
                     </a>
                 </Col>
             </Row>
-            {/* <Row> */}
-            {/* </Row> */}
         </Container>
     );
 }
