@@ -1,0 +1,31 @@
+.not-found-post {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    background: url('../../../assets/images/bg-blog.png'),
+        linear-gradient(
+            to right,
+            var(--principal-color),
+            var(--light-principal-color)
+        );
+    color: white;
+    
+    h1 {
+        font-size: 32px;
+    }
+
+    .not-found-button {
+        background-color: transparent;
+        border-color: white;
+        color: white;
+        font-size: 16px;
+
+        &:hover {
+            background-color: white;
+            color: var(--principal-color);
+        }
+    }
+}

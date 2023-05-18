@@ -20,6 +20,7 @@ import HANDLE_ARRAY from "../../../posts/handleArray";
 import STACK_TYPESCRIPT from "../../../posts/stackTypescript";
 import AUTOMATED_DEPLOY from "../../../posts/automatedDeploy";
 import GRACEFUL_SHUTDOWN from "../../../posts/gracefulShutdown"
+import NotFoundPost from "../../../components/post/notFound";
 
 const POST_BY_TITLE = {
     "manipulação-de-arrays-javascript-es6": HANDLE_ARRAY,
@@ -46,43 +47,45 @@ export default function Home() {
     }, [title]);
 
     return (
-        <>
-            <div id="blog-navbar">
-                <Navbar scrollTop={scrollTop} transitionHeight={400}/>
-            </div>
-            <div className="wrapper-post">
-                { post.categories && (
-                    <PostHeader
-                        postTitle={post.title}
-                        postSubtitle={post.subtitle}
-                        postCategories={post.categories}
-                    ></PostHeader>
-                )}
-                <Container>
-                    <Row className="py-4 gy-4">
-                        <Col xs="12">
-                            <Post post={post} />
-                        </Col>
-                        <Col xs="12">
-                            <aside id="presentation">
-                                <Row className="gy-3">
-                                    <Col xs="12" lg="5" xxl="4">
-                                        <div className="h-100">
-                                            <Presentation />
-                                        </div>
-                                    </Col>
-                                    <Col xs="12" lg="7" xxl="8">
-                                        <div className="h-100">
-                                            <RecentPosts />
-                                        </div>
-                                    </Col>
-                                </Row>
-                            </aside>
-                        </Col>
-                    </Row>
-                </Container>
-            </div>
-            <Footer />
-        </>
+        post
+            ? <>
+                <div id="blog-navbar">
+                    <Navbar scrollTop={scrollTop} transitionHeight={400}/>
+                </div>
+                <div className="wrapper-post">
+                    { post.categories && (
+                        <PostHeader
+                            postTitle={post.title}
+                            postSubtitle={post.subtitle}
+                            postCategories={post.categories}
+                        ></PostHeader>
+                    )}
+                    <Container>
+                        <Row className="py-4 gy-4">
+                            <Col xs="12">
+                                <Post post={post} />
+                            </Col>
+                            <Col xs="12">
+                                <aside id="presentation">
+                                    <Row className="gy-3">
+                                        <Col xs="12" lg="5" xxl="4">
+                                            <div className="h-100">
+                                                <Presentation />
+                                            </div>
+                                        </Col>
+                                        <Col xs="12" lg="7" xxl="8">
+                                            <div className="h-100">
+                                                <RecentPosts />
+                                            </div>
+                                        </Col>
+                                    </Row>
+                                </aside>
+                            </Col>
+                        </Row>
+                    </Container>
+                </div>
+                <Footer />
+            </>
+            : <NotFoundPost></NotFoundPost>
     );
 }
