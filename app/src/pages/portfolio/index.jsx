@@ -1,5 +1,5 @@
 import { Col, Container, Row } from "react-bootstrap";
-import Fade from 'react-reveal/Slide';
+import { Fade } from 'react-awesome-reveal';
 import "./styles.scss"
 
 // componentes

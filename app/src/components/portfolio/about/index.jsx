@@ -3,7 +3,7 @@ import "./styles.scss";
 import { useEffect } from "react";
 import { useState } from "react";
 
-import Fade from "react-reveal/Fade";
+import { Fade } from "react-awesome-reveal";
 
 import DeveloperSvg from "../../../assets/images/code_typing.gif";
 

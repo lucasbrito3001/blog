@@ -1,6 +1,7 @@
 const skills = [
     "JavaScript",
     "TypeScript",
+    "Shell Script",
     "SQL",
     "React",
     "Next",
@@ -48,7 +49,11 @@ const skills = [
     "Docker",
     "Docker Compose",
     "SSH",
-    "GitHub Actions"
+    "GitHub Actions",
+    "Jenkins",
+    "Kubernetes",
+    "Helm",
+    "GCP"
 ];
 
 export async function getSkills() {

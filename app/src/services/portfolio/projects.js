@@ -43,7 +43,7 @@ const projects = [
         name: "Dexterbulls - Moda Country",
         status: 0,
         category: 'Loja virtual',
-        stacks: ['front-end', 'back-end', 'devops'],
+        stacks: ['front-end', 'back-end', 'infra'],
         appUrl: 'https://dexterbulls.com.br'
     },
 ]

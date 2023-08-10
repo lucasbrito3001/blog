@@ -3,7 +3,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import "./styles.scss";
 import { useState } from "react";
 
-import Slide from "react-reveal/Slide"
+import { Slide } from "react-awesome-reveal"
 import * as EmailValidator from 'email-validator'
 
 import { sendMail } from "../../../services/mailer"
